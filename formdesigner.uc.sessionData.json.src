@@ -1,0 +1,317 @@
+{
+    "winFrame1": {
+        "": {
+            "winState": "normal",
+            "rect": {
+                "left": 0,
+                "top": 0,
+                "width": 0,
+                "height": 0
+            }
+        }
+    },
+    "splitter1": {
+        "": {
+            "measurement": [
+                {
+                    "ucPath": "@ucbuilder:/controls/tabcontrol.uc.html",
+                    "attribList": "",
+                    "session": {
+                        "": {
+                            "": {
+                                "tabChild": [
+                                    {
+                                        "index": 0,
+                                        "stamp": "id_79",
+                                        "filePath": "@ucdesigner:/stageContent/projhandler.uc.html",
+                                        "fstamp": "f7ecf830_177c_11ee_a1b3_d1a6e541e9ac",
+                                        "session": {
+                                            "": {
+                                                "movable1": {
+                                                    "": {
+                                                        "winState": "dock",
+                                                        "oldstyleText": "position: absolute; left: 195px; top: 116px; width: 300px; height: 400px;",
+                                                        "rect": {
+                                                            "left": 195,
+                                                            "top": 116,
+                                                            "width": 300,
+                                                            "height": 400
+                                                        }
+                                                    }
+                                                },
+                                                "filexplorer1": {
+                                                    "linearList1": {
+                                                        "lv_items": {
+                                                            "": {
+                                                                "currentIndex": -1,
+                                                                "scrollTop": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "comboBox1": {
+                                                        "ll_view": {
+                                                            "lv_items": {
+                                                                "": {
+                                                                    "currentIndex": 0,
+                                                                    "scrollTop": 0
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "listview1": {
+                                                        "": {
+                                                            "currentIndex": 5,
+                                                            "scrollTop": 0
+                                                        }
+                                                    },
+                                                    "": {
+                                                        "rootPath": [
+                                                            {
+                                                                "key": "@ucbuilder:",
+                                                                "path": "d:/electronprojects/ucbuilder",
+                                                                "openedFolderList": [
+                                                                    "d:/electronprojects/ucbuilder",
+                                                                    "d:/electronprojects/ucbuilder/appBuilder",
+                                                                    "d:/electronprojects/ucbuilder/Designer/Form",
+                                                                    "d:/electronprojects/ucbuilder/appBuilder/demo"
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "activePath": "d:/electronprojects/ucbuilder"
+                                                    }
+                                                },
+                                                "": {}
+                                            }
+                                        }
+                                    }
+                                ],
+                                "activeIndex": 0
+                            }
+                        }
+                    },
+                    "size": 253.5
+                },
+                {
+                    "ucPath": "@ucbuilder:/controls/splitter.uc.html",
+                    "attribList": " x:session_data.type=\"'ROW'\" x:generatenode=\"false\" ",
+                    "session": {
+                        "": {
+                            "": {
+                                "measurement": [
+                                    {
+                                        "ucPath": "@ucbuilder:/controls/tabcontrol.uc.html",
+                                        "attribList": "",
+                                        "session": {
+                                            "": {
+                                                "": {
+                                                    "tabChild": [
+                                                        {
+                                                            "index": 0,
+                                                            "stamp": "id_686",
+                                                            "filePath": "@ucdesigner:/stageContent/ucoutput.uc.html",
+                                                            "fstamp": "f7f6bc30_177c_11ee_a1b3_d1a6e541e9ac",
+                                                            "session": {
+                                                                "": {
+                                                                    "movable1": {
+                                                                        "": {
+                                                                            "winState": "dock",
+                                                                            "oldstyleText": "position: absolute; left: 354px; top: 193px;",
+                                                                            "rect": {
+                                                                                "left": 354,
+                                                                                "top": 193,
+                                                                                "width": null,
+                                                                                "height": null
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "comboBox1": {
+                                                                        "ll_view": {
+                                                                            "lv_items": {
+                                                                                "": {
+                                                                                    "currentIndex": -1,
+                                                                                    "scrollTop": 0
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "": {
+                                                                        "filePath": "d:/electronprojects/ucbuilder/appBuilder/demo/create_ledger.uc.html",
+                                                                        "extCode": ".uc",
+                                                                        "jsonPerameters": "{}",
+                                                                        "isActive": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "activeIndex": 0
+                                                }
+                                            }
+                                        },
+                                        "size": 375
+                                    },
+                                    {
+                                        "ucPath": "@ucbuilder:/controls/tabcontrol.uc.html",
+                                        "attribList": "",
+                                        "session": {
+                                            "": {
+                                                "": {
+                                                    "tabChild": [
+                                                        {
+                                                            "index": 0,
+                                                            "stamp": "id_473",
+                                                            "filePath": "@ucdesigner:/stageContent/ucstyle.uc.html",
+                                                            "fstamp": "f7f77f80_177c_11ee_a1b3_d1a6e541e9ac",
+                                                            "session": {
+                                                                "": {
+                                                                    "movable1": {
+                                                                        "": {
+                                                                            "winState": "dock",
+                                                                            "oldstyleText": "position: absolute; left: 398px; top: 249px;",
+                                                                            "rect": {
+                                                                                "left": 398,
+                                                                                "top": 249,
+                                                                                "width": null,
+                                                                                "height": null
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "index": 1,
+                                                            "stamp": "id_546",
+                                                            "filePath": "@ucdesigner:/stageContent/ucjsonperametereditor.uc.html",
+                                                            "fstamp": "f7f77f80_177c_11ee_a1b3_d1a6e541e9ac",
+                                                            "session": {
+                                                                "": {
+                                                                    "movable1": {
+                                                                        "": {
+                                                                            "winState": "dock",
+                                                                            "oldstyleText": "position: absolute; left: 582px; top: 400px;",
+                                                                            "rect": {
+                                                                                "left": 582,
+                                                                                "top": 400,
+                                                                                "width": null,
+                                                                                "height": null
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "index": 2,
+                                                            "stamp": "id_594",
+                                                            "filePath": "@ucdesigner:/stageContent/controlinfo.uc.html",
+                                                            "fstamp": "946a3c40_1912_11ee_b25c_c196052e897b",
+                                                            "session": {
+                                                                "": {
+                                                                    "movable1": {
+                                                                        "": {
+                                                                            "winState": "dock",
+                                                                            "oldstyleText": "position: absolute; left: 399px; top: 332px;",
+                                                                            "rect": {
+                                                                                "left": 399,
+                                                                                "top": 332,
+                                                                                "width": null,
+                                                                                "height": null
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "comboBox1": {
+                                                                        "ll_view": {
+                                                                            "lv_items": {
+                                                                                "": {
+                                                                                    "currentIndex": -1,
+                                                                                    "scrollTop": 0
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "listview1": {
+                                                                        "": {
+                                                                            "currentIndex": -1,
+                                                                            "scrollTop": 0
+                                                                        }
+                                                                    },
+                                                                    "linearList1": {
+                                                                        "lv_items": {
+                                                                            "": {
+                                                                                "currentIndex": -1,
+                                                                                "scrollTop": 0
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "activeIndex": 2
+                                                }
+                                            }
+                                        },
+                                        "size": 275
+                                    }
+                                ],
+                                "attribList": " x:session_data.type=\"'ROW'\" x:generatenode=\"false\" ",
+                                "type": "ROW"
+                            }
+                        }
+                    },
+                    "size": 474.5
+                },
+                {
+                    "ucPath": "@ucbuilder:/controls/tabcontrol.uc.html",
+                    "attribList": "",
+                    "session": {
+                        "": {
+                            "": {
+                                "tabChild": [
+                                    {
+                                        "index": 0,
+                                        "stamp": "id_398",
+                                        "filePath": "@ucdesigner:/stageContent/uclayout.uc.html",
+                                        "fstamp": "f7f55ca0_177c_11ee_a1b3_d1a6e541e9ac",
+                                        "session": {
+                                            "": {
+                                                "movable1": {
+                                                    "": {
+                                                        "winState": "dock",
+                                                        "oldstyleText": "position: absolute; left: 573px; top: 116px;",
+                                                        "rect": {
+                                                            "left": 573,
+                                                            "top": 116,
+                                                            "width": null,
+                                                            "height": null
+                                                        }
+                                                    }
+                                                },
+                                                "listview1": {
+                                                    "": {
+                                                        "currentIndex": -1,
+                                                        "scrollTop": 0
+                                                    }
+                                                },
+                                                "": {}
+                                            }
+                                        }
+                                    }
+                                ],
+                                "activeIndex": 0
+                            }
+                        }
+                    },
+                    "size": 209.5
+                }
+            ],
+            "attribList": "",
+            "type": "COLUMN"
+        }
+    },
+    "": {
+        "children": [],
+        "inActiveChildren": []
+    }
+}

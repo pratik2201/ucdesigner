@@ -1,0 +1,40 @@
+[SELF_]{
+    width: 700px;
+    height: 420px;
+    position: relative;
+    border:solid 1px black;
+    background-color: white;
+}
+CONTAINER{
+    width: 100%;
+    height: 100%;
+    display:block;
+    position: static;
+    background-color: white;
+}
+preview{
+    
+    
+    display: block;
+    padding: 5px;
+    box-sizing: border-box;
+}
+target{
+    border:solid 1px maroon;
+    display: block;
+
+    position: relative;
+    width: inherit;
+    overflow: auto;
+    height: inherit;
+    box-sizing: border-box;
+    background:url(@ucdesigner:/Designer/resource/designer/output/blank16_16.png);;
+}
+transparancy{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color:transparent;
+}

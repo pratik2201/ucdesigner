@@ -1,0 +1,96 @@
+[SELF_] {
+    background-color: white;
+    display: block;
+    background-color: rgb(236, 232, 232);
+    border: solid 1px transparent;
+}
+
+[SELF_][current-index="1"] {
+    background-color: rgb(238, 209, 175);
+    border: solid 1px rgb(240, 174, 100);
+    ;
+}
+
+[SELF_][new-row="1"] {
+    border-top: solid 2px darkolivegreen;
+}
+
+[SELF_]:focus-within {
+    background-color: lightcyan;
+    border: solid 1px cyan;
+}
+
+[SELF_][special-attr="x-tabindex"] input,
+[SELF_][special-attr="x-name"] input {
+    font-weight: bold;
+}
+
+[SELF_][special-attr="x-name"] input[role="attr-name"] {
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+[SELF_][special-attr="x-tabindex"] input[role="attr-name"] {
+    color: green;
+    font-weight: bold;
+}
+/*
+[SELF_][special-attr="x-from"] input[role="attr-name"] {
+    color: blue;
+    text-decoration: underline;
+}*/
+
+div {
+    display: grid;
+    width: 100%;
+    grid-template-columns: max-content 150px max-content auto max-content;
+}
+span{
+    font-weight: bold;
+}
+input[role="attr-name"] {
+    font-weight: normal;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+
+
+input[role="attr-value"] {
+    border: none;
+    min-width: 0px;
+    padding-left: 4px;
+    color: black; font-style: italic;
+    resize: both;
+    display:inline;
+}
+
+input[role="attr-value"]:focus {
+    font-weight: bold;
+}
+
+BTN {
+    display: inline-block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+btn[role="remove"] {
+    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_drop.png);
+}
+
+btn[role="remove"]:hover {
+    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_drop.png);
+}
+
+btn[role="favourite"] {
+    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_favorite.png);
+}
+
+btn[role="favourite"]:hover {
+    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_favorite.png);
+}

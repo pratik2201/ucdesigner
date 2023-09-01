@@ -1,0 +1,12 @@
+[SELF_]{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+   
+}
+[inside="uc:splitter"]{
+    [SELF_] {
+         width: 100%; height: 100%; 
+         box-sizing: border-box;
+    }
+}

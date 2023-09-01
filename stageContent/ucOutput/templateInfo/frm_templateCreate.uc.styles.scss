@@ -1,0 +1,13 @@
+[SELF_]{
+    display:block;
+    background-color: white;
+    border:solid 1px black;
+}
+td:first-child{
+    width: 130px;
+    vertical-align: top;
+    text-align: right;
+}
+input,textarea{
+    width: 250px!important;
+}

@@ -1,0 +1,46 @@
+[SELF_]{
+    display: block;
+    border: dashed 1px transparent;
+    box-sizing: border-box;
+    background-color: white;
+    white-space: nowrap;
+}
+[SELF_]:hover{
+    background-color: lightcyan;
+    border-radius: 5px;
+    border-color: cyan;
+}
+[SELF_][current-index="1"]{
+    background-color: rgba(13, 12, 255, 0.66);
+    color: white;;
+    border: dashed 1px skyblue;
+}
+img{
+    width: 16px; height: 16px;
+    vertical-align: -2px;
+}
+span {
+    color: black; 
+    vertical-align: 1px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: content-box;
+    overflow: hidden; 
+    /*background-color: yellow;*/
+}
+
+span br{
+    display: none;
+}
+
+span *{
+    display: inline;
+    white-space: nowrap;
+}
+
+span[contenteditable="true"]{
+    background-color: rgba(255,255,255, 0.66);
+    caret-color: navy;
+    align-self: center;
+    color: black;
+    margin-top: -5px;                        
+}

@@ -1,0 +1,73 @@
+[SELF_] {
+    height: 250px;
+    width: 280px;
+}
+maincontainer{
+    display: grid;
+    grid-template-rows: max-content auto;
+    position: absolute;
+    left:0px; top:0px; bottom:0px; right:0px;
+    margin:5px;
+}
+container {
+    display: block;
+    width:100%;  height: 100%;
+    border: ridge 1px brown;
+    border-radius: 7px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+
+
+
+header {
+    display: block;
+    position: static;
+    box-sizing: border-box;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+btn {
+    display: inline-block;
+    text-align: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: small !important;
+    cursor: pointer;
+    background-color: gainsboro;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+btn:hover {
+    background-color: cornsilk;
+    color: olivedrab;
+}
+
+btn[role="removeNode"]:hover {
+    background-color: rgb(255, 200, 200);
+    color: rgb(243, 44, 44);
+}
+
+btn::after {
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+}
+
+btn[role="removeNode"]::after {
+    content: url(@ucdesigner:/Designer/resource/designer/layout/REMOVE-NODE_10.png);
+}
+
+btn[role="newElement"]::after {
+    content: url(@ucdesigner:/Designer/resource/designer/layout/ELEMENT_NODE_10.png);
+}
+
+btn[role="newTextNode"]::after {
+    content: url(@ucdesigner:/Designer/resource/designer/layout/TEXT_NODE_10.png);
+}

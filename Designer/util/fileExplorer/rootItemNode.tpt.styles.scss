@@ -1,0 +1,39 @@
+[SELF_]{
+    width: 100%;
+    background-color: white;
+    display: block;box-sizing: border-box;
+    border: solid 1px transparent; 
+}
+[SELF_],[SELF_] *{
+     box-sizing: border-box;
+}
+[SELF_][is-selected="1"]{
+    text-decoration: underline;
+    font-weight: bold;
+}
+CONTAINER{
+    display: grid;
+    grid-template-rows: max-content auto;
+    font-size: smaller;
+}
+[SELF_]:hover{
+    background-color: rgba(139, 247, 247, 0.637);
+    color: rgb(94, 62, 2);
+   
+}
+
+[SELF_][current-index="1"]{
+    background-color: rgba(137, 243, 172, 0.507);
+    border-color: transparent;
+    color: rgb(94, 62, 2);
+}
+
+ALICES,PATH{
+    padding-left: 5px;
+    display: block;
+}
+path{
+    font-style: italic;
+    color:gray;
+    background-color: rgba(0, 0, 0, 0.137);;
+}

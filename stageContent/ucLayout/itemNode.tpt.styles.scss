@@ -1,0 +1,72 @@
+[SELF_] {
+    background-color: white;
+    white-space: nowrap;
+    display: block;
+    box-sizing: border-box;
+    border: solid 1px transparent;
+    padding: 2px;
+    font-family: Courier New;
+}
+[SELF_]:hover{
+    background-color: lightcyan;
+    border-radius: 5px;
+    border-color: cyan;
+}
+[SELF_][is-selected="1"] {
+    background-color: rgb(241, 183, 116);
+}
+
+[SELF_][current-index="1"] {
+    border-color:  transparent;
+    background-color: aquamarine;
+}
+[SELF_][drag-mode="t-append"]{
+    background-color: rgba(42, 85, 165,0.288);
+    border-color: rgb(42, 85, 165);
+}
+[SELF_][drag-mode="t-before"]{
+    background-color: rgba(197, 78, 78, 0.288);
+    border-bottom: none;
+    border-top: solid 2px black;
+}
+[SELF_][drag-mode="t-after"]{
+    background-color: rgba(197, 78, 78, 0.288);
+    border-top: none;
+    border-bottom: solid 2px black;
+}
+[SELF_][drag-mode="cut"]{
+    opacity: 0.5;
+}
+
+span[type="1"]::before{
+    content: "<";    
+}
+span[type="1"]::after{
+    content: ">";    
+}
+
+span[type="3"]{
+    font-style: italic;
+}
+span[type="1"][contenteditable="true"]::before{
+    content: "<";    
+}
+span[type="1"][contenteditable="true"]::after{
+    content: ">";
+}
+
+span[contenteditable="true"]{
+    background-color: rgba(255, 255, 255, 0.521);
+    padding: 0 5px 0 5px;
+    white-space: nowrap!important;
+    overflow: hidden;
+}
+
+span[contenteditable="true"][SELF_] br{
+    display:none;
+}
+
+xname{
+    font-weight: bold; color: darkmagenta;
+}
+

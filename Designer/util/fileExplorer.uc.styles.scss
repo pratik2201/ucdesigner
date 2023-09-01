@@ -1,0 +1,51 @@
+[SELF_] {
+    background-color: white;
+    width: inherit;
+    height: inherit;
+    display: block;
+}
+
+maincontainer{
+    display: grid;
+    grid-template-rows: max-content max-content auto;
+    position: absolute;
+    left:0px; top:0px; bottom:0px; right:0px;
+    margin:5px;
+}
+container{
+    display: block;
+    width:100%;  height: 100%;
+    border: ridge 1px brown;
+    border-radius: 0px 0px 7px 7px;
+     overflow: hidden;
+    box-sizing: border-box;    
+}
+input{
+    display: inline-block;
+    width: 100%;cursor: pointer;
+}
+input:focus{
+    font-weight: bold;
+}
+
+img:focus{
+    outline: solid 1px goldenrod;
+}
+
+header{
+    display: block; 
+    position: static;
+    box-sizing: border-box;
+    padding: 2px;
+}
+rootpart{ 
+    margin-bottom: 5px; 
+    display:grid;
+    grid-template-columns: auto;   
+}
+newRoowpart{
+    display: block;
+}
+lbl{
+    display: inline-block;
+}

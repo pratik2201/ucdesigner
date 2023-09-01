@@ -1,0 +1,132 @@
+[SELF_] {
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 644px;
+    height: 481px;
+}
+
+opview {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: inherit;
+    display: grid;
+    grid-template-rows: max-content auto;
+}
+header{
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto max-content;
+    margin-bottom: 5px;
+}
+container[SELF_] * {
+    overflow: hidden;
+}
+
+container {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    box-sizing: inherit;
+    height: 100%;
+    background:url(@ucdesigner:/Designer/resource/designer/output/blank16_16.png);
+    border: ridge 1px brown;   
+    border-radius: 0px 0px 7px 7px;
+}
+
+transpOutput {
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    /*padding: 15px;
+    z-index: 1;*/
+}
+
+container[SELF_] [uc-designer-id][contenteditable="true"] {
+    outline: none;
+    border: dotted 1px black;
+    white-space: nowrap !important;
+    word-wrap: break-word;
+    /*overflow: hidden;*/
+}
+
+/*container[SELF_] [uc-designer-id][contenteditable="true"] br {
+    display: none;
+}*/
+
+CTRRECT,
+DRGRECT {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    box-sizing: border-box;
+
+}
+
+DRGRECT {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+DRGRECT[droptype],
+DRGRECT[droptype] {
+    border: solid 1px transparent;
+
+}
+
+DRGRECT[droptype="append"] {
+    border-right-color: green;
+    border-bottom-color: green;
+
+}
+
+DRGRECT[droptype="prepend"] {
+    border-top-color: green;
+    border-left-color: green;
+}
+
+
+CTRRECT[type="text"] {
+    border-color: rgba(255, 174, 0, 0.925);
+    background-color: rgba(238, 238, 90, 0.281);
+    margin-left: 1px;
+    margin-top: 1px;
+    resize: none;
+    overflow: hidden;
+}
+
+CTRRECT[type="text"] resizer,
+CTRRECT[type="text"] corner {
+    display: none;
+}
+
+CTRRECT {
+    /*border: dashed 1px rgb(4, 0, 255);
+    background-color: rgba(12, 12, 12, 0.301);*/
+    margin-left: 1px;
+    margin-top: 1px;
+}
+
+resizer,
+corner {
+    padding: 2px;
+    background: transparent;
+}
+
+resizer:hover {
+    background-color: green;
+}
+
+corner:hover {
+    background-color: red;
+}
+
+resizer,
+corner {
+    position: absolute;
+}
