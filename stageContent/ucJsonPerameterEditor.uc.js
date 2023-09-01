@@ -44,7 +44,9 @@ class ucJsonPerameterEditor extends designer {
         sharedPopups: false,
         useStrictCSP: null
         */
-        ace.config.set('basePath', rootPathHandler.path + "/Designer/codeFiles");
+        let inf = rootPathHandler.getInfoByAlices('@ucdesigner:');
+        ace.config.set('basePath', inf.path+"/ace_files");
+        
         this.editor = ace.edit(this.codeeditor1);
         this.editor.setTheme("ace/theme/dreamweaver");
         this.editor.session.setMode("ace/mode/json");
