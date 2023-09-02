@@ -6,7 +6,7 @@ const { pathInfo, arrayOpt, objectOpt } = require("@ucbuilder:/build/common");
 const { commonEvent } = require("@ucbuilder:/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
-const { ListViewSource } = require("@ucbuilder:/controls/ListView.uc.enumAndMore");
+const { ListViewSource } = require("@uccontrols:/controls/ListView.uc.enumAndMore");
 const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
 
 

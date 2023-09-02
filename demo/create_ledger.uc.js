@@ -1,4 +1,3 @@
-const { windowStates } = require('@ucbuilder:/controls/common.js');
 const { designer } = require('./create_ledger.uc.designer.js');
 class create_ledger extends designer{
     constructor() { eval(designer.giveMeHug); 
