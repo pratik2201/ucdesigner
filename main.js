@@ -1,7 +1,8 @@
 require('uccontrols');
-require('ucbuilder').registarMe(__dirname);
+require('ucbuilder').register.registarMe();
 module.exports = {
     startDesigner: () => {
+        console.log();
         let { intenseGenerator } = require('@ucbuilder:/intenseGenerator');
 
         /**  @type {import ('@ucdesigner:/formDesigner.uc.js')} */
