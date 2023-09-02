@@ -1,4 +1,4 @@
-root {
+:root {
     ::selection {
         background-color: rgba(11, 240, 228, 0.329);
     }
@@ -36,7 +36,7 @@ root {
     }
 }
 
-root.ucbuilder {
+ucbuilder:root {
     ::-webkit-scrollbar {
         width: 10px;
         border-radius: 5px;

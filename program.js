@@ -1,4 +1,4 @@
-let { register } = require('./node_modules/ucbuilder');
+let { register } = require('ucbuilder');
 register.registarMe('@ucdesigner:',__dirname);
 module.exports = {
     startDesigner: () => {
