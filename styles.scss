@@ -34,9 +34,13 @@
         width: 16px;
         height: 16px;
     }
+
+
+    
 }
 
-ucbuilder:root {
+:root,
+uccontrols:root {
     ::-webkit-scrollbar {
         width: 10px;
         border-radius: 5px;

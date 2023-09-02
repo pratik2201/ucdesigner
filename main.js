@@ -1,5 +1,5 @@
-let { register } = require('ucbuilder');
-register.registarMe('@ucdesigner:',__dirname);
+require('uccontrols');
+require('ucbuilder').register.registarMe('@ucdesigner:',__dirname);
 module.exports = {
     startDesigner: () => {
         let { intenseGenerator } = require('@ucbuilder:/intenseGenerator');
