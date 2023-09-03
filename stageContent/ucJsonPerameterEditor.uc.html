@@ -1,13 +1,11 @@
-<wrapper x-caption="JSON Perameters" 
-    uc:="@uccontrols:/controls"
-    file-stamp="a19767d0_2079_11ee_81e0_91a27b3f2489">
-    <uc:movable x-name="movable1" >
+<wrapper x-caption="JSON Perameters">
+    <uc:movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
         <gload path="@ucdesigner:/ace_files/ace.js">
-            <maincontainer>
-                <container>
-                    <textarea contenteditable="true" type="text" x-name="codeeditor1"></textarea>
-                </container>
-            </maincontainer>
         </gload>
+        <maincontainer>
+            <container>
+                <textarea contenteditable="true" type="text" x-name="codeeditor1"></textarea>
+            </container>
+        </maincontainer>
     </uc:movable>
 </wrapper>

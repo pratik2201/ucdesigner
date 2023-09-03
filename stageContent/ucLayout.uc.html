@@ -1,17 +1,14 @@
-<wrapper x-caption="Layout" 
-          uc:="@uccontrols:/controls" 
-          tpt:="@ucdesigner:/stageContent/ucLayout"
-         file-stamp="f7f55ca0_177c_11ee_a1b3_d1a6e541e9ac">
-        <uc:movable x-name="movable1" >
+<wrapper x-caption="Layout" >
+        <uc:movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
                 <maincontainer>
                         <header>
                                 <btn role="newElement" x-name="cmd_addElement">+Element</btn>
                                 <btn role="newTextNode" x-name="cmd_addTextNode">+TextNode</btn>
                                 <btn role="removeNode" x-name="cmd_removeTextNode">-Remove</btn>
-                                <tpt-itemNode x-name="tpt_itemnode" ></tpt-itemNode>
+                                <tpt-itemnode x-from="@ucdesigner:/stageContent/ucLayout/itemnode.tpt" x-name="tpt_itemnode"></tpt-itemnode>
                         </header>
                         <container>
-                                <uc:listview x-name="listview1"  x-tabindex="0"></uc:listview>
+                                <uc:listview x-from="@uccontrols:/controls/listview.uc" x-name="listview1" x-tabindex="0"></uc:listview>
                         </container>
                 </maincontainer>
         </uc:movable>

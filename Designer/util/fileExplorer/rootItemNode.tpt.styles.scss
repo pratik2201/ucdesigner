@@ -9,12 +9,12 @@
 }
 [SELF_][is-selected="1"]{
     text-decoration: underline;
-    font-weight: bold;
+    color:black!important; font-weight: bold;
 }
 CONTAINER{
-    display: grid;
+    display: grid; font-size: small;
     grid-template-rows: max-content auto;
-    font-size: smaller;
+   
 }
 [SELF_]:hover{
     background-color: rgba(139, 247, 247, 0.637);
@@ -34,6 +34,6 @@ ALICES,PATH{
 }
 path{
     font-style: italic;
-    color:gray;
+    
     background-color: rgba(0, 0, 0, 0.137);;
 }

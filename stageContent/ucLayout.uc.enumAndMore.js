@@ -68,6 +68,7 @@ const ucLayoutATTR = Object.freeze({
     SELECTED_INDEX:"is-selected",
 });
 const ucDesignerATTR = Object.freeze({
+    JSON_ROW:"x-designer-json",
     IGNORE_IN_DESIGNER:"ignore-in-designer",
     
     ITEM_INDEX: "ii" + uniqOpt.randomNo(),

@@ -1,6 +1,5 @@
-<wrapper x-caption="OutPut" tabindex="-1" uc:="@uccontrols:/controls"
-    file-stamp="f7f6bc30_177c_11ee_a1b3_d1a6e541e9ac">
-    <uc:movable x-name="movable1">
+<wrapper x-caption="OutPut" tabindex="-1"  >
+    <uc:movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
         <style>
             [SELF_] [(@ucDesignerATTR.SELECTED)="1"] {
                 outline: ridge 2px mediumpurple;
@@ -14,7 +13,7 @@
         </style>
         <opview>
             <header>
-                <uc:comboBox x-name="comboBox1"></uc:comboBox>
+                <uc:combobox x-name="comboBox1"></uc:combobox>
                 <btn-icon size="16" x-name="cmd_addTemplate" style="--url:url(@ucdesigner:/stageContent/ucOutput/templateInfo/resources/add.png);"></btn-icon>
             </header>
             <container x-name="targetOutput" tabindex="-1">

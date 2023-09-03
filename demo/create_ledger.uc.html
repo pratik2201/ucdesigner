@@ -1,6 +1,6 @@
-<wrapper x-caption="Sign Up Form" x-allowtabindex="1" file-stamp="f7ead550_177c_11ee_a1b3_d1a6e541e9ac" x-tabindex="-1" uc:="@uccontrols:/controls">
-    <uc:winframe x-name="winframe1">
-        <headertext style="margin-left: 3px; ">AP Software Solutions</headertext>
+<wrapper x-caption="Sign Up Form" x-allowtabindex="1" x-tabindex="-1" >
+    <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winframe1">
+        <headertext style="margin-left: 3px; ">Sign Up</headertext>
         <table style="margin-top: 9px; height: 43px;">
             <tbody>
                 <tr>
@@ -23,7 +23,7 @@
                     <td>
                         <btn x-name="cmd_save" x-tabindex="6">Sign Up</btn>
                     </td>
-                    <td style="height: 17px;">&nbsp;or&nbsp;<b>Pratik Patel&nbsp;</b>Goto&nbsp;<a href="login">Log in</a>&nbsp;Page</td>
+                    <td style="height: 17px;">&nbsp;or&nbsp;<b>&nbsp;if already have than&nbsp;</b>Goto&nbsp;<a href="login">Log in</a>&nbsp;Page</td>
                 </tr>
             </tbody>
         </table>
@@ -31,18 +31,18 @@
             <table>
                 <tbody><tr x-tabindex="4">
                     <td>
-                        <input type="text" x-tabindex="0" x-name="phoneNo1">
+                        <input type="text" x-tabindex="0" placeholder="Phone No1" x-name="phoneNo1">
                     </td>
                     <td>
-                        <input type="text" x-tabindex="1" x-name="phoneNo2">
+                        <input type="text" x-tabindex="1" placeholder="Phone No2" x-name="phoneNo2">
                     </td>
                 </tr>
                 <tr x-tabindex="5">
                     <td>
-                        <input type="text" x-tabindex="0" x-name="email">
+                        <input type="text" x-tabindex="0" placeholder="Email ID" x-name="email">
                     </td>
                     <td>
-                        <input type="text" x-tabindex="1" x-name="panno">
+                        <input type="text" x-tabindex="1" placeholder="Mobile No" x-name="mobile_no">
                     </td>
                 </tr>
             </tbody></table>

@@ -9,13 +9,13 @@ const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
 class projHandler extends designer {
     SESSION_DATA = {
     }
-    constructor() { eval(designer.giveMeHug);
-        
-
+    constructor() {
+        eval(designer.giveMeHug);
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.projectExplorer, this);
-        //buildOptions.ignoreDirs.forEach(s => this.ignoreDirs.push(rootPathHandler.fullPath(s)));
+        this.ignoreDirs = require('@ucbuilder:/build/builder').builder.ignoreDirs;
+      
         this.initEvent();
         this.filexplorer1.listviewEvents.itemDoubleClick.on((index) => {
             /** @type {pathRecord}  */
@@ -23,9 +23,9 @@ class projHandler extends designer {
             switch (finfo.type) {
                 case pathInfo.CODEFILE_TYPE.ucHtmlFile:
                 case pathInfo.CODEFILE_TYPE.ucTemplateFile:
-                    let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput.uc.html', { 
+                    let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput.uc.html', {
                         parentUc: this.main,
-                        
+
                     }, finfo.path);
                     this.main.container1.append(uc.ucExtends.self);
                     this.main.pushChildSession(uc);
@@ -33,12 +33,12 @@ class projHandler extends designer {
             }
         });
     }
-    set ignoreDirs(val){ this.filexplorer1.ignoreDirs = val;  }
-    get ignoreDirs(){ return this.filexplorer1.ignoreDirs;  }
-    
-    set ignoreFiles(val){ this.filexplorer1.ignoreFiles = val;  }
-    get ignoreFiles(){ return this.filexplorer1.ignoreFiles;  }
-    
+    set ignoreDirs(val) { this.filexplorer1.ignoreDirs = val; }
+    get ignoreDirs() { return this.filexplorer1.ignoreDirs; }
+
+    set ignoreFiles(val) { this.filexplorer1.ignoreFiles = val; }
+    get ignoreFiles() { return this.filexplorer1.ignoreFiles; }
+
     initEvent() {
         let _this = this;
         this.filexplorer1.fileExplorerEvents.filterDirs = (row) => {
@@ -65,7 +65,7 @@ class projHandler extends designer {
                 }
             }
         }
-      
+
     }
 }
 module.exports = projHandler;

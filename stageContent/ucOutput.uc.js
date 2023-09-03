@@ -22,9 +22,10 @@ class ucOutput extends designer {
     SESSION_DATA = {
         filePath: "",
         extCode: buildOptions.extType.Usercontrol,
-        jsonPerameters: "{}",
+        //jsonPerameters: "{}",
         isActive: false,
     }
+
     tptManage = new tptManager();
     ucManage = new ucManager();
     srcAdeptor = new sourceAdeptor();
@@ -37,7 +38,7 @@ class ucOutput extends designer {
             /** 
              * @typedef {import("@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js")} frm_templateCreate
              * @type  {frm_templateCreate} */
-            let frm = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js',{});
+            let frm = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js', {});
             frm.winframe1.showDialog();
         });
         //console.log(this.outputBoard);
@@ -107,12 +108,14 @@ class ucOutput extends designer {
      */
     onJsonChange = (jsonContent) => {
         if (jsonContent == "") {
-            this.SESSION_DATA.jsonPerameters = "{}";
+            this.mainNode.setAttribute(ucDesignerATTR.JSON_ROW, "{}");
+            //this.SESSION_DATA.jsonPerameters = "{}";
             this.Run();
         } else {
             try {
                 let content = JSON.parse(jsonContent);
-                this.SESSION_DATA.jsonPerameters = jsonContent;
+                this.mainNode.setAttribute(ucDesignerATTR.JSON_ROW, jsonContent);
+                //this.SESSION_DATA.jsonPerameters = jsonContent;
                 this.Run();
             } catch {
             }
@@ -249,7 +252,11 @@ class ucOutput extends designer {
                 try {
                     if (htmlContents == "") htmlContents = undefined;
                     let _tpt = this.uc_rendar.generateTpt(htmlContents, fileDataBank.getReplacedContent(this.cssContent));
-                    this.outputHT = _tpt.extended.generateNode(JSON.parse(this.SESSION_DATA.jsonPerameters));
+
+                    this.outputHT = _tpt.extended.generateNode(JSON.parse(this.mainNode.getAttribute(ucDesignerATTR.JSON_ROW))/*JSON.parse(this.SESSION_DATA.jsonPerameters)*/);
+
+
+
                     _tpt.extended.stampRow.passElement(this.outputHT);
                     this.targetOutput.appendChild(this.outputHT);
                     this.outputHT.appendChild(this.outputBoard);

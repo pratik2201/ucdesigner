@@ -3,7 +3,7 @@ const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { designer } = require('./ucStyle.uc.designer.js');
 const { rootPathHandler } = require('@ucbuilder:/global/rootPathHandler');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
-
+const { ucDesignerATTR } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
 class ucJsonPerameterEditor extends designer {
 
 
@@ -12,9 +12,9 @@ class ucJsonPerameterEditor extends designer {
 
     get activeEditor() { return this.main.tools.activeEditor; }
     get mainNode() { return this.activeEditor.mainNode; }
-
+    get jsonData(){ return this,this.activeEditor.mainNode.getAttribute(ucDesignerATTR.JSON_ROW); }
     refreshText = () => {
-        this.editor.getSession().setValue(this.activeEditor.SESSION_DATA.jsonPerameters);
+        this.editor.getSession().setValue(this.jsonData);
     }
     constructor() { eval(designer.giveMeHug);
         
@@ -30,7 +30,7 @@ class ucJsonPerameterEditor extends designer {
             this.main.editorEvent.activateEditor.off(this.refreshText);
         });
         if (this.activeEditor != undefined)
-            this.codeeditor1.value = this.activeEditor.SESSION_DATA.jsonPerameters;
+            this.codeeditor1.value = this.jsonData;
 
         /*
         packaged: false,
@@ -64,7 +64,7 @@ class ucJsonPerameterEditor extends designer {
 
         _this.main.editorEvent.activateEditor.on(() => {
             if (this.activeEditor != undefined)
-                this.codeeditor1.value = this.activeEditor.SESSION_DATA.jsonPerameters;
+                this.codeeditor1.value = this.jsonData;
         });
     }
     onchangeText = () => {

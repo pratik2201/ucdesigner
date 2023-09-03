@@ -1,30 +1,18 @@
-<wrapper x-caption="Assets Explorer" 
-    lf:="@ucbuilder:/appBuilder/demo"
-    f:="@ucdesigner:/Designer/util"
-    uc:="@uccontrols:/controls" file-stamp="df7e3b80_2599_11ee_9809_83a2e94cdbdc">
-    <uc:winframe x-name="winframe1" >
+<wrapper x-caption="Assets Explorer" >
+    <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winframe1">
         <container>
-            <uc:singleSplitter x-name="singleSplitter1" x:type="h"
-               
-                style="position: relative; width:100%; height:100%; ">
+            <uc:singlesplitter x-name="singleSplitter1" x:type="h" style="position: relative; width:100%; height:100%; ">
 
-                <f:fileexplorer x-name="fileExplorer1" ></f:fileexplorer>
+                <f:fileexplorer x-from="@ucdesigner:/Designer/util/fileexplorer.uc" x-name="fileExplorer1"></f:fileexplorer>
                 <preview>
                     <target x-name="op_target"></target>
                     <transparancy></transparancy>
                 </preview>
-                <uc:singleSplitter x-name="singleSplitter2" x:type="v"
-                    
-                    style="position: relative; width:100%; height:100%; "
-                    >
-                    <lf:create_ledger x-name="cledger" 
-                        x:ucExtends.options.windowstate="dock"
-                        ></lf:create_ledger>
-                    <lf:create_ledger x-name="cledger2" 
-                        x:ucExtends.options.windowstate="dock"
-                        ></lf:create_ledger>
-            </uc:singleSplitter>
-            </uc:singleSplitter>
+                <uc:singlesplitter x-name="singleSplitter2" x:type="v" style="position: relative; width:100%; height:100%; ">
+                    <lf:create_ledger x-from="@ucbuilder:/appBuilder/demo/create_ledger.uc" x-name="cledger" x:ucextends.options.windowstate="dock"></lf:create_ledger>
+                    <lf:create_ledger x-from="@ucbuilder:/appBuilder/demo/create_ledger.uc" x-name="cledger2" x:ucextends.options.windowstate="dock"></lf:create_ledger>
+            </uc:singlesplitter>
+            </uc:singlesplitter>
 
         </container>
     </uc:winframe>
