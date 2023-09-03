@@ -1,7 +1,7 @@
 <wrapper x-caption="File Explorer" >
         <uc:linearlist x-from="@uccontrols:/controls/linearlist.uc" x-name="linearList1" style="width:350px;"></uc:linearlist>
         <fe-rootitemnode x-from="@ucdesigner:/Designer/util/fileExplorer/rootitemnode.tpt" x-name="tpt_rootitemNode"></fe-rootitemnode>
-        <fe-itemnode x-name="tpt_itemNode"></fe-itemnode>
+        <fe-itemnode x-from="@ucdesigner:/Designer/util/fileExplorer/itemnode.tpt" x-name="tpt_itemNode"></fe-itemnode>
         <maincontainer>
                 <header>                        
                         <img src="@ucdesigner:/Designer/util/fileExplorer/add-file.png" x-tabindex="0" x-scope="protected" x-name="cmd_addfile">
@@ -9,10 +9,10 @@
                         <img src="@ucdesigner:/Designer/util/fileExplorer/delete.png" x-tabindex="3" x-scope="protected" x-name="cmd_delete">
                 </header>
                 <rootpart>
-                        <uc:combobox x-name="comboBox1" x-tabindex="2"></uc:combobox>   
+                        <uc:combobox  x-from="@uccontrols:/controls/combobox.uc"  x-name="comboBox1" x-tabindex="2"></uc:combobox>   
                 </rootpart>              
                 <container>
-                        <uc:listview x-name="listview1" tab-index="0"></uc:listview>
+                        <uc:listview  x-from="@uccontrols:/controls/listview.uc" x-name="listview1" tab-index="0"></uc:listview>
                 </container>
         </maincontainer>
 </wrapper>

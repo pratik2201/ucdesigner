@@ -9,6 +9,13 @@
     animation-iteration-count: 1;
 }
 
+[inside="@uccontrols:/controls/winFrame.uc"]{
+    title-text{
+        color:blue;
+    }
+}
+
+
 table,table * {
     animation-iteration-count: 1!important;
     animation-duration:3s!important;

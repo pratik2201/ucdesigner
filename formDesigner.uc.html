@@ -1,21 +1,21 @@
-<wrapper x-caption="UC Designer" >
-    <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winFrame1" x-allowtabindex="0" >
+<wrapper x-caption="UC Designer">
+    <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winFrame1" x-allowtabindex="0">
         <div style="display: grid; position: absolute; height: 100%; width: 100%; grid-template-rows: max-content auto;">
             <div>
                 <button x-name="cmd_built">BUILT</button>
-                <button x-name="cmd_fileExplorer">Project Exolorer</button>
+                <button x-name="cmd_fileExplorer">Explorer</button>
                 <button x-name="cmd_sample1">sample1</button>
                 <button x-name="cmd_sample2">sample2</button>
                 <button x-name="cmd_logsession">log Session</button>
                 <button x-name="cmd_controlInfo">Propery</button>
                 <button x-name="cmd_layout">Layout</button>
                 <button x-name="cmd_style">Style</button>
-                <button x-name="cmd_jsonPera">Json Perameters</button>
+                <button x-name="cmd_jsonPera">Json Row</button>
                 <button x-name="cmd_ucbrowser">uc browser</button>
-                <button x-name="cmd_deletesesion" style="float:right;">DELETE SESSION</button>
+                <button x-name="cmd_deletesesion" style="float:right;">Delete</button>
             </div>
             <div style="display: flex;">
-                <uc:splitter x-name="splitter1"  x-from="@uccontrols:/controls/splitter.uc"></uc:splitter>
+                <uc:splitter x-name="splitter1" x-from="@uccontrols:/controls/splitter.uc"></uc:splitter>
                 <div x-name="container1"></div>
             </div>
         </div>

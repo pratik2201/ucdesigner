@@ -1,6 +1,7 @@
 [SELF_] {
     height: 250px;
     width: 280px;
+    background-color: white;
 }
 maincontainer{
     display: grid;
@@ -61,13 +62,13 @@ btn::after {
 }
 
 btn[role="removeNode"]::after {
-    content: url(@ucdesigner:/Designer/resource/designer/layout/REMOVE-NODE_10.png);
+    content: url(@ucdesigner:/stageContent/ucLayout/REMOVE-NODE_10.png);
 }
 
 btn[role="newElement"]::after {
-    content: url(@ucdesigner:/Designer/resource/designer/layout/ELEMENT_NODE_10.png);
+    content: url(@ucdesigner:/stageContent/ucLayout/ELEMENT_NODE_10.png);
 }
 
 btn[role="newTextNode"]::after {
-    content: url(@ucdesigner:/Designer/resource/designer/layout/TEXT_NODE_10.png);
+    content: url(@ucdesigner:/stageContent/ucLayout/TEXT_NODE_10.png);
 }
