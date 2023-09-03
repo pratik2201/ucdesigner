@@ -5,7 +5,7 @@ const { rootPathHandler } = require('@ucbuilder:/global/rootPathHandler.js');
 const { designer } = require('./fileExplorer.uc.designer.js');
 const fs = require('fs');
 const { objectOpt } = require('@ucbuilder:/build/common.js');
-const { replaceTextRow } = require('@ucbuilder:/appBuilder/Window/codeFile/findAndReplace.js');
+const { replaceTextRow } = require('@ucbuilder:/global/findAndReplace.js');
 class fileExplorer extends designer {
 
     SESSION_DATA = {
