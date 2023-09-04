@@ -30,7 +30,7 @@ class controlInfo extends designer {
     constructor() {
         eval(designer.giveMeHug);
 
-        this.listview1.template = this.tpt_attrib.primary;
+        this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
@@ -43,8 +43,8 @@ class controlInfo extends designer {
     /** @type {attrRecord[]}  */
     source = [];
     init() {
-        this.linearList1.template = this.tpt_layoutItem.primary;
-        this.comboBox1.itemTemplete = this.tpt_layoutItem.primary;
+        this.linearList1.template = this.tpt_layoutItem;
+        this.comboBox1.itemTemplete = this.tpt_layoutItem;
         this.comboBox1.seletectedItemTemplete = this.tpt_layoutItem.comboboxselected;
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
             if (this.comboBox1.hasfocused) {

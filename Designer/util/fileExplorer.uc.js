@@ -25,7 +25,7 @@ class fileExplorer extends designer {
         
         this.tpt_itemNode.init(this);        
         this.comboBox1.source = rootPathHandler.source;
-        this.comboBox1.itemTemplete = this.tpt_rootitemNode.primary;
+        this.comboBox1.itemTemplete = this.tpt_rootitemNode;
         
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex)=>{
             
@@ -53,7 +53,7 @@ class fileExplorer extends designer {
         //     }
         // });
         //console.log(this.tpt_itemNode.primary);
-        this.listview1.template = this.tpt_itemNode.primary;
+        this.listview1.template = this.tpt_itemNode;
         this.ucExtends.Events.loadLastSession.on(() => {
             this.loadSession();
         });

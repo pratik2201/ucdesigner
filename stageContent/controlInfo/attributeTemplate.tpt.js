@@ -5,13 +5,13 @@ const { designer } = require('./attributeTemplate.tpt.designer.js');
 class attributeTemplate extends designer {
     constructor() {
         super(arguments);            
-        this.primary.Events.onGenerateNode =
+        this.extended.Events.onGenerateNode =
             /**
              * @param {HTMLElement} eleHT 
              * @param {attrRecord} row 
              */
             (eleHT, row) => {
-                let ctrls = this.primary.getAllControls(eleHT);
+                let ctrls = this.getAllControls(eleHT);
                 switch (row.nodeName) {
                     case "x-name":
                     case "x-tabindex":
@@ -42,7 +42,7 @@ class attributeTemplate extends designer {
     /** @param {HTMLElement} itemHT */
     focus(itemHT) {
         this.lastFocusedElement = document.activeElement;
-        let ctrls = this.primary.getAllControls(itemHT);
+        let ctrls = this.getAllControls(itemHT);
        // debugger;
         if (!ctrls.txt_attrName.hasAttribute("disabled")) {
             controlOpt.selectAllText(ctrls.txt_attrName);
@@ -53,7 +53,7 @@ class attributeTemplate extends designer {
     }
     saveRow(mainHT) {
         
-        let ctrs = this.primary.getAllControls(mainHT);
+        let ctrs = this.getAllControls(mainHT);
         /** @type {attrRecord}  */
         let row = mainHT.rowData;
         let val = ctrs.txt_attrValue.value;

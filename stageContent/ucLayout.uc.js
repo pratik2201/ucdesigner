@@ -34,7 +34,7 @@ class ucLayout extends designer {
     constructor() {
         eval(designer.giveMeHug);
 
-        this.listview1.template = this.tpt_itemnode.primary;
+        this.listview1.template = this.tpt_itemnode;
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.layout, this);
