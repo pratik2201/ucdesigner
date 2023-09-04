@@ -6,6 +6,9 @@ const { designer } = require('./fileExplorer.uc.designer.js');
 const fs = require('fs');
 const { objectOpt } = require('@ucbuilder:/build/common.js');
 const { replaceTextRow } = require('@ucbuilder:/global/findAndReplace.js');
+/**
+ * @typedef {import("@ucdesigner:/designer/util/fileexplorer/itemnode.tpt.js")} itemnode 
+ */
 class fileExplorer extends designer {
 
     SESSION_DATA = {
@@ -18,18 +21,17 @@ class fileExplorer extends designer {
     get activeRoot() {
         return this.manager.activeRoot;
     }
-    
+
     constructor() {
-        eval(designer.giveMeHug);
+        eval(designer.giveMeHug);        
         this.init();
-        
-        this.tpt_itemNode.init(this);        
+        /** @type {itemnode}  */ 
+        this.tpt_itemNode = this.listview1.itemTemplate;
+        this.tpt_itemNode.init(this);
         this.comboBox1.source = rootPathHandler.source;
-        this.comboBox1.itemTemplete = this.tpt_rootitemNode;
-        
-        this.comboBox1.binder.Events.selectedIndexChange.on((nindex)=>{
-            
-            /** @type {replaceTextRow}  */ 
+        //this.comboBox1.itemTemplate = this.tpt_rootitemNode;
+        this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
+            /** @type {replaceTextRow}  */
             let selRec = this.comboBox1.binder.selectedRecord;
             this.fillRows(selRec.originalFinderText);
         });
@@ -53,7 +55,8 @@ class fileExplorer extends designer {
         //     }
         // });
         //console.log(this.tpt_itemNode.primary);
-        this.listview1.template = this.tpt_itemNode;
+        
+        this.listview1.itemTemplate = this.tpt_itemNode;
         this.ucExtends.Events.loadLastSession.on(() => {
             this.loadSession();
         });
@@ -63,7 +66,7 @@ class fileExplorer extends designer {
             //this.fillRows('@testnpm::/');
 
         }
-       
+
         this.fileExplorerEvents.toggleDir = (row) => {
             if (row.isOpened) {  // if opened
                 if (!this.activeRoot.openedFolderList.includes(row.path))
@@ -84,9 +87,9 @@ class fileExplorer extends designer {
         this.cmd_delete.addEventListener("mouseup", (e) => { this.tpt_itemNode.delete(); });
     }
     loadSession() {
-       
+
         let res = this.fillRows(this.SESSION_DATA.activePath);
-       
+
         if (res != undefined)
             this.comboBox1.selectedIndex = res.index;
     }
@@ -102,9 +105,9 @@ class fileExplorer extends designer {
     /** @type {string[]}  */
     ignoreFiles = [];
 
-    fillRows(key) {       
+    fillRows(key) {
         let info = rootPathHandler.getInfo(key);
-        if (info!=undefined && info.path != '' && fs.existsSync(info.path)) {
+        if (info != undefined && info.path != '' && fs.existsSync(info.path)) {
             let nrow = this.SESSION_DATA.rootPath.find(s => s.path == info.path);
             if (nrow == undefined) {
                 nrow = objectOpt.clone(rootPathRow);;

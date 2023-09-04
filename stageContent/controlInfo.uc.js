@@ -8,6 +8,7 @@ const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
 const { ATTR_OF } = require('@ucbuilder:/global/runtimeOpt.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
 const { designer } = require('./controlInfo.uc.designer.js');
+const attributeTemplate = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.js');
 class controlInfo extends designer {
     IGNORE_ATTR_LIST = [
         ATTR_OF.UC.PARENT_STAMP,
@@ -29,8 +30,10 @@ class controlInfo extends designer {
     isAttributeChanging = false;
     constructor() {
         eval(designer.giveMeHug);
-
-        this.listview1.template = this.tpt_attrib;
+       
+        /** @type {attributeTemplate}  */ 
+        this.tpt_attrib = this.listview1.itemTemplate;
+        //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
@@ -43,9 +46,6 @@ class controlInfo extends designer {
     /** @type {attrRecord[]}  */
     source = [];
     init() {
-        this.linearList1.template = this.tpt_layoutItem;
-        this.comboBox1.itemTemplete = this.tpt_layoutItem;
-        this.comboBox1.seletectedItemTemplete = this.tpt_layoutItem.comboboxselected;
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
             if (this.comboBox1.hasfocused) {
                 this.isAttributeChanging = true;
@@ -69,6 +69,7 @@ class controlInfo extends designer {
             this.currentIndex = index;
             this.refresh(!this.isAttributeChanging);
         });
+       
         this.tpt_attrib.attrEvents.onAttrChange(() => {
             this.main.tools.activeEditor.refresh();
             this.listview1.listvw1.focus();

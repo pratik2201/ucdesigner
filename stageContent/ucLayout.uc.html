@@ -5,10 +5,12 @@
                                 <btn role="newElement" x-name="cmd_addElement">+Element</btn>
                                 <btn role="newTextNode" x-name="cmd_addTextNode">+TextNode</btn>
                                 <btn role="removeNode" x-name="cmd_removeTextNode">-Remove</btn>
-                                <itemnode x-from="@ucdesigner:/stageContent/ucLayout/itemnode.tpt" x-name="tpt_itemnode"></itemnode>
+
                         </header>
                         <container>
-                                <listview x-from="@uccontrols:/controls/listview.uc" x-name="listview1" x-tabindex="0"></listview>
+                                <listview x-from="@uccontrols:/controls/listview.uc"
+                                        x:itemTemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt"
+                                        x-name="listview1" x-tabindex="0"></listview>
                         </container>
                 </maincontainer>
         </movable>

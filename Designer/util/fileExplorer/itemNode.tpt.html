@@ -1,17 +1,9 @@
-<wrapper x-designer-json="{
+<wrapper x.temp-jsonperameters="{
     &quot;nodeName&quot;:&quot;itemName&quot;,
     &quot;iconFilePath&quot;:&quot;Designer/util/fileExplorer/add-file.png&quot;
 }">
-    <tpt x-role="primary">
-        <div class="file-item">
-            <img src="@ucdesigner:/{=iconFilePath}" style=" margin-left: {=leftSpace}px; ">
-            <span x-name="txt_name" x-tabindex="0" title="{=path}">{=nodeName}</span>
-        </div>
-    </tpt>
-    <tpt x-role="comboboxSelected">
-        <div class="file-item">
-            <img src="@ucdesigner:/{=iconFilePath}" style=" margin-left: 2px; ">
-            <span x-name="txt_name" title="{=path}">{=nodeName}</span>
-        </div>
-    </tpt>
+    <div class="file-item">
+        <img src="@ucdesigner:/{=iconFilePath}" style=" margin-left: {=leftSpace}px; ">
+        <span x-name="txt_name" x-tabindex="0" title="{=path}">{=nodeName}</span>
+    </div>
 </wrapper>

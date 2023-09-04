@@ -8,6 +8,9 @@ const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+/**
+* @typedef {import ('@ucdesigner:/stagecontent/uclayout/itemnode.tpt.js')} itemnode 
+**/
 class ucLayout extends designer {
     //templeteText = fileDataBank.readFile("stageContent/ucLayout.uc.templates.html");
 
@@ -21,20 +24,21 @@ class ucLayout extends designer {
     get mainNode() { return this.activeEditor.mainNode; }
 
     get dragBucket() { return this.main.tools.dragBucket; }
-    
+
 
     /** @type {treeRecord[]}  
     dragBucket = [];*/
 
     /** @type {HTMLElement[]}  */
     allItemsHT = undefined;
-    
+
 
 
     constructor() {
         eval(designer.giveMeHug);
-
-        this.listview1.template = this.tpt_itemnode;
+        
+        /** @type {itemnode}  */
+        this.tpt_itemnode = this.listview1.itemTemplate;
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.layout, this);
@@ -80,14 +84,14 @@ class ucLayout extends designer {
                 //itemNode.setAttribute(ucDesignerATTR.UNIQID, rsw.uniqId);
             });
 
-            this.listview1.listvw1.addEventListener("mouseup",(evt)=>{
-                let index = this.listview1.lvUI.currentIndex;
-                this.activeEditor.selection.doSelect(index, {
-                    multiSelect: evt.ctrlKey
-                });
-                this.editorEvent.selectControl.fire(index, evt);
+        this.listview1.listvw1.addEventListener("mouseup", (evt) => {
+            let index = this.listview1.lvUI.currentIndex;
+            this.activeEditor.selection.doSelect(index, {
+                multiSelect: evt.ctrlKey
             });
-        
+            this.editorEvent.selectControl.fire(index, evt);
+        });
+
         /*this.listview1.listviewEvents.onItemMouseUp((param) => {
             @type {MouseEvent}  
             let evt = param.event;
@@ -205,7 +209,7 @@ class ucLayout extends designer {
             this.itemDrag.stop();
         });
         this.itemDrag
-           
+
             .dragLeave((ev) => {
                 /** @type {HTMLElement}  */
                 let te = ev.currentTarget;
@@ -280,7 +284,7 @@ class ucLayout extends designer {
             this.refresh();
             //
             lvUI.currentIndex = index;
-            if (editNode){
+            if (editNode) {
                 this.listview1.listvw1.focus();
                 this.doEditProcess();
             }
@@ -354,15 +358,15 @@ class ucLayout extends designer {
     refresh = () => {
         if (this.main.tools.activeEditor == undefined) return;
         this.clearDrag();
-        
+
         this.listview1.source.rows = this.activeEditor.source;
         this.listview1.Records.fillAll();
         this.bindDragEvent();
-       
+
     }
     bindDragEvent() {
         let itmlst = this.allItemsHT;
-        
+
         dragHelper
             .DRAG_ME(itmlst, (evt) => {
                 return {
