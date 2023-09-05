@@ -78,7 +78,7 @@ class formDesigner extends designer {
             console.clear();
             let { builder } = require('@ucbuilder:/build/builder');
             let mgen = new builder();
-            mgen.generate();
+            mgen.buildALL();
             console.log('BUILD SUCCESSFULL...');
         });
 

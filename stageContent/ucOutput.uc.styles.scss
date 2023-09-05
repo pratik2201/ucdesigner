@@ -15,12 +15,12 @@ opview {
     display: grid;
     grid-template-rows: max-content auto;
 }
-header{
+/*header{
     display: grid;
     width: 100%;
     grid-template-columns: auto max-content;
     margin-bottom: 5px;
-}
+}*/
 container[SELF_] * {
     overflow: hidden;
 }
@@ -36,7 +36,10 @@ container {
     border: ridge 1px brown;   
     border-radius: 0px 0px 7px 7px;
 }
-
+/* container[SELF_] > :first-child{
+    transform-origin: center;
+    transform: rotate3d(0, 0, 0, 45deg);
+} */
 transpOutput {
     position: absolute;
     background-color: transparent;

@@ -1,18 +1,13 @@
-<wrapper x-caption="Element Info" >
-    <uc:movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1" >
+<wrapper x-caption="Element Info">
+    <movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
         <container>
             <header>
-                <uc:combobox x-from="@uccontrols:/controls/combobox.uc" 
-                x:itemTemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt"
-                x:seletecteditemTemplate="=@ucdesigner:/stageContent/ucLayout/itemNode_ComboboxSelected.tpt"
-                x-name="comboBox1"></uc:combobox>
+                <combobox x-from="@uccontrols:/controls/combobox.uc" x:itemtemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt" x:seletecteditemtemplate="=@ucdesigner:/stageContent/ucLayout/itemNode_ComboboxSelected.tpt" x-name="comboBox1"></combobox>
             </header>
-            <uc:listview x-from="@uccontrols:/controls/listview.uc"             
-                x:itemTemplate="=@ucdesigner:/stageContent/controlInfo/attributetemplate.tpt"                
-            x-name="listview1"></uc:listview>
+            <dswew x-from="@uccontrols:/controls/listview.uc" x:itemtemplate="=@ucdesigner:/stageContent/controlInfo/attributetemplate.tpt" x-name="listview1"></dswew>
         </container>
         <!--<uc:linearlist x-from="@uccontrols:/controls/linearlist.uc" x-name="linearList1"></uc:linearlist>
         <tplayout-itemnode  x-from="@ucdesigner:/stageContent/ucLayout/itemnode.tpt"  x-name="tpt_layoutItem"></tplayout-itemnode>
         <tpattr-attributetemplate  x-from="@ucdesigner:/stageContent/controlInfo/attributetemplate.tpt"  x-name="tpt_attrib"></tpattr-attributetemplate>-->
-    </uc:movable>
+    </movable>
 </wrapper>

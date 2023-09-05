@@ -1,19 +1,15 @@
-<wrapper x-caption="File Explorer" >
+<wrapper x-caption="File Explorer">
         <maincontainer>
                 <header>                        
-                        <img src="@ucdesigner:/Designer/util/fileExplorer/add-file.png" x-tabindex="0" x-scope="protected" x-name="cmd_addfile">
-                        <img src="@ucdesigner:/Designer/util/fileExplorer/add-folder.png" x-tabindex="1" x-scope="protected" x-name="cmd_addfolder">
-                        <img src="@ucdesigner:/Designer/util/fileExplorer/delete.png" x-tabindex="3" x-scope="protected" x-name="cmd_delete">
+                        <btn-icon x-tabindex="0" x-scope="protected" x-name="cmd_addfile" size="20" style="--url:url(@ucdesigner:/Designer/util/fileExplorer/add-file.png);"></btn-icon>
+                        <btn-icon x-tabindex="1" x-scope="protected" x-name="cmd_addfolder" size="20" style="--url:url(@ucdesigner:/Designer/util/fileExplorer/add-folder.png);"></btn-icon>
+                        <btn-icon x-tabindex="3" x-scope="protected" x-name="cmd_delete" size="16" style="--url:url(@ucdesigner:/Designer/util/fileExplorer/delete.png);"></btn-icon>
                 </header>
                 <rootpart>
-                        <combobox 
-                                x:itemTemplate="=@ucdesigner:/Designer/util/fileExplorer/rootitemnode.tpt"
-                                x-from="@uccontrols:/controls/combobox.uc"  x-name="comboBox1" x-tabindex="2"></combobox>   
+                        <combobox x:itemtemplate="=@ucdesigner:/Designer/util/fileExplorer/rootitemnode.tpt" x-from="@uccontrols:/controls/combobox.uc" x-name="comboBox1" x-tabindex="2"></combobox>   
                 </rootpart>              
                 <container>
-                        <listview  
-                                x:itemTemplate="=@ucdesigner:/Designer/util/fileExplorer/itemnode.tpt"
-                                x-from="@uccontrols:/controls/listview.uc" x-name="listview1" tab-index="0"></listview>
+                        <listview x:itemtemplate="=@ucdesigner:/Designer/util/fileExplorer/itemnode.tpt" x-from="@uccontrols:/controls/listview.uc" x-name="listview1" tab-index="0"></listview>
                 </container>
         </maincontainer>
 </wrapper>

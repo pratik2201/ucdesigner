@@ -34,13 +34,13 @@ class ucOutput extends designer {
         eval(designer.giveMeHug);
 
         this.uc_rendar = new UcRendarer();
-        this.cmd_addTemplate.addEventListener("mousedown", (e) => {
-            /** 
-             * @typedef {import("@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js")} frm_templateCreate
-             * @type  {frm_templateCreate} */
+        /*this.cmd_addTemplate.addEventListener("mousedown", (e) => {
+             
+             @typedef {import("@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js")} frm_templateCreate
+             @type  {frm_templateCreate} 
             let frm = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js', {});
             frm.winframe1.showDialog();
-        });
+        });*/
         //console.log(this.outputBoard);
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
