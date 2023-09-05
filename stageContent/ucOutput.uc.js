@@ -176,16 +176,17 @@ class ucOutput extends designer {
                 break;
         }
         //console.log(this.cssContent);
-        if (htContent.trim() == "")
-            htContent = `<wrapper ${propOpt.ATTR.FILE_STAMP}="${uniqOpt.guidAs_}" ></wrapper>`;
-        try {
-            this.mainNode = htContent.$();
-        } catch (e) {
-            this.mainNode = `<wrapper ${propOpt.ATTR.FILE_STAMP}="${uniqOpt.guidAs_}" ></wrapper>`.$();
+        if (htContent != undefined) {
+            if (htContent.trim() == "")
+                htContent = `<wrapper ${propOpt.ATTR.FILE_STAMP}="${uniqOpt.guidAs_}" ></wrapper>`;
+            try {
+                this.mainNode = htContent.$();
+            } catch (e) {
+                this.mainNode = `<wrapper ${propOpt.ATTR.FILE_STAMP}="${uniqOpt.guidAs_}" ></wrapper>`.$();
+            }
         }
         this.srcAdeptor.refill();
         this.Run();
-
 
     }
     /** @type {treeRecord[]}  */

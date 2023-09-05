@@ -30,8 +30,7 @@ class controlInfo extends designer {
     isAttributeChanging = false;
     constructor() {
         eval(designer.giveMeHug);
-       
-        /** @type {attributeTemplate}  */ 
+        /** @type {attributeTemplate}  */
         this.tpt_attrib = this.listview1.itemTemplate;
         //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
@@ -54,7 +53,7 @@ class controlInfo extends designer {
                 });
                 this.main.editorEvent.selectControl.fire(nindex);
                 this.isAttributeChanging = false;
-            }          
+            }
         });
 
 
@@ -69,7 +68,7 @@ class controlInfo extends designer {
             this.currentIndex = index;
             this.refresh(!this.isAttributeChanging);
         });
-       
+
         this.tpt_attrib.attrEvents.onAttrChange(() => {
             this.main.tools.activeEditor.refresh();
             this.listview1.listvw1.focus();
@@ -78,7 +77,7 @@ class controlInfo extends designer {
         });
 
         this.listview1.Events.currentItemIndexChange.on((ov, nv) => {
-            console.log(ov+":"+nv);
+            console.log(ov + ":" + nv);
             this.tpt_attrib.saveRow(this.listview1.Records.allItemHT[ov]);
             if (ov == nv) {
                 //this.tpt_attrib.focus(this.listview1.records.allItemsHt[nv+1]);
