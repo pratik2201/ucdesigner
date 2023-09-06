@@ -5,6 +5,7 @@ const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const { pathRecord } = require('@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord');
 const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { fileDataBank } = require('@ucdesigner:/../ucbuilder/global/fileDataBank.js');
 
 class projHandler extends designer {
     SESSION_DATA = {
@@ -38,7 +39,7 @@ class projHandler extends designer {
 
     set ignoreFiles(val) { this.filexplorer1.ignoreFiles = val; }
     get ignoreFiles() { return this.filexplorer1.ignoreFiles; }
-
+    static iconDirPath = "@ucdesigner:/stageContent/projHandler".__();
     initEvent() {
         let _this = this;
         this.filexplorer1.fileExplorerEvents.filterDirs = (row) => {
@@ -50,7 +51,7 @@ class projHandler extends designer {
             if (row.path.includes(".uc.")) {
                 if (row.path.endsWith(".uc.html")) {
                     row.type = pathInfo.CODEFILE_TYPE.ucHtmlFile;
-                    row.iconFilePath = "stageContent/resource/form.png";
+                    row.iconFilePath = `${projHandler.iconDirPath}/form.png`;
                     return true;
                 } else {
                     return false;
@@ -58,7 +59,7 @@ class projHandler extends designer {
             } else if (row.path.includes(".tpt.")) {
                 if (row.path.endsWith(".tpt.html")) {
                     row.type = pathInfo.CODEFILE_TYPE.ucTemplateFile;
-                    row.iconFilePath = "stageContent/resource/template.png";
+                    row.iconFilePath = `${projHandler.iconDirPath}/template.png`;
                     return true;
                 } else {
                     return false;

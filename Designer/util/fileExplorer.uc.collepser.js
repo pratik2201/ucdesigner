@@ -1,20 +1,22 @@
 const fileExplorer = require("@ucdesigner:/Designer/util/fileExplorer.uc.js");
 const { pathRecord } = require("@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord");
 const { rootPathRow } = require("@ucdesigner:/Designer/util/fileExplorer.uc.enumAndMore");
-
 const { pathInfo, arrayOpt, objectOpt } = require("@ucbuilder:/build/common");
 const { commonEvent } = require("@ucbuilder:/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
 const { ListViewSource } = require("@uccontrols:/controls/ListView.uc.enumAndMore");
 const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
+const { fileDataBank } = require("ucbuilder/global/fileDataBank");
 
 
 class collepser {
 
     constructor() {
+        
     }
-    static iconDirPath = "Designer/resource/file-handler/style4/";
+    
+    static iconDirPath = "@ucdesigner:/Designer/util/fileExplorer/type-icons/style4/".__();
     iconFilePath = {
         folder: collepser.iconDirPath + "folder.png",
         folderOpened: collepser.iconDirPath + "folder-opened.png",
@@ -33,7 +35,7 @@ class collepser {
             this.watcher.close();
         }
         this.reFillRows();
-        this.main.listview1.Records.fillAll();
+        this.main.listview1.Records.fill();
         this.watcher = fs.watch(this.activeRoot.path, { recursive: true, }, this.watch_Listner);
 
     }

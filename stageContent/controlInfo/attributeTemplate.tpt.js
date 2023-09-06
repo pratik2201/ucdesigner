@@ -4,7 +4,7 @@ const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
 const { designer } = require('./attributeTemplate.tpt.designer.js');
 class attributeTemplate extends designer {
     constructor() {
-        super(arguments);            
+        super(arguments);
         this.extended.Events.onGenerateNode =
             /**
              * @param {HTMLElement} eleHT 
@@ -15,8 +15,13 @@ class attributeTemplate extends designer {
                 switch (row.nodeName) {
                     case "x-name":
                     case "x-tabindex":
-                    case "x-from":
                         eleHT.setAttribute("special-attr", row.nodeName);
+                        break;
+                    default:
+                        if (row.value.endsWith('.tpt'))
+                            eleHT.setAttribute("special-attr", 'tpt');
+                        else if (row.value.endsWith('.uc'))
+                            eleHT.setAttribute("special-attr", 'uc');
                         break;
                 }
                 if (!row.assigned) {
@@ -43,7 +48,7 @@ class attributeTemplate extends designer {
     focus(itemHT) {
         this.lastFocusedElement = document.activeElement;
         let ctrls = this.getAllControls(itemHT);
-       // debugger;
+        // debugger;
         if (!ctrls.txt_attrName.hasAttribute("disabled")) {
             controlOpt.selectAllText(ctrls.txt_attrName);
         } else {
@@ -52,7 +57,7 @@ class attributeTemplate extends designer {
 
     }
     saveRow(mainHT) {
-        
+
         let ctrs = this.getAllControls(mainHT);
         /** @type {attrRecord}  */
         let row = mainHT.rowData;
@@ -63,7 +68,7 @@ class attributeTemplate extends designer {
             this.attrEvents.extended.onAttrChange.fire();
         }
     }
-   
+
     attrEvents = {
         extended: {
             onAttrChange: new commonEvent(),

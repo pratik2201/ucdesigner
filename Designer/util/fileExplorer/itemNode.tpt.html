@@ -1,9 +1,12 @@
 <wrapper x.temp-jsonperameters="{
     &quot;nodeName&quot;:&quot;itemName&quot;,
-    &quot;iconFilePath&quot;:&quot;Designer/util/fileExplorer/add-file.png&quot;
+    &quot;iconFileName&quot;:&quot;folder.png&quot;
 }">
     <div class="file-item">
-        <img src="@ucdesigner:/{=iconFilePath}" style=" margin-left: {=leftSpace}px; ">
+        <btn-icon 
+            size="16"
+            style="--url:url({=iconFilePath}); margin-left: {=leftSpace}px; "
+            ></btn-icon>
         <span x-name="txt_name" x-tabindex="0" title="{=path}">{=nodeName}</span>
     </div>
 </wrapper>

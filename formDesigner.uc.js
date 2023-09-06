@@ -33,11 +33,16 @@ class formDesigner extends designer {
         eval(designer.giveMeHug);
         //console.log(_getCallerFile());
         this.cmd_deletesesion.addEventListener("mousedown", () => {
-            //console.log(this.ucSession.dataPath);
             pathInfo.removeFile(this.ucExtends.session.dataPath);
-            fs.copyFileSync(this.ucExtends.session.dataPath+".src",this.ucExtends.session.dataPath);
+            console.clear();
+            console.log('done.');            
         });
-
+        this.cmd_resetsesion.addEventListener("mousedown", () => {
+            pathInfo.removeFile(this.ucExtends.session.dataPath);
+            fs.copyFileSync(this.ucExtends.session.dataPath + ".src", this.ucExtends.session.dataPath);
+            console.clear();
+            console.log('done.');            
+        });
         this.splitter1.ucExtends.Events.onDataExport = (data) => {
             switch (data.type) {
                 case 'uc':
@@ -104,11 +109,11 @@ class formDesigner extends designer {
             this.tools.activeEditor.refresh()
     }
     tools = {
-        /** @type {number[]}  */ 
-        selectedElementList : [],
-        /** @type {number[]}  */ 
-        dragBucket : [],
-        
+        /** @type {number[]}  */
+        selectedElementList: [],
+        /** @type {number[]}  */
+        dragBucket: [],
+
         /** @type {controlInfo}  */
         controlInfo: undefined,
 
@@ -201,7 +206,7 @@ class formDesigner extends designer {
          */
         selectControl: new commonEvent(),
 
-      
+
     }
     loadSession() {
         this.container1.innerHTML = "";
@@ -211,7 +216,7 @@ class formDesigner extends designer {
         backUp.forEach(s => {
             let uc = intenseGenerator.generateUC(s.filePath, {
                 parentUc: this,
-                session:{ loadBySession:true }
+                session: { loadBySession: true }
             });
             let ucExt = uc.ucExtends;
             this.container1.append(uc.ucExtends.self);

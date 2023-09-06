@@ -20,6 +20,15 @@
     border: solid 1px cyan;
 }
 
+[SELF_][special-attr="uc"] input {
+    color: blue;
+    font-style: italic;
+}
+[SELF_][special-attr="tpt"] input {
+    color: green;
+    font-style: italic;
+}
+
 [SELF_][special-attr="x-tabindex"] input,
 [SELF_][special-attr="x-name"] input {
     font-weight: bold;
