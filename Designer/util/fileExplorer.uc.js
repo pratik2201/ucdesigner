@@ -29,32 +29,17 @@ class fileExplorer extends designer {
         this.tpt_itemNode = this.listview1.itemTemplate;
         this.tpt_itemNode.init(this);
         this.comboBox1.source = rootPathHandler.source;
+        
         //this.comboBox1.itemTemplate = this.tpt_rootitemNode;
+       
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
             /** @type {replaceTextRow}  */
             let selRec = this.comboBox1.binder.selectedRecord;
+            
             this.fillRows(selRec.originalFinderText);
         });
-        //if(this.searchbox1.lv_items.lvUI.)
-        // this.searchbox1.bindInput({
-        //     targetHT: this.txt_rootPath,
-        //     source: rootPathHandler.source,
-        //     onSelectionChange: (nindex, oindex, evt, evttype) => {
-        //         if (evttype == 'Mouse') {
-        //             /** @type {replaceTextRow}  */
-        //             let crec = this.searchbox1.lv_items.lvUI.currentRecord;
-        //             this.txt_rootPath.value = crec.originalFinderText;
-        //             this.fillRows(crec.originalFinderText);
-        //             evt.preventDefault();
-        //         }
-        //     },
-        //     onKeyUp: (e) => {
-        //         if (e.keyCode == keyBoard.keys.enter) {
-        //             this.searchbox1.hide();
-        //         }
-        //     }
-        // });
-        //console.log(this.tpt_itemNode.primary);
+        
+       //this.comboBox1.ll_view.
         
         this.listview1.itemTemplate = this.tpt_itemNode;
         this.ucExtends.Events.loadLastSession.on(() => {
@@ -87,9 +72,8 @@ class fileExplorer extends designer {
         this.cmd_delete.addEventListener("mouseup", (e) => { this.tpt_itemNode.delete(); });
     }
     loadSession() {
-
         let res = this.fillRows(this.SESSION_DATA.activePath);
-
+        //debugger;
         if (res != undefined)
             this.comboBox1.selectedIndex = res.index;
     }
