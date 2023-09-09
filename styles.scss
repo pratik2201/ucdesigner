@@ -18,11 +18,13 @@
     input[type="text"]:focus,
     input[type="password"]:focus,
     textarea:focus,
+    btn-icon:focus,
     .ucInput:focus-within {
-        border-color: orangered;
+        outline:solid 1px goldenrod;
+        border-color: goldenrod;
         background-color: rgba(255, 68, 0, 0.089);
     }
-
+    
     btn-icon {
         box-sizing: border-box;
         background-image: var(--url);
