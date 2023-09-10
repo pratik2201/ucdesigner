@@ -1,5 +1,5 @@
 <wrapper x-caption="UC Designer">
-    <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winFrame1" x-allowtabindex="0">
+    <winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winFrame1" x-allowtabindex="0">
         <div style="display: grid; position: absolute; height: 100%; width: 100%; grid-template-rows: max-content auto;">
             <div>
                 <button x-name="cmd_built">BUILT</button>
@@ -16,9 +16,9 @@
                 <button x-name="cmd_resetsesion" style="float:right; font-weight: bold;">Reset</button>
             </div>
             <div style="display: flex;">
-                <uc:splitter x-name="splitter1" x-from="@uccontrols:/controls/splitter.uc"></uc:splitter>
+                <splitter x-name="splitter1" x-from="@uccontrols:/controls/splitter.uc"></splitter>
                 <div x-name="container1"></div>
             </div>
         </div>
-    </uc:winframe>
+    </winframe>
 </wrapper>

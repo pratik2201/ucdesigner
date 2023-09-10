@@ -46,7 +46,7 @@ class controlInfo extends designer {
     source = [];
     init() {
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
-            if (this.comboBox1.hasfocused) {
+             if (this.comboBox1.hasfocused) {
                 this.isAttributeChanging = true;
                 this.main.tools.activeEditor.selection.doSelect(nindex, {
                     multiSelect: false
@@ -77,7 +77,7 @@ class controlInfo extends designer {
         });
 
         this.listview1.Events.currentItemIndexChange.on((ov, nv) => {
-            console.log(ov + ":" + nv);
+            //console.log(ov + ":" + nv);
             this.tpt_attrib.saveRow(this.listview1.Records.allItemHT[ov]);
             if (ov == nv) {
                 //this.tpt_attrib.focus(this.listview1.records.allItemsHt[nv+1]);
@@ -89,7 +89,7 @@ class controlInfo extends designer {
         if (this.currentIndex == -1 || this.tools.activeEditor == undefined) return;
         /** @type {treeRecord}  */
         let row = this.tools.activeEditor.source[this.currentIndex];
-        console.log(row.element.parentElement);
+        //console.log(row.element.parentElement);
         if (row.element.nodeType == row.element.TEXT_NODE) {
             //this.lbl_nodeType.innerText = "Text Node";
             this.disableme();
