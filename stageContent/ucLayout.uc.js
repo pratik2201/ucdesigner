@@ -84,7 +84,7 @@ class ucLayout extends designer {
                 //itemNode.setAttribute(ucDesignerATTR.UNIQID, rsw.uniqId);
             });
 
-        this.listview1.listvw1.addEventListener("mouseup", (evt) => {
+        this.listview1.ucExtends.self.addEventListener("mouseup", (evt) => {
             let index = this.listview1.lvUI.currentIndex;
             this.activeEditor.selection.doSelect(index, {
                 multiSelect: evt.ctrlKey

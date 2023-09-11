@@ -5,7 +5,6 @@ const { pathInfo, arrayOpt, objectOpt } = require("@ucbuilder:/build/common");
 const { commonEvent } = require("@ucbuilder:/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
-const { ListViewSource } = require("@uccontrols:/controls/ListView.uc.enumAndMore");
 const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
 const { fileDataBank } = require("ucbuilder/global/fileDataBank");
 
@@ -65,8 +64,10 @@ class collepser {
         }
     };
 
-    /** @type {ListViewSource}  */
-    source = objectOpt.clone(ListViewSource);
+   
+    source = {
+        rows : [], 
+    };
 
     treeSource = new pathRecord();
     /** @type {fileExplorer}  */
@@ -106,10 +107,10 @@ class collepser {
             (pera) => {
                 this.toggleChildrens(pera.index);
             });*/
-        this.main.listview1.listvw1.addEventListener("mouseup", (evt) => {
+        this.main.listview1.ucExtends.self.addEventListener("mouseup", (evt) => {
             this.toggleChildrens(this.main.listview1.lvUI.currentIndex);
         });
-        this.main.listview1.listvw1.addEventListener('keydown', (event) => {
+        this.main.listview1.ucExtends.self.addEventListener('keydown', (event) => {
             /** @type {pathRecord}  */
             let row = undefined;
             switch (event.keyCode) {
