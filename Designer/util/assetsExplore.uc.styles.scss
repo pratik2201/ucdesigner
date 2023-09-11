@@ -1,5 +1,12 @@
+[inside="@ucdesigner:/Designer/util/fileexplorer.uc"]{
+    [SELF_]{
+        width: inherit;
+        height: inherit;
+        position: relative;
+    }
+}
 [SELF_]{
-    width: 700px;
+    width: 600px;
     height: 420px;
     position: relative;
     border:solid 1px black;
@@ -8,14 +15,26 @@
 CONTAINER{
     width: 100%;
     height: 100%;
-    display:block;
+    display:grid;
     position: static;
-    background-color: white;
+   
+    grid-template-columns: 50% auto;
+}
+table, tbody , tr{
+    width: 100%;
+    position: relative;
+    height: 100%;
+    display:block;
+}
+table td{
+    
+    overflow: scroll;
 }
 preview{
-    
-    
+    width: 100%;
+    height: 100%;
     display: block;
+    position: relative;
     padding: 5px;
     box-sizing: border-box;
 }

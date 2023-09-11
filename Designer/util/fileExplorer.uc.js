@@ -48,7 +48,7 @@ class fileExplorer extends designer {
 
         if (!this.ucExtends.session.options.loadBySession) {
             //this.comboBox1.value = '@testnpm::/';
-            //this.fillRows('@testnpm::/');
+            this.fillRows(rootPathHandler.source[0].originalFinderText);
 
         }
 

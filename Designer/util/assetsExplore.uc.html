@@ -1,24 +1,11 @@
 <wrapper x-caption="Assets Explorer">
     <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winframe1">
-        <container>
-            <uc:singlesplitter x-name="singleSplitter1" x.type="h"
-                style="position: relative; width:100%; height:100%; ">
-
-                <f:fileexplorer x-from="@ucdesigner:/Designer/util/fileexplorer.uc" x-name="fileExplorer1">
-                </f:fileexplorer>
-                <preview>
-                    <target x-name="op_target"></target>
-                    <transparancy></transparancy>
-                </preview>
-                <uc:singlesplitter x-name="singleSplitter2" x.type="v"
-                    style="position: relative; width:100%; height:100%; ">
-                    <lf:create_ledger x-from="@ucbuilder:/appBuilder/demo/create_ledger.uc" x-name="cledger"
-                        x.ucextends.options.windowstate="dock"></lf:create_ledger>
-                    <lf:create_ledger x-from="@ucbuilder:/appBuilder/demo/create_ledger.uc" x-name="cledger2"
-                        x.ucextends.options.windowstate="dock"></lf:create_ledger>
-                </uc:singlesplitter>
-            </uc:singlesplitter>
-
+        <container x-name="container">
+            <fileexplorer x-from="@ucdesigner:/Designer/util/fileexplorer.uc" x-name="fileExplorer1"></fileexplorer>
+            <preview>
+                <target x-name="op_target"></target>
+                <transparancy></transparancy>
+            </preview>
         </container>
     </uc:winframe>
 
