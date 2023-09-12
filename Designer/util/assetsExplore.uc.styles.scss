@@ -15,19 +15,22 @@
 CONTAINER{
     width: 100%;
     height: 100%;
+    position: static;   
     display:grid;
-    position: static;
-   
-    grid-template-columns: 50% auto;
+    grid-template-columns: auto/*50% auto*/;
 }
-table, tbody , tr{
+table{
     width: 100%;
     position: relative;
     height: 100%;
     display:block;
 }
-table td{
+tbody{
+    display: grid;
+    width: inherit; height:inherit;
     
+}
+table td{    
     overflow: scroll;
 }
 preview{

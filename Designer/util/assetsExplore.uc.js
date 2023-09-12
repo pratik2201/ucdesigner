@@ -7,10 +7,10 @@ class assetsExplore extends designer {
         eval(designer.giveMeHug);
         this.init();
         // this.singleSplitter1.type = spliterType.COLUMN;
-        this.splHandler = new splitHandler();
+        /*this.splHandler = new splitHandler();
         this.splHandler.uc = this;
         this.splHandler.spliterType = 'columns';
-        this.splHandler.init(this.container, this.container);
+        this.splHandler.init(this.container, this.container);*/
     }
     previewHandle = new previewHandler();
 

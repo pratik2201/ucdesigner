@@ -1,11 +1,25 @@
 <wrapper x-caption="Assets Explorer">
     <uc:winframe x-from="@uccontrols:/controls/winframe.uc" x-name="winframe1">
         <container x-name="container">
-            <fileexplorer x-from="@ucdesigner:/Designer/util/fileexplorer.uc" x-name="fileExplorer1"></fileexplorer>
-            <preview>
-                <target x-name="op_target"></target>
-                <transparancy></transparancy>
-            </preview>
+            <table>
+                <tr style="display: grid; grid-template-columns: 50% auto;  ">
+                    <td>
+                        <fileexplorer x-from="@ucdesigner:/Designer/util/fileexplorer.uc" x-name="fileExplorer1">
+                        </fileexplorer>
+                    </td>
+                    <td>
+                        <preview>
+                            <target x-name="op_target"></target>
+                            <transparancy></transparancy>
+                        </preview>
+                    </td>
+                </tr>
+                <tr style="display: grid;  grid-template-columns: 50% auto; ">
+                    <td>CELL 1 0</td>
+                    <td>CELL 1 1</td>
+                </tr>
+            </table>
+
         </container>
     </uc:winframe>
 
