@@ -30,10 +30,12 @@ class controlInfo extends designer {
     isAttributeChanging = false;
     constructor() {
         eval(designer.giveMeHug);
+        this.listview1.init();
         /** @type {attributeTemplate}  */
         this.tpt_attrib = this.listview1.itemTemplate;
         //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
+       
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.tools = this.main.tools;

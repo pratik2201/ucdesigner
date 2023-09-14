@@ -1,14 +1,13 @@
 [SELF_] {
-    background-color: white;
-    display: block;
     background-color: rgb(236, 232, 232);
     border: solid 1px transparent;
+
+   display: block;
 }
 
 [SELF_][current-index="1"] {
     background-color: rgb(238, 209, 175);
     border: solid 1px rgb(240, 174, 100);
-    ;
 }
 
 [SELF_][new-row="1"] {
@@ -43,17 +42,17 @@
     color: green;
     font-weight: bold;
 }
-/*
-[SELF_][special-attr="x-from"] input[role="attr-name"] {
-    color: blue;
-    text-decoration: underline;
-}*/
 
-div {
+td{
+    display: block;
+}
+
+div{
     display: grid;
-    width: 100%;
+    width: 100%; box-sizing: border-box;
     grid-template-columns: max-content 150px max-content auto max-content;
 }
+
 span{
     font-weight: bold;
 }
