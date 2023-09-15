@@ -1,8 +1,7 @@
 [SELF_] {
     background-color: rgb(236, 232, 232);
     border: solid 1px transparent;
-
-   display: block;
+    display: table-row;
 }
 
 [SELF_][current-index="1"] {
@@ -43,6 +42,20 @@
     font-weight: bold;
 }
 
+cell{
+    display: table-cell;
+    border-bottom: dashed 1px sandybrown;
+}
+attr-grid-name{
+    display: grid;
+    grid-template-columns: max-content auto;
+    height: 100%;
+}
+
+attr-grid-value{    
+    display: grid;
+    grid-template-columns:auto max-content;
+}
 td{
     display: block;
 }
@@ -73,6 +86,8 @@ input[role="attr-value"] {
     padding-left: 4px;
     color: black; font-style: italic;
     resize: both;
+    margin-top: -1px;
+   
     display:inline;
 }
 

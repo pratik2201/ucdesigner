@@ -1,9 +1,14 @@
 <wrapper>
-    <div> 
-        <btn role="favourite" x-name="cmd_clear"></btn>
-        <input role="attr-name" x-tabindex="0" x-name="txt_attrName" value="{=nodeName}" disabled="true"> 
-        <span>:&nbsp;&nbsp;</span>
-        <input role="attr-value" type="text" x-tabindex="1" value="{=value}" x-name="txt_attrValue">
-        <btn role="remove" x-name="cmd_remove"></btn>
-    </div>
-</wrapper>  
+    <cell>
+        <attr-grid-name>
+            <btn role="favourite" x-name="cmd_clear"></btn>
+            <input role="attr-name" x-tabindex="0" x-name="txt_attrName" value="{=nodeName}" disabled="true">
+        </attr-grid-name>
+    </cell>
+    <cell>
+        <attr-grid-value>
+            <input role="attr-value" type="text" x-tabindex="1" value="{=value}" x-name="txt_attrValue">
+            <btn role="remove" x-name="cmd_remove"></btn>
+        </attr-grid-value>
+    </cell>
+</wrapper>
