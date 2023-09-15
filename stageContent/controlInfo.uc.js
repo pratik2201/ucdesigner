@@ -7,6 +7,7 @@ const { buildOptions } = require('@ucbuilder:/build/common.js');
 const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
 const { ATTR_OF } = require('@ucbuilder:/global/runtimeOpt.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { tableSplitter } = require('@ucbuilder:/global/tableSplitter');
 const { designer } = require('./controlInfo.uc.designer.js');
 const attributeTemplate = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.js');
 class controlInfo extends designer {
@@ -42,7 +43,12 @@ class controlInfo extends designer {
         this.tools.set(designerToolsType.controlInfo, this);
         this.listview1.source.rows = this.source;
         this.init();
-
+        this.tblSpl = new tableSplitter();
+        this.tblSpl.init({
+            table :this.listview1.ucExtends.self,
+            tr:"ROW",
+            td:"CELL"
+        })
     }
     /** @type {attrRecord[]}  */
     source = [];
