@@ -45,8 +45,10 @@ class dgvManage {
     constructor(main) {
         this.main = main;
         this.main.datagrid1.detail.source.rows = this.jsnSources;
-       // debugger;
-        this.main.datagrid1.detail.Records.fill();
+        this.main.datagrid1.fill({ addHeader: true, addFooter: true, });
+        
+        let row = this.main.dgvFooter.getAllControls(this.main.datagrid1.footerGridHT1);
+        row.lbl_total.innerHTML = this.jsnSources.reduce((summery)=>summery+1,0);
     }
 }
 module.exports = { dgvManage };
