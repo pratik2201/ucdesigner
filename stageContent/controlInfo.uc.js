@@ -10,6 +10,7 @@ const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
 const { tableSplitter } = require('@ucbuilder:/global/tableSplitter');
 const { designer } = require('./controlInfo.uc.designer.js');
 const attributeTemplate = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.js');
+const { dgvManage } = require('@ucdesigner:/stageContent/controlInfo.uc.dgvManage.js');
 class controlInfo extends designer {
     IGNORE_ATTR_LIST = [
         ATTR_OF.UC.PARENT_STAMP,
@@ -31,6 +32,7 @@ class controlInfo extends designer {
     isAttributeChanging = false;
     constructor() {
         eval(designer.giveMeHug);
+        new dgvManage(this);
         this.listview1.init();
         /** @type {attributeTemplate}  */
         this.tpt_attrib = this.listview1.itemTemplate;

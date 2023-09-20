@@ -44,7 +44,9 @@ class dgvManage {
     /**  @param {controlInfo} main */
     constructor(main) {
         this.main = main;
-        
+        this.main.datagrid1.detail.source.rows = this.jsnSources;
+       // debugger;
+        this.main.datagrid1.detail.Records.fill();
     }
 }
 module.exports = { dgvManage };
