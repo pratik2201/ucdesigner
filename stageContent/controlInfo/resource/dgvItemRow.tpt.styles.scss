@@ -1,6 +1,7 @@
 [SELF_]{
     display: grid;    
-    grid-template-columns: var(--winfo);
+    grid-template-columns: var(--xxxxwinfo);
+    height: 15px;
 }
 cell{
     display: block;
@@ -9,5 +10,7 @@ cell{
     box-sizing: border-box;
     padding-left: 5px;
     outline: solid 1px burlywood;
-    min-height: 100%;
+    
+    min-height: 100%;  
+    text-overflow: ellipsis; 
 }
