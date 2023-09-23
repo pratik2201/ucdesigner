@@ -1,8 +1,8 @@
 const { fileDataBank } = require("@ucdesigner:/../ucbuilder/global/fileDataBank");
 const controlInfo = require("@ucdesigner:/stageContent/controlInfo.uc");
 const { readFileSync, writeFileSync, existsSync } = require("fs");
-const { fileInfo } = require("ucbuilder/build/codeFileInfo");
-const { rootPathHandler } = require("ucbuilder/global/rootPathHandler");
+const { fileInfo } = require("@ucbuilder:/build/codeFileInfo");
+const { rootPathHandler } = require("@ucbuilder:/global/rootPathHandler");
 class dgvManage {
     
     /** @type {{}[]}  */ 

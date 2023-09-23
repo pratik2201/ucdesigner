@@ -6,7 +6,7 @@ const { commonEvent } = require("@ucbuilder:/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
 const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
-const { fileDataBank } = require("ucbuilder/global/fileDataBank");
+const { fileDataBank } = require("@ucbuilder:/global/fileDataBank");
 
 
 class collepser {
@@ -280,7 +280,7 @@ class collepser {
         //console.log(findex + " => " + nodeArray.length);
         this.source.rows.splice(findex, 0, ...nodeArray);
         for (let index = findex; index < findex + nodeArray.length; index++) {
-            this.main.listview1.Records.append(index);
+            this.main.listview1.lvUI.append(index);
         }
         this.main.listview1.lvUI.currentIndex = this.main.listview1.lvUI.currentIndex;
     }
@@ -297,7 +297,7 @@ class collepser {
                 this.openNode(precord);
             }
             precord.iconFilePath = precord.isOpened ? this.iconFilePath.folderOpened : this.iconFilePath.folder;
-            this.main.listview1.Records.update(index);
+            this.main.listview1.lvUI.update(index);
             this.isFocused = true;
             this.fileExplorerEvents.toggleDir(precord);
         }
