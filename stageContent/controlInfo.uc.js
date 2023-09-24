@@ -88,11 +88,11 @@ class controlInfo extends designer {
 
         this.listview1.Events.currentItemIndexChange.on((ov, nv) => {
             //console.log(ov + ":" + nv);
-            this.tpt_attrib.saveRow(this.listview1.Records.allItemHT[ov]);
+            this.tpt_attrib.saveRow(this.listview1.lvUI.allItemHT[ov]);
             if (ov == nv) {
                 //this.tpt_attrib.focus(this.listview1.records.allItemsHt[nv+1]);
             }
-            this.tpt_attrib.focus(this.listview1.Records.allItemHT[nv]);
+            this.tpt_attrib.focus(this.listview1.lvUI.allItemHT[nv]);
         });
     }
     refresh(changeComboboxSelectedIndex = true) {

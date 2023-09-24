@@ -98,7 +98,7 @@ class selectionManage {
     nameEditor = new nodeNameEditor();
     editNode() {
         /** @type {treeRecord}  */
-        let rec = this.main.source[this.lastFatchedObject.index];//this.layout.listview1.records.currentRecord;
+        let rec = this.main.source[this.lastFatchedObject.index];//this.layout.listview1.currentRecord;
         if (rec.nodeType == rec.element.TEXT_NODE) {
             let id = this.lastFatchedObject.index;
             let ele = this.main.targetOutput.querySelector(`[${ucDesignerATTR.ITEM_INDEX}='${id}']`);

@@ -35,7 +35,6 @@ class fileExplorer extends designer {
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
             /** @type {replaceTextRow}  */
             let selRec = this.comboBox1.binder.selectedRecord;
-            
             this.fillRows(selRec.originalFinderText);
         });
         
@@ -106,7 +105,7 @@ class fileExplorer extends designer {
         return undefined;
     }
     /** @type {pathRecord}  */
-    get currentRecord() { return this.listview1.lvUI.currentRecord; }
+    get currentRecord() { return this.listview1.currentRecord; }
 
     get fileExplorerEvents() { return this.manager.fileExplorerEvents; }
 }

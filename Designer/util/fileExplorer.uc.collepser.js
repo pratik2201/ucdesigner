@@ -34,7 +34,8 @@ class collepser {
             this.watcher.close();
         }
         this.reFillRows();
-        this.main.listview1.Records.fill();
+        
+        this.main.listview1.lvUiRecords.fill();
         this.watcher = fs.watch(this.activeRoot.path, { recursive: true, }, this.watch_Listner);
 
     }
@@ -67,6 +68,7 @@ class collepser {
    
     source = {
         rows : [], 
+        update:()=>{}
     };
 
     treeSource = new pathRecord();
@@ -80,7 +82,7 @@ class collepser {
 
 
     reFillRows = () => {
-        this.main.listview1.Records.clear();
+        this.main.listview1.lvUiRecords.clear();
         this.source.rows = [];
 
         this.treeSource.type = pathInfo.TYPE.directory;
@@ -94,7 +96,8 @@ class collepser {
         //  this.main.listview1.source = [];
         this.source.rows.push(this.treeSource);
         this.fillRows(this.treeSource, this.source.rows);
-
+        this.source.update();
+        
     }
 
     initEvent() {
@@ -274,6 +277,7 @@ class collepser {
         this.recursive(precord);
 
         this.fillRows(precord, nodeArray);
+        this.source.update();
         //let findex = this.source.findIndex(s => s === precord) + 1;
         //let findex = precord.sourceindex+1;
         let findex = precord.relevantElement.index() + 1;

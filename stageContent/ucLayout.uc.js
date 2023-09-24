@@ -42,7 +42,7 @@ class ucLayout extends designer {
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.layout, this);
-        this.allItemsHT = this.listview1.Records.allItemHT;
+        this.allItemsHT = this.listview1.lvUI.allItemHT;
         this.editorEvent = this.main.editorEvent;
         let stamp_onSelectControl = this.editorEvent.selectControl.on((index, isMultiSelect) => {
             //let ids = parseInt(row.id);
@@ -360,7 +360,7 @@ class ucLayout extends designer {
         this.clearDrag();
 
         this.listview1.source.rows = this.activeEditor.source;
-        this.listview1.Records.fill();
+        this.listview1.lvUiRecords.fill();
         this.bindDragEvent();
 
     }

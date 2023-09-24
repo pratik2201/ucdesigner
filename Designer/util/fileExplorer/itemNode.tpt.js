@@ -13,7 +13,7 @@ class itemNode extends designer {
     /** @param {fileExplorer} main */
     init(main) {
         this.main = main;
-        this.records = this.main.listview1.lvUI;
+        this.lvRecords = this.main.listview1.lvUiRecords;
         this.main.listview1.ucExtends.self.addEventListener("keydown", (ev) => {
             switch (ev.keyCode) {
                 case keyBoard.keys.f2:
@@ -34,7 +34,7 @@ class itemNode extends designer {
     }
     get isInEditMode() { return this.editor.isInEditMode; }
     /** @type {pathRecord}  */
-    get pathRow() { return this.records.currentRecord; }
+    get pathRow() { return this.lvRecords.currentRecord; }
 
     doEditProcess() {
         let crow = this.pathRow;
@@ -49,7 +49,7 @@ class itemNode extends designer {
                     let src = this.main.manager.source.rows;
                     let findex = src.findIndex(s => s.path == path);
                     if (findex != -1) {
-                        this.records.currentIndex = findex;
+                        this.lvRecords.currentIndex = findex;
                         this.main.listview1.listvw1.focus();
                     }
                 }
@@ -82,7 +82,7 @@ class itemNode extends designer {
     delete() {
         let _this = this;
         /** @type {pathRecord}  */
-        let row = this.records.currentRecord;
+        let row = this.lvRecords.currentRecord;
         if (fs.existsSync(row.path)) {
             let finf = fs.lstatSync(row.path);
             if (finf.isDirectory())
@@ -93,7 +93,7 @@ class itemNode extends designer {
     }
     addFolder() {
         /** @type {pathRecord}  */
-        let row = this.records.currentRecord;
+        let row = this.lvRecords.currentRecord;
         /** @type {pathRecord}  */
         let parent = (row.type == pathInfo.TYPE.file) ? row.parent : row;
         if (parent != undefined) {
@@ -111,7 +111,7 @@ class itemNode extends designer {
     }
     addFile() {
         /** @type {pathRecord}  */
-        let row = this.records.currentRecord;
+        let row = this.lvRecords.currentRecord;
         /** @type {pathRecord}  */
         let parent = (row.type == pathInfo.TYPE.file) ? row.parent : row;
         if (parent != undefined) {

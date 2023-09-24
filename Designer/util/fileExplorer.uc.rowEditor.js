@@ -138,7 +138,7 @@ class rowEditor {
     excape() {
         if (this.lastEditedIndex != -1) {
             this.main.listview1.source.rows[this.lastEditedIndex].viewType = templeteType.view;
-            this.main.listview1.Records.update(this.lastEditedIndex);
+            this.main.listview1.lvUiRecords.update(this.lastEditedIndex);
             this.main.listview1.ucExtends.wrapperHT.focus();
             this.lastEditedIndex = -1;
         }
