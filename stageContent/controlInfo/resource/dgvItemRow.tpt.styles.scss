@@ -2,6 +2,16 @@
     display: grid;    
     grid-template-columns: var(--xxxxwinfo);
     height: 15px;
+    overflow: hidden;
+    border: solid 1px transparent;
+   
+    filter: blur(1px);   
+    opacity: 0.5;
+}
+[SELF_][iscurrent="1"]{
+    border: solid 1px black;
+    opacity: 1; filter: blur(0px);
+    text-shadow: 1px 1px 2px black;
 }
 cell{
     display: block;
@@ -10,7 +20,6 @@ cell{
     box-sizing: border-box;
     padding-left: 5px;
     outline: solid 1px burlywood;
-    
     min-height: 100%;  
     text-overflow: ellipsis; 
 }

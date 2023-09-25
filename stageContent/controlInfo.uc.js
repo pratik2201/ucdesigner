@@ -123,11 +123,12 @@ class controlInfo extends designer {
             value: "",
             assigned: false
         });
-        this.listview1.Records.fill();
+        this.listview1.nodes.fill();
     }
     disableme() {
         this.listview1.source.rows.length = 0;
-        this.listview1.Records.fill();
+        this.listview1.source.update();
+        this.listview1.nodes.fill();
     }
 }
 module.exports = controlInfo;
