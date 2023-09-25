@@ -1,20 +1,15 @@
 const fileExplorer = require("@ucdesigner:/Designer/util/fileExplorer.uc.js");
 const { pathRecord } = require("@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord");
 const { rootPathRow } = require("@ucdesigner:/Designer/util/fileExplorer.uc.enumAndMore");
-const { pathInfo, arrayOpt, objectOpt } = require("@ucbuilder:/build/common");
+const { pathInfo, arrayOpt } = require("@ucbuilder:/build/common");
 const { commonEvent } = require("@ucbuilder:/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
 const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
-const { fileDataBank } = require("@ucbuilder:/global/fileDataBank");
-
-
+/** @typedef {import("@ucbuilder:/global/listUI/scrollerLV").scrollerLV} scrollerLV */
 class collepser {
-
-    constructor() {
-        
-    }
-    
+    constructor() { }
+    /** @type {string}  */ 
     static iconDirPath = "@ucdesigner:/Designer/util/fileExplorer/type-icons/style4/".__();
     iconFilePath = {
         folder: collepser.iconDirPath + "folder.png",
@@ -35,7 +30,7 @@ class collepser {
         }
         this.reFillRows();
         
-        this.main.listview1.lvUiRecords.fill();
+        this.main.listview1.lvUiNodes.fill();
         this.watcher = fs.watch(this.activeRoot.path, { recursive: true, }, this.watch_Listner);
 
     }
@@ -82,7 +77,7 @@ class collepser {
 
 
     reFillRows = () => {
-        this.main.listview1.lvUiRecords.clear();
+        this.main.listview1.lvUiNodes.clear();
         this.source.rows = [];
 
         this.treeSource.type = pathInfo.TYPE.directory;
@@ -106,10 +101,7 @@ class collepser {
             let rw = this.source.rows[index];
             rw.relevantElement = ele;
         });
-        /*this.main.listview1.listviewEvents.onItemMouseUp(
-            (pera) => {
-                this.toggleChildrens(pera.index);
-            });*/
+        
         this.main.listview1.ucExtends.self.addEventListener("mouseup", (evt) => {
             this.toggleChildrens(this.main.listview1.lvUI.currentIndex);
         });
@@ -205,10 +197,7 @@ class collepser {
             (a, b) => {
                 return a.sort - b.sort;
             });
-        //let itemindex = 1;
-        //let preEle = undefined;
-        //parentDir.children.map((s) => { s.prevElement = preEle; preEle = s; s.itemindex = itemindex++; });
-    }
+        }
 
 
     fileExplorerEvents = {
@@ -278,13 +267,12 @@ class collepser {
 
         this.fillRows(precord, nodeArray);
         this.source.update();
-        //let findex = this.source.findIndex(s => s === precord) + 1;
-        //let findex = precord.sourceindex+1;
+        
+
         let findex = precord.relevantElement.index() + 1;
-        //console.log(findex + " => " + nodeArray.length);
         this.source.rows.splice(findex, 0, ...nodeArray);
         for (let index = findex; index < findex + nodeArray.length; index++) {
-            this.main.listview1.lvUI.append(index);
+            this.main.listview1.lvUI.nodes.append(index);
         }
         this.main.listview1.lvUI.currentIndex = this.main.listview1.lvUI.currentIndex;
     }
@@ -292,7 +280,6 @@ class collepser {
     toggleChildrens(index) {
         /** @type {pathRecord} */
         let precord = this.source.rows[index];
-        //console.log(index);
         if (precord.type == pathInfo.TYPE.directory) {
             if (precord.isOpened) {
                 this.closeNode(precord);
@@ -301,7 +288,7 @@ class collepser {
                 this.openNode(precord);
             }
             precord.iconFilePath = precord.isOpened ? this.iconFilePath.folderOpened : this.iconFilePath.folder;
-            this.main.listview1.lvUI.update(index);
+            this.main.listview1.lvUiNodes.update(index);
             this.isFocused = true;
             this.fileExplorerEvents.toggleDir(precord);
         }

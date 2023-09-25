@@ -360,7 +360,8 @@ class ucLayout extends designer {
         this.clearDrag();
 
         this.listview1.source.rows = this.activeEditor.source;
-        this.listview1.lvUiRecords.fill();
+        this.listview1.source.update();
+        this.listview1.lvUiNodes.fill();
         this.bindDragEvent();
 
     }
