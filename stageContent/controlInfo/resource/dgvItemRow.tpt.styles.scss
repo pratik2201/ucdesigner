@@ -3,16 +3,19 @@
     grid-template-columns: var(--xxxxwinfo);
     height: 15px;
     overflow: hidden;
-    border: solid 1px transparent;
-   
-    filter: blur(1px);   
-    opacity: 0.5;
+}
+[SELF_][iscurrent="0"]{
+    border: solid 1px transparent;    
+    /*filter: blur(1px);   
+    opacity: 0.5;    */
 }
 [SELF_][iscurrent="1"]{
     border: solid 1px black;
-    opacity: 1; filter: blur(0px);
+    /*opacity: 1; filter: blur(0px);*/
     text-shadow: 1px 1px 2px black;
 }
+
+
 cell{
     display: block;
     height: fit-content;  
@@ -22,4 +25,12 @@ cell{
     outline: solid 1px burlywood;
     min-height: 100%;  
     text-overflow: ellipsis; 
+}
+cell:nth-child(1) span{ 
+    display: block;
+    width: 10px;
+    height: 10px;  border: solid 1px black;
+    box-sizing: border-box;
+    margin-top: 3px;
+    margin-left: -1px;
 }
