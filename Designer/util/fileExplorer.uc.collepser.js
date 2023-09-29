@@ -9,7 +9,7 @@ const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
 /** @typedef {import("@ucbuilder:/global/listUI/scrollerLV").scrollerLV} scrollerLV */
 class collepser {
     constructor() { }
-    /** @type {string}  */ 
+    /** @type {string}  */
     static iconDirPath = "@ucdesigner:/Designer/util/fileExplorer/type-icons/style4/".__();
     iconFilePath = {
         folder: collepser.iconDirPath + "folder.png",
@@ -61,10 +61,11 @@ class collepser {
         }
     };
 
-   
+
     source = {
-        rows : [], 
-        update:()=>{}
+        /** @type {pathRecord[]}  */ 
+        rows: [],
+        update: () => { }
     };
 
     treeSource = new pathRecord();
@@ -93,7 +94,7 @@ class collepser {
         this.source.rows.push(this.treeSource);
         this.fillRows(this.treeSource, this.source.rows);
         this.source.update();
-        
+
     }
 
     initEvent() {
@@ -102,7 +103,7 @@ class collepser {
             let rw = this.source.rows[index];
             rw.relevantElement = ele;
         });
-        
+
         this.main.listview1.ucExtends.self.addEventListener("mouseup", (evt) => {
             this.toggleChildrens(this.main.listview1.lvUI.currentIndex);
         });
@@ -127,6 +128,7 @@ class collepser {
                 case keyBoard.keys.left:
                     if (!this.main.tpt_itemNode.isInEditMode) {
                         row = this.main.listview1.lvUI.currentRecord;
+                        let relINdex = this.main.listview1.lvUI.currentIndex;
                         if (row.type == pathInfo.TYPE.directory) {
                             if (row.isOpened) {
                                 this.toggleChildrens(this.main.listview1.lvUI.currentIndex);
@@ -135,7 +137,7 @@ class collepser {
                             }
                         }
                         if (row.parent != undefined)
-                            this.main.listview1.lvUI.currentIndex = row.relevantElement.index(); //row.parent.sourceindex;                        
+                            this.main.listview1.lvUI.currentIndex = relINdex;/*row.relevantElement.index();*/ //row.parent.sourceindex;                        
                     }
                     break;
                 case keyBoard.keys.space:
@@ -198,7 +200,7 @@ class collepser {
             (a, b) => {
                 return a.sort - b.sort;
             });
-        }
+    }
 
 
     fileExplorerEvents = {
@@ -245,11 +247,12 @@ class collepser {
     closeNode(precord) {
         let nodeToRemove = [];
         this.fillcloseNode(precord, nodeToRemove);
-        arrayOpt.removeByCallback(this.source.rows,/**  @param {pathRecord} row */(row) => {
+        arrayOpt.removeByCallback(this.source.rows,row => nodeToRemove.includes(row));
+        /*arrayOpt.removeByCallback(this.source.rows,(row) => {
             let found = nodeToRemove.includes(row);
             if (found) row.relevantElement.delete();
             return found;
-        });
+        });*/
     }
 
     /**
@@ -268,9 +271,7 @@ class collepser {
 
         this.fillRows(precord, nodeArray);
         this.source.update();
-        
-
-        let findex = precord.relevantElement.index() + 1;
+        let findex = this.main.listview1.indexOf(precord.relevantElement) + 1;
         this.source.rows.splice(findex, 0, ...nodeArray);
         /*for (let index = findex; index < findex + nodeArray.length; index++) {
             this.main.listview1.lvUI.nodes.append(index);
@@ -290,7 +291,8 @@ class collepser {
                 this.openNode(precord);
             }
             precord.iconFilePath = precord.isOpened ? this.iconFilePath.folderOpened : this.iconFilePath.folder;
-            this.main.listview1.lvUiNodes.update(index);
+            this.main.listview1.lvUiNodes.callToFill();
+            //this.main.listview1.lvUiNodes.update(index);
             this.isFocused = true;
             this.fileExplorerEvents.toggleDir(precord);
         }
