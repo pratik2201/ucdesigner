@@ -29,7 +29,8 @@ class collepser {
             this.watcher.close();
         }
         this.reFillRows();
-        
+        //console.log(val);
+        //debugger;
         this.main.listview1.lvUiNodes.fill();
         this.watcher = fs.watch(this.activeRoot.path, { recursive: true, }, this.watch_Listner);
 
@@ -78,7 +79,7 @@ class collepser {
 
     reFillRows = () => {
         this.main.listview1.lvUiNodes.clear();
-        this.source.rows = [];
+        this.source.rows.length = 0;
 
         this.treeSource.type = pathInfo.TYPE.directory;
         this.treeSource.iconFilePath = this.iconFilePath.folder;
@@ -271,10 +272,11 @@ class collepser {
 
         let findex = precord.relevantElement.index() + 1;
         this.source.rows.splice(findex, 0, ...nodeArray);
-        for (let index = findex; index < findex + nodeArray.length; index++) {
+        /*for (let index = findex; index < findex + nodeArray.length; index++) {
             this.main.listview1.lvUI.nodes.append(index);
-        }
+        }*/
         this.main.listview1.lvUI.currentIndex = this.main.listview1.lvUI.currentIndex;
+        this.main.listview1.lvUI.nodes.fill();
     }
 
     toggleChildrens(index) {

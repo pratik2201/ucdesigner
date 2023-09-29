@@ -4,7 +4,7 @@
     display: table-row;
 }
 
-[SELF_][current-index="1"] {
+[SELF_][iscurrent="1"] {
     background-color: rgb(238, 209, 175);
     border: solid 1px rgb(240, 174, 100);
 }

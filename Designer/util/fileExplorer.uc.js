@@ -73,8 +73,11 @@ class fileExplorer extends designer {
     loadSession() {
         let res = this.fillRows(this.SESSION_DATA.activePath);
        // debugger;
-        if (res != undefined)
+       
+        if (res != undefined){
+            this.comboBox1.binder.fireSelectedIndexChangeEvent = false;
             this.comboBox1.selectedIndex = res.index;
+        }
     }
     get listviewEvents() {
         return this.listview1.Events;
@@ -99,6 +102,7 @@ class fileExplorer extends designer {
             }
             nrow.key = info.alices;
             this.SESSION_DATA.activePath = nrow.path;
+            
             this.manager.ROOT_DIR = nrow;
             return info;
         }
