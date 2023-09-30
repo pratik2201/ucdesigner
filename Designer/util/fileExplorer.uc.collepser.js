@@ -104,7 +104,7 @@ class collepser {
             rw.relevantElement = ele;
         });
 
-        this.main.listview1.ucExtends.self.addEventListener("mouseup", (evt) => {
+        this.main.listview1.ll_view.addEventListener("mouseup", (evt) => {
             this.toggleChildrens(this.main.listview1.lvUI.currentIndex);
         });
         this.main.listview1.ucExtends.self.addEventListener('keydown', (event) => {
