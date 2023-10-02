@@ -15,7 +15,12 @@
     text-shadow: 1px 1px 2px black;
     background-color: var(--abc);
 }
-
+input[type="checkbox"]{
+    box-sizing: border-box;
+    height: 12px;
+    width: 20px;
+    margin-top: 2px;
+}
 cell{
     display: block;
     height: fit-content;  
