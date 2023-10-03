@@ -8,7 +8,6 @@ class dgvItemRow extends designer {
             ctrls.chk_allowed.addEventListener("change", (e) => {
                 row.ischecked = (ctrls.chk_allowed.checked) ? "checked" : "";
             });
-
         }
     }
 }
