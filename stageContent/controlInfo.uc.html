@@ -1,4 +1,4 @@
-<wrapper x-caption="Element Info">
+<wrapper x-caption="Element Info" >
     <movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
         <dgv-res x-name="dgvHeader" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvHeaderRow.tpt"></dgv-res>
         <dgv-res x-name="dgvFooter" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvFooterRow.tpt"></dgv-res>
@@ -9,6 +9,7 @@
                     x.headerItemTemplate="this.dgvHeader"
                     x.footerItemTemplate="this.dgvFooter"
                     x.paging="true"
+                    
                     x-nodeName="targetElement" style=" height: 100%; width: 100%;" x-name="datagrid1">
 
                 </datagrid>
