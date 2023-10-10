@@ -1,11 +1,3 @@
-<argtgv style="--abc:{=color};">
-    <cell><span style="  background-color: {=color};  "></span></cell>
-    <cell><input x-name="chk_allowed" x-tabindex="0" type="checkbox" {=ischecked} /></cell>
-    <cell x-name="lbl_name">{=first_name} {=last_name}</cell>
-    <cell x-name="lbl_company">{=company}</cell>
-    <cell x-name="lbl_country">{=country}</cell>
-    <cell x-name="lbl_email">{=email}</cell>
-    <cell x-name="lbl_ipv4">{=ipv4}</cell>
-    <cell x-name="lbl_color">{=color}</cell>
-    <cell x-name="lbl_random_text">{=random_text}</cell>
-</argtgv>
+<tpt x-name="header" x-from="@ucdesigner:stageContent/controlInfo/resource/dgvItemRow.tpt.header" ></tpt>
+<tpt x-name="detail" x-from="@ucdesigner:stageContent/controlInfo/resource/dgvItemRow.tpt.detail" ></tpt>
+<tpt x-name="footer" x-from="@ucdesigner:stageContent/controlInfo/resource/dgvItemRow.tpt.footer" ></tpt>
