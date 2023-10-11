@@ -5,7 +5,7 @@ const { designer } = require('./attributeTemplate.tpt.designer.js');
 class attributeTemplate extends designer {
     constructor() {
         super(arguments);
-        this.extended.Events.onGenerateNode =
+        this.primary.extended.Events.onGenerateNode =
             /**
              * @param {HTMLElement} eleHT 
              * @param {attrRecord} row 

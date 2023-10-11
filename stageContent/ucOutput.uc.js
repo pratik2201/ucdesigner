@@ -254,7 +254,8 @@ class ucOutput extends designer {
                     if (htmlContents == "") htmlContents = undefined;
                     let _tpt = this.uc_rendar.generateTpt(htmlContents, fileDataBank.getReplacedContent(this.cssContent));
 
-                    this.outputHT = _tpt.extended.generateNode(JSON.parse(this.mainNode.getAttribute(ucDesignerATTR.JSON_ROW))/*JSON.parse(this.SESSION_DATA.jsonPerameters)*/);
+                    
+                    //this.outputHT = _tpt.extended.generateNode(JSON.parse(this.mainNode.getAttribute(ucDesignerATTR.JSON_ROW))/*JSON.parse(this.SESSION_DATA.jsonPerameters)*/);
 
 
 

@@ -34,8 +34,8 @@ class previewHandler {
                         _this.main.currentFilePreview.parseUrl(row.path);
                         this.uc_rendar.init(_this.main.currentFilePreview, _this.main);
                         let tpt = this.uc_rendar.generateTpt();
-                        this.main.lastElement = tpt.extended.generateNode({});
-                        _this.main.op_target.append(this.main.lastElement);
+                        //this.main.lastElement = tpt.extended.generateNode({});
+                        //_this.main.op_target.append(this.main.lastElement);
                         break;
                 }
             });

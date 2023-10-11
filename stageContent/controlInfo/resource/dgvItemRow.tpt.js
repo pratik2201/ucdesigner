@@ -3,7 +3,7 @@ class dgvItemRow extends designer {
     constructor() {
         super(arguments);
        
-        this.extended.Events.onGenerateNode = (ht, row) => {
+        this.primary.extended.Events.onGenerateNode = (ht, row) => {
             let ctrls = this.getAllControls(ht);
             ctrls.chk_allowed.addEventListener("change", (e) => {
                 row.ischecked = (ctrls.chk_allowed.checked) ? "checked" : "";
