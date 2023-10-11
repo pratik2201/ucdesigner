@@ -1,15 +1,13 @@
 <wrapper x-caption="Element Info" >
     <movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
-        <dgv-res x-name="dgvHeader" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvHeaderRow.tpt"></dgv-res>
-        <dgv-res x-name="dgvFooter" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvFooterRow.tpt"></dgv-res>
+        <dgv-res x-name="dgvrowTpt" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvItemRow.tpt"></dgv-res>
         <container>
             <header>
                 <datagrid x-from="@uccontrols:/controls/datagrid.uc"
-                    x.detailItemTemplate="=@ucdesigner:/stageContent/controlInfo/resource/dgvItemRow.tpt"
-                    x.headerItemTemplate="this.dgvHeader"
-                    x.footerItemTemplate="this.dgvFooter"
+                    x.detailItemTemplate="this.dgvrowTpt.detail"
+                    x.headerItemTemplate="this.dgvrowTpt.header"
+                    x.footerItemTemplate="this.dgvrowTpt.footer"
                     x.paging="true"
-                    
                     x-nodeName="targetElement" style=" height: 100%; width: 100%;" x-name="datagrid1">
 
                 </datagrid>
