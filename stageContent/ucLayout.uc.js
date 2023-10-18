@@ -361,6 +361,7 @@ class ucLayout extends designer {
 
         this.listview1.source.rows = this.activeEditor.source;
         this.listview1.source.update();
+        //debugger;
         this.listview1.lvUiNodes.fill();
         this.bindDragEvent();
 

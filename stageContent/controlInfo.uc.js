@@ -35,7 +35,7 @@ class controlInfo extends designer {
         new dgvManage(this);
         this.listview1.init();
         /** @type {attributeTemplate}  */
-        this.tpt_attrib = this.listview1.itemTemplate;
+        this.tpt_attrib = this.listview1.itemTemplate.extended.main;
         //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
        
@@ -78,7 +78,7 @@ class controlInfo extends designer {
             this.currentIndex = index;
             this.refresh(!this.isAttributeChanging);
         });
-
+        
         this.tpt_attrib.attrEvents.onAttrChange(() => {
             this.main.tools.activeEditor.refresh();
             this.listview1.listvw1.focus();

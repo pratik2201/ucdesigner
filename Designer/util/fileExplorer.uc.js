@@ -26,7 +26,7 @@ class fileExplorer extends designer {
         eval(designer.giveMeHug);        
         this.init();
         /** @type {itemnode}  */ 
-        this.tpt_itemNode = this.listview1.itemTemplate;
+        this.tpt_itemNode = this.listview1.itemTemplate.extended.main;
         this.tpt_itemNode.init(this);
         this.comboBox1.source = rootPathHandler.source;
         
@@ -39,8 +39,8 @@ class fileExplorer extends designer {
         });
         
        //this.comboBox1.ll_view.
-        
-        this.listview1.itemTemplate = this.tpt_itemNode;
+        //console.log(this.listview1.itemTemplate);
+        //this.listview1.itemTemplate = this.tpt_itemNode;        
         this.ucExtends.Events.loadLastSession.on(() => {
             this.loadSession();
         });
