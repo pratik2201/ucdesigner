@@ -38,7 +38,7 @@ class ucLayout extends designer {
         eval(designer.giveMeHug);
         
         /** @type {itemnode}  */
-        this.tpt_itemnode = this.listview1.itemTemplate;
+        this.tpt_itemnode = this.listview1.itemTemplate.extended.main;
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.layout, this);
@@ -361,7 +361,7 @@ class ucLayout extends designer {
 
         this.listview1.source.rows = this.activeEditor.source;
         this.listview1.source.update();
-        //debugger;
+        
         this.listview1.lvUiNodes.fill();
         this.bindDragEvent();
 
