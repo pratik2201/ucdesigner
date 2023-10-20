@@ -8,6 +8,7 @@ const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { timeoutCall } = require('@ucdesigner:/../ucbuilder/global/timeoutCall.js');
 /**
 * @typedef {import ('@ucdesigner:/stagecontent/uclayout/itemnode.tpt.js')} itemnode 
 **/
@@ -304,10 +305,9 @@ class ucLayout extends designer {
             lvUI.currentIndex = cIndex;
 
         }, (oval) => {
-            setTimeout(() => {
+            timeoutCall.start(() => {
                 lvUI.currentIndex = lvUI.currentIndex;
             }, 0);
-
         });
     }
     itemDrag = new dragHelper();

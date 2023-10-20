@@ -18,6 +18,7 @@ const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
 const fs = require('fs');
 const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
 
 class formDesigner extends designer {
 
@@ -299,7 +300,8 @@ class formDesigner extends designer {
         this.ucExtends.session.onModify = () => {
             if (_this.isSaving) return;
             _this.isSaving = true;
-            setTimeout(() => {
+            
+            timeoutCall.start(() => {
 
                 _this.ucExtends.session.writeFile();
                 _this.isSaving = false;

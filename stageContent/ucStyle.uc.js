@@ -75,7 +75,8 @@ class ucStyle extends designer {
      update(val) {
          if (this.iswritting) return;
          this.iswritting = true;
-         setTimeout(() => {
+
+         timeoutCall.start(() => {
              if (this.activeEditor!=undefined) {
                  //prg.ref.build.buildFile(this.activeEditor.fInfo);
                  this.activeEditor.Run();

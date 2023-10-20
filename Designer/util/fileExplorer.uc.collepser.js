@@ -31,7 +31,7 @@ class collepser {
         this.reFillRows();
         //console.log(val);
         
-        //this.main.listview1.lvUiNodes.fill();
+        this.main.listview1.lvUiNodes.fill();
         this.watcher = fs.watch(this.activeRoot.path, { recursive: true, }, this.watch_Listner);
 
     }

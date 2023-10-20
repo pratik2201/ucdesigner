@@ -26,11 +26,15 @@ class dgvManage {
             return 0;
         });
         this.main.datagrid1.detail.source.rows = this.jsnSources;
-        this.main.datagrid1.fill({ addHeader: true, addFooter: true, });
+        this.main.datagrid1.fill({
+            addHeader: true,
+            addFooter: true,
+            fillDetail:true,
+        });
 
         /*let row = this.main.dgvrowTpt.footer.getAllControls(this.main.datagrid1.footerGridHT1);
         let cntr = this.jsnSources.reduce((summery) => summery + 1, 0);
-        row.lbl_total.innerHTML = cntr.toFixed(2);*/        
+        row.lbl_total.innerHTML = cntr.toFixed(2);*/
     }
 }
 module.exports = { dgvManage };

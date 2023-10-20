@@ -17,6 +17,7 @@ const { tptManager } = require('@ucdesigner:/stageContent/ucOutput.uc.tptManager
 const { ucManager } = require('@ucdesigner:/stageContent/ucOutput.uc.ucManager.js');
 const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { timeoutCall } = require("@ucbuilder:/global/timeoutCall");
 
 class ucOutput extends designer {
     SESSION_DATA = {
@@ -241,7 +242,7 @@ class ucOutput extends designer {
                     this.outputHT = _uc.ucExtends.self;
                     this.targetOutput.appendChild(this.outputHT);
                     this.outputHT.appendChild(this.outputBoard);
-                    setTimeout(() => {
+                    timeoutCall.start(() => {
                         this.selection.fillOutputScaleSource(this.tools.selectedElementList);
                         this.main.editorEvent.changeLayout.fire();
                     }, 0);
@@ -262,7 +263,8 @@ class ucOutput extends designer {
                     _tpt.extended.stampRow.passElement(this.outputHT);
                     this.targetOutput.appendChild(this.outputHT);
                     this.outputHT.appendChild(this.outputBoard);
-                    setTimeout(() => {
+                    
+                    timeoutCall.start(() => {
                         this.selection.fillOutputScaleSource(this.tools.selectedElementList);
                         this.main.editorEvent.changeLayout.fire();
                     }, 0);
