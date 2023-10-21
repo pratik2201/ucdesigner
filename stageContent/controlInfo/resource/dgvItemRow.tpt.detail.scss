@@ -1,7 +1,7 @@
 [SELF_]{
     display: grid;    
     grid-template-columns: var(--xxxxwinfo);
-    height: 15px;
+    height: 17px; box-sizing: border-box;
     overflow: hidden;
 }
 
