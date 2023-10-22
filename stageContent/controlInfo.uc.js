@@ -38,7 +38,7 @@ class controlInfo extends designer {
         this.tpt_attrib = this.listview1.itemTemplate.extended.main;
         //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
-       
+        
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.tools = this.main.tools;
@@ -50,7 +50,8 @@ class controlInfo extends designer {
             table :this.listview1.ucExtends.self,
             tr:"ROW",
             td:"CELL"
-        })
+        });
+        
     }
     /** @type {attrRecord[]}  */
     source = [];
