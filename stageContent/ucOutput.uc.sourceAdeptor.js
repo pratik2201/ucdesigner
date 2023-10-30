@@ -12,6 +12,7 @@ class sourceAdeptor {
         this.main = main;
     }
     refill(){
+       
         this.main.mainNode.querySelectorAll(ucDesignerATTR.TEXT_NODE_TAG).forEach(s => {
             controlOpt.unwrap(s);
         });

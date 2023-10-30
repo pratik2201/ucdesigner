@@ -33,7 +33,6 @@ class ucOutput extends designer {
     /**  @param {string} fpath */
     constructor(fpath) {
         eval(designer.giveMeHug);
-
         this.uc_rendar = new UcRendarer();
         /*this.cmd_addTemplate.addEventListener("mousedown", (e) => {
              
@@ -137,7 +136,7 @@ class ucOutput extends designer {
     uc_rendar = undefined;
     init() {
         //console.log(this.SESSION_DATA.filePath);
-
+       
         this.fInfo.extCode = this.SESSION_DATA.extCode;
 
         this.fInfo.parseUrl(this.SESSION_DATA.filePath);
