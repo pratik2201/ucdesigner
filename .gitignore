@@ -2,5 +2,5 @@
 **/package-lock.json
 **/*.uc.designer.js
 **/*.tpt.designer.js
+formdesigner.uc.sessionData.src
 formdesigner.uc.sessionData.json
-formdesigner.uc.sessionData.json.src
