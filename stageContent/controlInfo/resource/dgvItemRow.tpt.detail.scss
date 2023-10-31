@@ -1,7 +1,7 @@
 rof{
-    $l-gblvar:#bbaa55;
+    $g-gblvar:#bbaa55;
     $g-gblxyz:#35d58a;
-    $g-lclvar:5px;
+    $l-lclvar:5px;
     
 }
 [SELF_]{
@@ -9,6 +9,7 @@ rof{
     grid-template-columns: var(--xxxxwinfo);
     height: 17px; box-sizing: border-box;
     overflow: hidden;
+    background-color: var( $g-gblvar);
 }
 
 [SELF_][iscurrent="0"]{
