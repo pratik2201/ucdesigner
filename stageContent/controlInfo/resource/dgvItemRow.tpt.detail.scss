@@ -1,6 +1,6 @@
 rof{
-    $g-gblvar:#bbaa55;
-    $g-gblxyz:#35d58a;
+    $g-gblbackcolor:#2c0641ed;
+    $g-gblcolor:#9e6810;
     $l-lclvar:5px;
     
 }
@@ -9,7 +9,8 @@ rof{
     grid-template-columns: var(--xxxxwinfo);
     height: 17px; box-sizing: border-box;
     overflow: hidden;
-    background-color: var( $g-gblvar);
+    background-color: var( $g-gblbackcolor);
+    color: var(   $g-gblcolor );
 }
 
 [SELF_][iscurrent="0"]{
