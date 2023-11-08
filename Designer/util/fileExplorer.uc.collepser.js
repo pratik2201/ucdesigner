@@ -248,6 +248,7 @@ class collepser {
         let nodeToRemove = [];
         this.fillcloseNode(precord, nodeToRemove);
         arrayOpt.removeByCallback(this.source.rows,row => nodeToRemove.includes(row));
+       
         /*arrayOpt.removeByCallback(this.source.rows,(row) => {
             let found = nodeToRemove.includes(row);
             if (found) row.relevantElement.delete();
@@ -290,6 +291,7 @@ class collepser {
             } else {
                 this.openNode(precord);
             }
+            this.source.update();
             precord.iconFilePath = precord.isOpened ? this.iconFilePath.folderOpened : this.iconFilePath.folder;
             this.main.listview1.lvUiNodes.callToFill();
             //this.main.listview1.lvUiNodes.update(index);
