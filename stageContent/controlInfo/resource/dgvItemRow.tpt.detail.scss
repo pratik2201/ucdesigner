@@ -1,11 +1,11 @@
 rof{
     $g-gblbackcolor:#f7ecd9ed;
     $g-gblcolor:#020203;
-    $l-lclvar:5px;
+    $l-gridsizeinfo:20px 40px 150px 200px 120px 250px 100px 80px 350px;
 }
 [SELF_]{
     display: grid;    
-    grid-template-columns: var(--xxxxwinfo);
+    grid-template-columns: var($l-gridsizeinfo);
     height: 17px; box-sizing: border-box;
     overflow: hidden;
     background-color: var( $g-gblbackcolor);
