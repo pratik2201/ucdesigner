@@ -15,8 +15,8 @@ class dgvManage {
         finfo.parse('@ucdesigner:/stageContent/controlInfo.uc.jsnData.json');
         this.jsnSources = JSON.parse(readFileSync(finfo.fullPath, "binary"));
         this.jsnSources.sort((a, b) => {
-            let fa = a.color.toLowerCase(),
-                fb = b.color.toLowerCase();
+            let fa = a.first_name.toLowerCase(),
+                fb = b.first_name.toLowerCase();
             if (fa < fb) {
                 return -1;
             }
