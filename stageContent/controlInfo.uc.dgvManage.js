@@ -25,7 +25,7 @@ class dgvManage {
             }
             return 0;
         });
-        this.main.datagrid1.colsResizeMng.varName = "gridsizeinfo";
+        //1this.main.datagrid1.colsResizeMng.varName = "gridsizeinfo";
         //this.main.datagrid1.colsResizeMng.cssVar = '';
         this.main.datagrid1.detail.source.rows = this.jsnSources;
         this.main.datagrid1.fill({
