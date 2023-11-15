@@ -53,7 +53,6 @@ class selectionManage {
         let startPoint = new Point(0, 0);
         this.main.targetOutput.addEventListener("mouseup", (evt) => {
             //if (this.opResizer.isResizeMode) return;
-
             this.lastFatchedObject = this.fatchFromPoint(evt.target, new Point(evt.pageX, evt.pageY), evt.altKey);
             if (this.lastFatchedObject != undefined) {
                 this.doSelect(this.lastFatchedObject.index, {
@@ -130,26 +129,25 @@ class selectionManage {
     source = [];
     /** @param {number[]} selectedIndexes */
     fillOutputScaleSource(selectedIndexes = []) {
-        let offset = this.main.resourcesOfSelection.getClientRects()[0];
-
-        let ctrs = Array.from(this.main.targetOutput.querySelectorAll(`[${ucDesignerATTR.ITEM_INDEX}]`));
-        this.source.length = 0;
-        let treeSrc = this.main.source;
-        ctrs.forEach(ctr => {
-            //console.log(ctr.isConnected);
-            if (!ctr.isConnected || ctr.hasAttribute(ucDesignerATTR.IGNORE_IN_DESIGNER)) return;
-            let rectObj = new Rect();
-            let index = parseInt(ctr.getAttribute(ucDesignerATTR.ITEM_INDEX));
-            let row = treeSrc[index];
-            this.main.adjustRect(rectObj, ctr, offset.x, offset.y);
-            row.outputElement = ctr;
-            row.rect = rectObj;
-            this.source.push(row);
-
-        });
-
-        this.opDrag.pushElements(ctrs);
-        //this.opResizer.refreshSelection(selectedIndexes);
+        setTimeout(() => {
+            let offset = this.main.resourcesOfSelection.getClientRects()[0];
+            let ctrs = Array.from(this.main.targetOutput.querySelectorAll(`[${ucDesignerATTR.ITEM_INDEX}]`));
+            this.source.length = 0;
+            let treeSrc = this.main.source;
+            ctrs.forEach(ctr => {
+                //console.log(ctr.isConnected);
+                if (!ctr.isConnected || ctr.hasAttribute(ucDesignerATTR.IGNORE_IN_DESIGNER)) return;
+                let rectObj = new Rect();
+                let index = parseInt(ctr.getAttribute(ucDesignerATTR.ITEM_INDEX));
+                let row = treeSrc[index];
+                this.main.adjustRect(rectObj, ctr, offset.x, offset.y);
+                row.outputElement = ctr;
+                row.rect = rectObj;
+                this.source.push(row);
+            });
+            this.opDrag.pushElements(ctrs);
+            //this.opResizer.refreshSelection(selectedIndexes);
+        }, 1);
 
     }
 

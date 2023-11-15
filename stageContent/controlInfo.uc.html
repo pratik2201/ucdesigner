@@ -3,16 +3,6 @@
         <dgv-res x-name="dgvrowTpt" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvItemRow.tpt"></dgv-res>
         <container>
             <header>
-                <datagrid x-from="@uccontrols:/controls/datagrid.uc"
-                    x.detailItemTemplate="this.dgvrowTpt.detail"
-                    x.headerItemTemplate="this.dgvrowTpt.header"
-                    x.footerItemTemplate="this.dgvrowTpt.footer"
-                    x.varName="=gridsizeinfo"
-                    x.paging="true"
-                    x-nodeName="targetElement" style=" height: 100%; width: 100%;" x-name="datagrid1">
-
-                </datagrid>
-
                 <combobox x-from="@uccontrols:/controls/combobox.uc"
                     x.itemtemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt"
                     x.seletecteditemtemplate="=@ucdesigner:/stageContent/ucLayout/itemNode_ComboboxSelected.tpt"

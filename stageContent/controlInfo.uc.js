@@ -32,7 +32,7 @@ class controlInfo extends designer {
     isAttributeChanging = false;
     constructor() {
         eval(designer.giveMeHug);
-        new dgvManage(this);
+        //new dgvManage(this);
         this.listview1.init();
         /** @type {attributeTemplate}  */
         this.tpt_attrib = this.listview1.itemTemplate.extended.main;
