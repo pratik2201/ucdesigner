@@ -11,7 +11,7 @@ class attributeTemplate extends designer {
              * @param {attrRecord} row 
              */
             (eleHT, row) => {
-                let ctrls = this.getAllControls(eleHT);
+                let ctrls = this.primary.getAllControls(eleHT);
                 switch (row.nodeName) {
                     case "x-name":
                     case "x-tabindex":
