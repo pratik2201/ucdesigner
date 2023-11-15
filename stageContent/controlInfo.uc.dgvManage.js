@@ -15,12 +15,19 @@ class dgvManage {
         finfo.parse('@ucdesigner:/stageContent/controlInfo.uc.jsnData.json');
         this.jsnSources = JSON.parse(readFileSync(finfo.fullPath, "binary"));
         this.jsnSources.sort((a, b) => {
-            let fa = a.first_name.toLowerCase(),
-                fb = b.first_name.toLowerCase();
-            if (fa < fb) {
+            let fa = '',
+                fb = '',
+                ca = '',
+                cb = '';
+            fa = a.first_name;//.toLowerCase();
+            fb = b.first_name;//.toLowerCase();
+            ca = a.color;//.toLowerCase();
+            cb = b.color;//.toLowerCase();
+            return ca.localeCompare(cb) || fa.localeCompare(fb);
+            if (fa < fb || ca < cb) {
                 return -1;
             }
-            if (fa > fb) {
+            if (fa > fb || ca > cb) {
                 return 1;
             }
             return 0;
