@@ -1,6 +1,6 @@
-<wrapper x-caption="Element Info" >
+<wrapper x-caption="Element Info">
     <movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
-        <dgv-res x-name="dgvrowTpt" x-from="@ucdesigner:/stageContent/controlInfo/resource/dgvItemRow.tpt"></dgv-res>
+        <dgv-res x-name="dgvrowTpt" x-from="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt"></dgv-res>
         <container>
             <header>
                 <combobox x-from="@uccontrols:/controls/combobox.uc"
@@ -8,10 +8,14 @@
                     x.seletecteditemtemplate="=@ucdesigner:/stageContent/ucLayout/itemNode_ComboboxSelected.tpt"
                     x-name="comboBox1"></combobox>
             </header>
-            <LinearList x-from="@uccontrols:/controls/LinearList.uc" x-nodeName="targetElement"
-                x.itemTemplate="=@ucdesigner:/stageContent/controlInfo/attributetemplate.tpt" x-name="listview1">
-            </LinearList>
+            <datagrid x-from="@uccontrols:/controls/datagrid.uc" 
+                x.itemTemplate="this.dgvrowTpt"
+                x.resizer.fillSize="true"
+                x.varName="=attrgridinfo"  x-nodeName="targetElement" style=" height: 100%; width: 100%;"
+                x-name="listview1">
 
+            </datagrid>
+            
         </container>
     </movable>
 </wrapper>

@@ -1,7 +1,11 @@
+rof{
+    $l-attrgridinfo:150px 340px;
+}
 [SELF_] {
     background-color: rgb(236, 232, 232);
     border: solid 1px transparent;
-    display: table-row;
+    display: grid;
+    grid-template-columns: var($l-attrgridinfo);
 }
 
 [SELF_][iscurrent="1"] {
@@ -17,6 +21,56 @@
     background-color: lightcyan;
     border: solid 1px cyan;
 }
+
+attr-grid-name{
+    display: grid;
+    grid-template-columns: max-content auto;
+    height: 100%;
+}
+
+attr-grid-value{    
+    display: grid;
+    grid-template-columns:auto max-content;
+}
+
+input[role="attr-name"] {
+    font-weight: normal;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    display: inline;
+    padding-right: 5px; 
+    min-width: 100%;
+    text-overflow: ellipsis;
+}
+input[role="attr-value"] {
+    border: none;
+    min-width: 0px;
+    padding-left: 4px;
+    margin-left: 5px;
+    color: black; font-style: italic;
+    margin-top: -1px;
+    display:inline;
+}
+
+input[role="attr-value"]:focus {
+    font-weight: bold;
+}
+
+
+btn {
+    display: inline-block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+btn[role="remove"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_drop.png); }
+btn[role="remove"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_drop.png); }
+btn[role="favourite"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_favorite.png); }
+btn[role="favourite"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_favorite.png); }
+
+
+
 
 [SELF_][special-attr="uc"] input {
     color: blue;
@@ -42,78 +96,4 @@
     font-weight: bold;
 }
 
-cell{
-    display: table-cell;
-    border-bottom: dashed 1px sandybrown;
-}
-attr-grid-name{
-    display: grid;
-    grid-template-columns: max-content auto;
-    height: 100%;
-}
 
-attr-grid-value{    
-    display: grid;
-    grid-template-columns:auto max-content;
-}
-td{
-    display: block;
-}
-
-div{
-    display: grid;
-    width: 100%; box-sizing: border-box;
-    grid-template-columns: max-content 150px max-content auto max-content;
-}
-
-span{
-    font-weight: bold;
-}
-input[role="attr-name"] {
-    font-weight: normal;
-    text-align: right;
-    background-color: transparent;
-    border: none;
-    display: inline-block;
-    padding-right: 5px;
-}
-
-
-
-input[role="attr-value"] {
-    border: none;
-    min-width: 0px;
-    padding-left: 4px;
-    color: black; font-style: italic;
-    resize: both;
-    margin-top: -1px;
-   
-    display:inline;
-}
-
-input[role="attr-value"]:focus {
-    font-weight: bold;
-}
-
-BTN {
-    display: inline-block;
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-}
-
-btn[role="remove"] {
-    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_drop.png);
-}
-
-btn[role="remove"]:hover {
-    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_drop.png);
-}
-
-btn[role="favourite"] {
-    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_favorite.png);
-}
-
-btn[role="favourite"]:hover {
-    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_favorite.png);
-}

@@ -46,8 +46,9 @@ class attributeTemplate extends designer {
     lastFocusedElement = undefined;
     /** @param {HTMLElement} itemHT */
     focus(itemHT) {
+        if (itemHT == undefined) return;
         this.lastFocusedElement = document.activeElement;
-        let ctrls = this.getAllControls(itemHT);
+        let ctrls = this.primary.getAllControls(itemHT);
         // debugger;
         if (!ctrls.txt_attrName.hasAttribute("disabled")) {
             controlOpt.selectAllText(ctrls.txt_attrName);
@@ -57,8 +58,8 @@ class attributeTemplate extends designer {
 
     }
     saveRow(mainHT) {
-
-        let ctrs = this.getAllControls(mainHT);
+        if (mainHT == undefined) return;
+        let ctrs = this.primary.getAllControls(mainHT);
         /** @type {attrRecord}  */
         let row = mainHT.rowData;
         let val = ctrs.txt_attrValue.value;

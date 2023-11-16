@@ -43,7 +43,7 @@ class controlInfo extends designer {
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.tools = this.main.tools;
         this.tools.set(designerToolsType.controlInfo, this);
-        this.listview1.source.rows = this.source;
+        this.listview1.detail.source.rows = this.source;
         this.init();
         this.tblSpl = new tableSplitter();
         this.tblSpl.init({
@@ -82,18 +82,18 @@ class controlInfo extends designer {
         
         this.tpt_attrib.attrEvents.onAttrChange(() => {
             this.main.tools.activeEditor.refresh();
-            this.listview1.listvw1.focus();
+            this.listview1.detail.Records.scrollerElement.focus();
             this.refresh();
             //this.listview1.records.currentIndex = this.listview1.records.currentIndex+1;
         });
 
-        this.listview1.Events.currentItemIndexChange.on((ov, nv) => {
+        this.listview1.detail.Events.currentItemIndexChange.on((ov, nv) => {
             //console.log(ov + ":" + nv);
-            this.tpt_attrib.saveRow(this.listview1.lvUI.allItemHT[ov]);
+            this.tpt_attrib.saveRow(this.listview1.detail.allItemHT[ov]);
             if (ov == nv) {
                 //this.tpt_attrib.focus(this.listview1.records.allItemsHt[nv+1]);
             }
-            this.tpt_attrib.focus(this.listview1.lvUI.allItemHT[nv]);
+            this.tpt_attrib.focus(this.listview1.detail.allItemHT[nv]);
         });
     }
     refresh(changeComboboxSelectedIndex = true) {
@@ -124,12 +124,12 @@ class controlInfo extends designer {
             value: "",
             assigned: false
         });
-        this.listview1.nodes.fill();
+        this.listview1.detail.nodes.callToFill();
     }
     disableme() {
-        this.listview1.source.rows.length = 0;
-        this.listview1.source.update();
-        this.listview1.nodes.fill();
+        this.listview1.detail.source.rows.length = 0;
+        this.listview1.detail.source.update();
+        this.listview1.detail.nodes.callToFill();
     }
 }
 module.exports = controlInfo;
