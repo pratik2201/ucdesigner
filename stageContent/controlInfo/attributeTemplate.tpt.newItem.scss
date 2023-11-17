@@ -1,10 +1,43 @@
-rof{ $l-attrgridinfo:150px 340px; }
+[theme="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
 [SELF_] {
     background-color: rgb(236, 232, 232);
-    border: solid 1px transparent;
-    display: grid;
+    display: grid; box-sizing: border-box;
     grid-template-columns: var($l-attrgridinfo);
+    border: ridge 1px rgb(0, 0, 0); 
+    
 }
-[SELF_] {
-    border-top: solid 2px darkolivegreen;
+[SELF_] * {
+    box-sizing: border-box;
 }
+input[type="text"] {
+    border: none;
+    min-width: 0px;
+    color: black; font-style: italic;
+    padding-left: 4px;
+    display:inline;
+    width: 100%;
+    
+}
+input[role="attr-value"]{
+    text-align: left;
+}
+input[role="attr-name"]{
+    text-align: right;
+}
+
+input[type="text"]:focus {
+    font-weight: bold;
+    border: none!important;
+    outline: none!important;
+}
+
+
+
+btn {
+    display: inline-block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+btn[role="addnew"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/addnew.png); }
+btn[role="addnew"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/addnew-hover.png); }

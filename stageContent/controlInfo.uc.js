@@ -127,9 +127,9 @@ class controlInfo extends designer {
         });*/
         
         this.listview1.fill({
-            addHeader:false,
-            addFooter:true,
-            footerRow:newObjectOpt.copyProps({},attrRecord),
+            addHeader:true,
+            addFooter:false,
+            headerRow:newObjectOpt.copyProps({},attrRecord),
         });
     }
     disableme() {
@@ -137,9 +137,9 @@ class controlInfo extends designer {
         this.listview1.detail.source.update();
         
         this.listview1.fill({
-            addHeader:false,
-            addFooter:true,
-            footerRow:newObjectOpt.copyProps({},attrRecord),
+            addHeader:true,
+            addFooter:false,
+            headerRow:newObjectOpt.copyProps({},attrRecord),
         });
     }
 }

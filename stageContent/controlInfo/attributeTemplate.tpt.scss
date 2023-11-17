@@ -22,18 +22,18 @@
     text-overflow: ellipsis;
 }
 
-input[role="attr-value"] {
+input[type="text"] {
     border: none;
     min-width: 0px;
-   
     color: black; font-style: italic;
     padding-left: 4px;
-   
     display:inline;
 }
 
-input[role="attr-value"]:focus {
+input[type="text"]:focus {
     font-weight: bold;
+    border: none!important;
+    outline: none!important;
 }
 
 
@@ -65,12 +65,12 @@ btn[role="favourite"]:hover { background-image: url(@ucdesigner:/stageContent/co
     font-weight: bold;
 }
 
-[SELF_][special-attr="x-name"] input[role="attr-name"] {
+[SELF_][special-attr="x-name"] text {
     color: darkmagenta;
     font-weight: bold;
 }
 
-[SELF_][special-attr="x-tabindex"] input[role="attr-name"] {
+[SELF_][special-attr="x-tabindex"] text {
     color: green;
     font-weight: bold;
 }

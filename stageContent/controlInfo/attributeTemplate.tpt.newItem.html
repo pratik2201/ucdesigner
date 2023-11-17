@@ -1,10 +1,14 @@
 <row>
     <attr-grid-name>
         <btn role="favourite" x-name="cmd_clear"></btn>
-        <input role="attr-name" x-tabindex="0" x-name="txt_attrName" value="{=nodeName}" disabled="true">
+        <input role="attr-name" type="text"
+        placeholder="Enter Attribute Name"
+        x-tabindex="0" x-name="txt_attrName" value="{=nodeName}" >
     </attr-grid-name>
     <attr-grid-value>
-        <input role="attr-value" type="text" x-tabindex="1" value="{=value}" x-name="txt_attrValue">
-        <btn role="remove" x-name="cmd_remove"></btn>
+        <input role="attr-value" type="text"
+        placeholder="Enter Attribute Value"
+        x-tabindex="1" value="{=value}" x-name="txt_attrValue">
+        <btn role="addnew" x-name="cmd_addnew"></btn>
     </attr-grid-value>
 </row>
