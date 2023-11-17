@@ -1,0 +1,27 @@
+rof {
+    $l-attrgridinfo: 150px 340px;
+}
+
+[SELF_] {
+    background-color: rgb(236, 232, 232);
+    border: solid 1px transparent;
+    display: grid;
+    grid-template-columns: var($l-attrgridinfo);
+    box-sizing: border-box;
+}
+
+[SELF_] * {
+    box-sizing: border-box;
+}
+
+attr-grid-name {
+    display: grid;
+    grid-template-columns: max-content auto;
+    height: 100%;
+}
+
+attr-grid-value {
+    display: grid;
+    grid-template-columns: auto max-content;
+    border-left: solid 1px black;
+}

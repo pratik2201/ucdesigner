@@ -1,55 +1,34 @@
-rof{
-    $l-attrgridinfo:150px 340px;
-}
-[SELF_] {
-    background-color: rgb(236, 232, 232);
-    border: solid 1px transparent;
-    display: grid;
-    grid-template-columns: var($l-attrgridinfo);
-}
+[theme="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
 
 [SELF_][iscurrent="1"] {
     background-color: rgb(238, 209, 175);
     border: solid 1px rgb(240, 174, 100);
 }
 
-[SELF_][new-row="1"] {
-    border-top: solid 2px darkolivegreen;
-}
-
 [SELF_]:focus-within {
     background-color: lightcyan;
     border: solid 1px cyan;
 }
-
-attr-grid-name{
-    display: grid;
-    grid-template-columns: max-content auto;
-    height: 100%;
-}
-
-attr-grid-value{    
-    display: grid;
-    grid-template-columns:auto max-content;
-}
-
-input[role="attr-name"] {
+[SELF_] text{
     font-weight: normal;
     text-align: right;
     background-color: transparent;
     border: none;
     display: inline;
     padding-right: 5px; 
+    overflow: hidden; 
+    white-space: pre; padding-right: 5px;
     min-width: 100%;
     text-overflow: ellipsis;
 }
+
 input[role="attr-value"] {
     border: none;
     min-width: 0px;
-    padding-left: 4px;
-    margin-left: 5px;
+   
     color: black; font-style: italic;
-    margin-top: -1px;
+    padding-left: 4px;
+   
     display:inline;
 }
 

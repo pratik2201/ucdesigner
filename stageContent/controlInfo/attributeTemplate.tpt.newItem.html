@@ -1,10 +1,7 @@
 <row>
     <attr-grid-name>
-        <btn role="favourite" x-name="cmd_clear">
-            <input type="hidden" disabled="true" value="{=nodeName}"
-                x-tabindex="0" x-name="txt_attrName" >
-        </btn> 
-        <text role="attr-name"  >{=nodeName}</text>
+        <btn role="favourite" x-name="cmd_clear"></btn>
+        <input role="attr-name" x-tabindex="0" x-name="txt_attrName" value="{=nodeName}" disabled="true">
     </attr-grid-name>
     <attr-grid-value>
         <input role="attr-value" type="text" x-tabindex="1" value="{=value}" x-name="txt_attrValue">

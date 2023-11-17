@@ -1,0 +1,10 @@
+rof{ $l-attrgridinfo:150px 340px; }
+[SELF_] {
+    background-color: rgb(236, 232, 232);
+    border: solid 1px transparent;
+    display: grid;
+    grid-template-columns: var($l-attrgridinfo);
+}
+[SELF_] {
+    border-top: solid 2px darkolivegreen;
+}

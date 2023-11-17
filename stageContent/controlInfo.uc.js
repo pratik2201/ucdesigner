@@ -11,6 +11,7 @@ const { tableSplitter } = require('@ucbuilder:/global/tableSplitter');
 const { designer } = require('./controlInfo.uc.designer.js');
 const attributeTemplate = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.js');
 const { dgvManage } = require('@ucdesigner:/stageContent/controlInfo.uc.dgvManage.js');
+const { newObjectOpt } = require('ucbuilder/global/objectOpt.js');
 class controlInfo extends designer {
     IGNORE_ATTR_LIST = [
         ATTR_OF.UC.PARENT_STAMP,
@@ -118,18 +119,28 @@ class controlInfo extends designer {
                 assigned: true
             });
         });
-        this.source.push({
+       /* this.source.push({
             ownerControl: row.element,
             nodeName: "",
             value: "",
             assigned: false
+        });*/
+        
+        this.listview1.fill({
+            addHeader:false,
+            addFooter:true,
+            footerRow:newObjectOpt.copyProps({},attrRecord),
         });
-        this.listview1.detail.nodes.callToFill();
     }
     disableme() {
         this.listview1.detail.source.rows.length = 0;
         this.listview1.detail.source.update();
-        this.listview1.detail.nodes.callToFill();
+        
+        this.listview1.fill({
+            addHeader:false,
+            addFooter:true,
+            footerRow:newObjectOpt.copyProps({},attrRecord),
+        });
     }
 }
 module.exports = controlInfo;
