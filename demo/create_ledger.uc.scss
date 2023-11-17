@@ -86,24 +86,24 @@ headerText {
 }
 
 @keyframes headerRotaror {
-    /* 0%   { transform:rotateX(90deg); }
+     0%   { transform:rotateX(90deg); }
     80%   { transform:rotateX(90deg); }
-    100%   {  transform:rotateX(0deg); } */
+    100%  {  transform:rotateX(0deg); } 
 }
 
 @keyframes detailRotaror {
-    /*from   { transform:rotateX(0deg) rotateZ(360deg); }
-    100%   {  transform:rotateX(360deg) rotateZ(0deg); }*/
+    from   { transform:rotateX(0deg) rotateZ(360deg); }
+    100%   {  transform:rotateX(360deg) rotateZ(0deg); }
 }
 
 @keyframes forthRow {
-    /*from   { transform:rotateZ(0deg) rotateY(360deg); }
-    100%   {  transform:rotateZ(360deg) rotateY(0deg); }*/
+    from   { transform:rotateZ(0deg) rotateY(360deg); }
+    100%   {  transform:rotateZ(360deg) rotateY(0deg); }
 }
 
 @keyframes secondRow {
-    /*from   { transform:rotateZ(0deg) rotateX(360deg); }
-    100%   {  transform:rotateZ(360deg) rotateX(0deg); }*/
+    from   { transform:rotateZ(0deg) rotateX(360deg); }
+    100%   {  transform:rotateZ(360deg) rotateX(0deg); }
 }
 
 
