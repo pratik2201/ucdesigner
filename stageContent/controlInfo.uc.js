@@ -39,7 +39,7 @@ class controlInfo extends designer {
         this.tpt_attrib = this.listview1.itemTemplate.extended.main;
         //this.listview1.template = this.tpt_attrib;
         this.ucExtends.session.autoLoadSession = false;
-        
+
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.tools = this.main.tools;
@@ -48,17 +48,17 @@ class controlInfo extends designer {
         this.init();
         this.tblSpl = new tableSplitter();
         this.tblSpl.init({
-            table :this.listview1.ucExtends.self,
-            tr:"ROW",
-            td:"CELL"
+            table: this.listview1.ucExtends.self,
+            tr: "ROW",
+            td: "CELL"
         });
-        
+
     }
     /** @type {attrRecord[]}  */
     source = [];
     init() {
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
-             if (this.comboBox1.hasfocused) {
+            if (this.comboBox1.hasfocused) {
                 this.isAttributeChanging = true;
                 this.main.tools.activeEditor.selection.doSelect(nindex, {
                     multiSelect: false
@@ -67,7 +67,9 @@ class controlInfo extends designer {
                 this.isAttributeChanging = false;
             }
         });
-
+        this.tpt_attrib.getSelectedControls = () => {
+            return [this.tools.activeEditor.source[this.currentIndex].element]; 
+        }
 
         this.main.editorEvent.activateEditor.on(() => {
             this.comboBox1.source = this.main.tools.activeEditor.source;
@@ -80,7 +82,7 @@ class controlInfo extends designer {
             this.currentIndex = index;
             this.refresh(!this.isAttributeChanging);
         });
-        
+
         this.tpt_attrib.attrEvents.onAttrChange(() => {
             this.main.tools.activeEditor.refresh();
             this.listview1.detail.Records.scrollerElement.focus();
@@ -99,6 +101,7 @@ class controlInfo extends designer {
     }
     refresh(changeComboboxSelectedIndex = true) {
         if (this.currentIndex == -1 || this.tools.activeEditor == undefined) return;
+       
         /** @type {treeRecord}  */
         let row = this.tools.activeEditor.source[this.currentIndex];
         //console.log(row.element.parentElement);
@@ -119,27 +122,27 @@ class controlInfo extends designer {
                 assigned: true
             });
         });
-       /* this.source.push({
-            ownerControl: row.element,
-            nodeName: "",
-            value: "",
-            assigned: false
-        });*/
-        
+        /* this.source.push({
+             ownerControl: row.element,
+             nodeName: "",
+             value: "",
+             assigned: false
+         });*/
+
         this.listview1.fill({
-            addHeader:true,
-            addFooter:false,
-            headerRow:newObjectOpt.copyProps({},attrRecord),
+            addHeader: true,
+            addFooter: false,
+            headerRow: newObjectOpt.copyProps({ownerControl: row.element,}, attrRecord),
         });
     }
     disableme() {
         this.listview1.detail.source.rows.length = 0;
         this.listview1.detail.source.update();
-        
+
         this.listview1.fill({
-            addHeader:true,
-            addFooter:false,
-            headerRow:newObjectOpt.copyProps({},attrRecord),
+            addHeader: true,
+            addFooter: false,
+            headerRow: newObjectOpt.copyProps({}, attrRecord),
         });
     }
 }

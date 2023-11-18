@@ -2,9 +2,11 @@ const { attrRecord } = require('@ucdesigner:/stageContent/controlInfo/attributeT
 const { controlOpt } = require('@ucbuilder:/build/common.js');
 const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
 const { designer } = require('./attributeTemplate.tpt.designer.js');
+const { attributeNewItem } = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.newItem.js');
 class attributeTemplate extends designer {
     constructor() {
         super(arguments);
+
         this.primary.extended.Events.onGenerateNode =
             /**
              * @param {HTMLElement} eleHT 
@@ -24,6 +26,7 @@ class attributeTemplate extends designer {
                             eleHT.setAttribute("special-attr", 'uc');
                         break;
                 }
+                
                 if (!row.assigned) {
                     ctrls.txt_attrName.removeAttribute("disabled");
                     eleHT.setAttribute("new-row", "1");
@@ -33,6 +36,13 @@ class attributeTemplate extends designer {
                 ctrls.cmd_remove.addEventListener("mouseup", this.cmd_remove_mouseup);
                 ctrls.txt_attrValue.mainHT = eleHT;
             }
+
+        this.attrNewItm = new attributeNewItem();
+        this.attrNewItm.init(this);
+    }
+    /** @returns {HTMLElement[]}  */ 
+    getSelectedControls = () => {
+        return [];
     }
     /** @param {MouseEvent} event */
     cmd_remove_mouseup = (event) => {
