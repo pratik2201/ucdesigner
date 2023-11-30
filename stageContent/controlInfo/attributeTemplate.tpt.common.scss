@@ -1,13 +1,15 @@
 rof {
-    $l-attrgridinfo: 150px 340px;
+    $l-attrgridinfo: 150px 360px; /* 340px*/
 }
 
 [SELF_] {
     background-color: rgb(236, 232, 232);
     border: solid 1px transparent;
     display: grid;
-    grid-template-columns: var($l-attrgridinfo);
+    grid-template-columns : var($l-attrgridinfo);
     box-sizing: border-box;
+    height: 19px;
+    width: 100%;
 }
 
 [SELF_] * {
@@ -29,4 +31,14 @@ attr-grid-value {
 attr-grid-value :hover{
     border-left: solid 3px rgb(0, 0, 0);
 
+}
+
+
+input[type="text"] {
+    border: none;
+    min-width: 0px;
+    color: black; font-style: italic;
+    padding-left: 4px;
+    display:inline;
+    width: 100%;
 }

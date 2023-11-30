@@ -1,10 +1,17 @@
 [SELF_]{
-    background-color: whitesmoke;
+    
     width: 100%;
     height: 100%;
-   
+    top: 0px;
+    left: 0px;
+    position: absolute;
 }
-[inside="uc:splitter"]{
+[inside="@uccontrols:/controls/winframe.uc"]{
+    [SELF_] {
+        background-color: white; 
+    }
+}
+[inside="@uccontrols:/controls/splitter.uc"]{
     [SELF_] {
          width: 100%; height: 100%; 
          box-sizing: border-box;

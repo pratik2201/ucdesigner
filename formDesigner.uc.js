@@ -32,17 +32,21 @@ class formDesigner extends designer {
 
     constructor() {
         eval(designer.giveMeHug);
+
+        
+        
+
         //console.log(_getCallerFile());
         this.cmd_deletesesion.addEventListener("mousedown", () => {
             pathInfo.removeFile(this.ucExtends.session.dataPath);
             console.clear();
-            console.log('done.');            
+            console.log('done.');
         });
         this.cmd_resetsesion.addEventListener("mousedown", () => {
             pathInfo.removeFile(this.ucExtends.session.dataPath);
             fs.copyFileSync(this.ucExtends.session.dataPath + ".src", this.ucExtends.session.dataPath);
             console.clear();
-            console.log('done.');            
+            console.log('done.');
         });
         this.splitter1.ucExtends.Events.onDataExport = (data) => {
             switch (data.type) {
@@ -300,7 +304,7 @@ class formDesigner extends designer {
         this.ucExtends.session.onModify = () => {
             if (_this.isSaving) return;
             _this.isSaving = true;
-            
+
             timeoutCall.start(() => {
 
                 _this.ucExtends.session.writeFile();

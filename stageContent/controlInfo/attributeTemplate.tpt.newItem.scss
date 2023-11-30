@@ -6,18 +6,8 @@
     border: ridge 1px rgb(0, 0, 0); 
     
 }
-[SELF_] * {
-    box-sizing: border-box;
-}
-input[type="text"] {
-    border: none;
-    min-width: 0px;
-    color: black; font-style: italic;
-    padding-left: 4px;
-    display:inline;
-    width: 100%;
-    
-}
+
+
 input[role="attr-value"]{
     text-align: left;
 }

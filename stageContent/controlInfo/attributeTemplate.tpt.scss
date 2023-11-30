@@ -17,17 +17,10 @@
     display: inline;
     padding-right: 5px; 
     overflow: hidden; 
-    white-space: pre; padding-right: 5px;
+    white-space: pre; 
+    padding-right: 5px;
     min-width: 100%;
     text-overflow: ellipsis;
-}
-
-input[type="text"] {
-    border: none;
-    min-width: 0px;
-    color: black; font-style: italic;
-    padding-left: 4px;
-    display:inline;
 }
 
 input[type="text"]:focus {
