@@ -302,7 +302,7 @@ class formDesigner extends designer {
         this.isSaving = false;
         let _this = this;
         this.ucExtends.session.onModify = () => {
-            if (_this.isSaving) return;
+             if (_this.isSaving) return;
             _this.isSaving = true;
 
             timeoutCall.start(() => {
