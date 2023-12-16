@@ -1,5 +1,5 @@
 {
-  "name": "ucreport",
+  "name": "ucdesigner",
   "version": "1.0.0-beta.0",
   "description": "For Develope Large Applications In Single BrowserWindow...",
   "main": "main.js",
@@ -8,13 +8,14 @@
   "license": "ISC",
   "dependencies": {
     "ucbuilder": "^1.0.0-beta.0",
-    "uccontrols": "^1.0.0"
+    "uccontrols": "^1.0.0",
+    "ucdesigner": "^1.0.0-beta.0"
   },
   "keywords": [
     "form-design"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pratik2201/ucreport.git"
+    "url": "https://github.com/pratik2201/ucdesigner.git"
   }
 }
