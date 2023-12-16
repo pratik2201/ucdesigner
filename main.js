@@ -1,5 +1,6 @@
 
 require('uccontrols');
+
 require('ucbuilder').registar();
 module.exports = {
     startDesigner: () => {
