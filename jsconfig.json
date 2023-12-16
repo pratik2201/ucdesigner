@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@ucdesigner:/*":["./*"],      
+            "@ucreport:/*":["./*"],      
             "@uccontrols:/*":["./node_modules/uccontrols/*"],       
             "@ucbuilder:/*":["./node_modules/ucbuilder/*"],
         },       
