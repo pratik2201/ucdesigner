@@ -8,8 +8,7 @@
   "license": "ISC",
   "dependencies": {
     "ucbuilder": "^1.0.0-beta.0",
-    "uccontrols": "^1.0.0",
-    "ucdesigner": "^1.0.0-beta.0"
+    "uccontrols": "^1.0.0"
   },
   "keywords": [
     "form-design"
