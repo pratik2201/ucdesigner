@@ -1,42 +1,32 @@
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
-const projHandler = require('@ucdesigner:/stageContent/projHandler.uc.js');
 const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
-const { Usercontrol } = require('@ucbuilder:/Usercontrol.js');
-const ucOutput = require('@ucdesigner:/stageContent/ucOutput.uc.js');
-const ucStyle = require('@ucdesigner:/stageContent/ucStyle.uc.js');
 const { designer } = require('./formDesigner.uc.designer.js');
-const ucLayout = require('@ucdesigner:/stageContent/ucLayout.uc.js');
-const Movable = require('@uccontrols:/controls/Movable.uc.js');
-const { objectOpt, arrayOpt, pathInfo } = require('@ucbuilder:/build/common.js');
-const { tabChilds } = require('@uccontrols:/controls/Splitter.uc.enumAndMore.js');
-const controlInfo = require('@ucdesigner:/stageContent/controlInfo.uc.js');
-const { jqFeatures } = require('@ucbuilder:/global/jqFeatures.js');
-const ucJsonPerameterEditor = require('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js');
-const assetsExplore = require('@ucdesigner:/Designer/util/assetsExplore.uc.js');
-//const messageBox = require('@uccontrols:/controls/messageBox.uc.js');
+const {  pathInfo } = require('@ucbuilder:/build/common.js');
 const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
 const fs = require('fs');
 const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
 const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
-
+/**
+ * @typedef {import('@ucdesigner:/stageContent/projHandler.uc.js').projHandler} projHandler
+ * @typedef {import('@ucdesigner:/stageContent/ucOutput.uc.js').ucOutput} ucOutput
+ * @typedef {import('@ucdesigner:/stageContent/ucStyle.uc.js').ucStyle} ucStyle
+ * @typedef {import('@ucdesigner:/stageContent/ucLayout.uc.js').ucLayout} ucLayout
+ * @typedef {import('@ucdesigner:/Designer/util/assetsExplore.uc.js').assetsExplore} assetsExplore
+ * @typedef {import('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js').ucJsonPerameterEditor} ucJsonPerameterEditor
+ * @typedef {import('@ucdesigner:/stageContent/controlInfo.uc.js').controlInfo} controlInfo 
+ * @typedef {import('@ucbuilder:/Usercontrol.js').Usercontrol} Usercontrol
+ */
 class formDesigner extends designer {
 
     SESSION_DATA = {
-        /** @type {tabChilds[]}  */
-        children: [],
 
-        /** @type {tabChilds[]}  */
-        inActiveChildren: [],
     }
-
+    
     constructor() {
         eval(designer.giveMeHug);
 
-        
-        
-
-        //console.log(_getCallerFile());
+        this.splitter1.initMain(this.container1);
         this.cmd_deletesesion.addEventListener("mousedown", () => {
             pathInfo.removeFile(this.ucExtends.session.dataPath);
             console.clear();
@@ -48,18 +38,7 @@ class formDesigner extends designer {
             console.clear();
             console.log('done.');
         });
-        this.splitter1.ucExtends.Events.onDataExport = (data) => {
-            switch (data.type) {
-                case 'uc':
-                    /** @type {Usercontrol}  */
-                    let uc = data.data;
-                    uc.ucExtends.windowstate = 'normal';
-                    this.container1.appendChild(uc.ucExtends.self);
-                    this.pushChildSession(uc);
-                    return true;
-                    break;
-            }
-        };
+        
 
 
         this.cmd_sample1.addEventListener("mousedown", () => {
@@ -83,6 +62,7 @@ class formDesigner extends designer {
 
         });
 
+        
 
         this.cmd_built.addEventListener("click", () => {
             console.clear();
@@ -102,7 +82,6 @@ class formDesigner extends designer {
                 case keyBoard.keys.f4:
                     if (this.tools.controlInfo != undefined) {
                         this.tools.controlInfo.ucExtends.self.focus();
-                        //this.tools.controlInfo.ucExtends.options.activate();
                     }
                     break;
             }
@@ -142,24 +121,24 @@ class formDesigner extends designer {
             let tls = this.tools;
             switch (type) {
                 case designerToolsType.controlInfo:
-                    if (tls.controlInfo == undefined) { tls.controlInfo = uc; this.bindSplitterDrag(tls.controlInfo.movable1); return true; }
+                    if (tls.controlInfo == undefined) { tls.controlInfo = uc;  return true; }
                     break;
                 case designerToolsType.projectExplorer:
-                    if (tls.projectExplorer == undefined) { tls.projectExplorer = uc; this.bindSplitterDrag(tls.projectExplorer.movable1); return true; }
+                    if (tls.projectExplorer == undefined) { tls.projectExplorer = uc;  return true; }
                     break;
                 case designerToolsType.jsonPerameter:
-                    if (tls.jsonPeramaterEditor == undefined) { tls.jsonPeramaterEditor = uc; this.bindSplitterDrag(tls.jsonPeramaterEditor.movable1); return true; }
+                    if (tls.jsonPeramaterEditor == undefined) { tls.jsonPeramaterEditor = uc; return true; }
                     break;
                 case designerToolsType.styler:
-                    if (tls.styleEditor == undefined) { tls.styleEditor = uc; this.bindSplitterDrag(tls.styleEditor.movable1); return true; }
+                    if (tls.styleEditor == undefined) { tls.styleEditor = uc;  return true; }
                     break;
                 case designerToolsType.layout:
-                    if (tls.layoutManager == undefined) { tls.layoutManager = uc; this.bindSplitterDrag(tls.layoutManager.movable1); return true; }
+                    if (tls.layoutManager == undefined) { tls.layoutManager = uc;  return true; }
                     break;
                 case designerToolsType.editor:
                     if (tls.activeEditor == undefined || !tls.activeEditor.ucExtends.self.is(uc.ucExtends.self)) {
                         tls.activeEditor = uc;
-                        this.bindSplitterDrag(tls.activeEditor.movable1);
+                        
                         this.editorEvent.activateEditor.fire(uc);
                         return true;
                     }
@@ -169,27 +148,8 @@ class formDesigner extends designer {
         },
 
     };
-    /** @param {Movable} movableUC */
-    bindSplitterDrag(movableUC) {
-        movableUC.movableEvents.onActivateWindow(() => {
-            this.refreshZindexOfWindows();
-        });
-    }
-    refreshZindexOfWindows() {
-        this.SESSION_DATA.children.forEach(row => {
-            /** @type {HTMLElement}  */
-            let ele = jqFeatures.getElementById(row.stamp);
-            row.index = ele.index();
-        });
-        this.ucExtends.session.onModify();
-    }
-    splitterRolesType = Object.freeze({
-        notDefined: "blank",
-        leftSide: "leftSide",
-        contentEditor: "contentEditor",
-        rightSide: "rightSide",
-        bottomSide: "bottomSide",
-    });
+    
+   
     editorEvent = {
 
         /**
@@ -210,47 +170,16 @@ class formDesigner extends designer {
          * ) =>{})} & commonEvent}
          */
         selectControl: new commonEvent(),
-
-
     }
-    loadSession() {
-        this.container1.innerHTML = "";
-        let backUp = objectOpt.clone(this.SESSION_DATA.children);
-        this.SESSION_DATA.children.length = 0;
-
-        backUp.forEach(s => {
-            let uc = intenseGenerator.generateUC(s.filePath, {
-                parentUc: this,
-                session: { loadBySession: true }
-            });
-            let ucExt = uc.ucExtends;
-            this.container1.append(uc.ucExtends.self);
-
-            ucExt.session.setSession(s.session[""]);
-            s.stamp = uc.ucExtends.self.stamp();
-            this.pushChildSession(uc);
-        });
-        //console.log(this.ucSession.source);
-    }
+    
 
     init() {
-
-
-
-
-        this.ucExtends.Events.loadLastSession.on(() => {
-            this.loadSession();
-
-        });
-
-        if (this.ucExtends.session.readfile() === false) {
-            this.splitter1.pushPrimaryContainer();
-        }
+        this.ucExtends.session.readfile();
         this.cmd_layout.on('mousedown', () => {
             if (this.tools.layoutManager == undefined) {
                 let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucLayout.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
-                this.pushChildSession(uc);
+                this.splitter1.pushChildSession(uc);
                 //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucLayout.uc.html');
             }
         });
@@ -258,7 +187,7 @@ class formDesigner extends designer {
             if (this.tools.styleEditor == undefined) {
                 let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucStyle.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
-                this.pushChildSession(uc);
+                this.splitter1.pushChildSession(uc);
                 //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucStyle.uc.html');
             }
         });
@@ -267,7 +196,7 @@ class formDesigner extends designer {
             if (this.tools.jsonPeramaterEditor == undefined) {
                 let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
-                this.pushChildSession(uc);
+                this.splitter1.pushChildSession(uc);
                 //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucStyle.uc.html');
             }
         });
@@ -275,7 +204,7 @@ class formDesigner extends designer {
             if (this.tools.styleEditor == undefined) {
                 let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/projHandler.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
-                this.pushChildSession(uc);
+                this.splitter1.pushChildSession(uc);
             }
         });
         this.cmd_controlInfo.addEventListener("mousedown", () => {
@@ -283,7 +212,7 @@ class formDesigner extends designer {
                 /** @type {controlInfo}  */
                 let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/controlInfo.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
-                this.pushChildSession(uc);
+                this.splitter1.pushChildSession(uc);
                 //uc.winframe1.showDialog();
             }
         });
@@ -312,38 +241,6 @@ class formDesigner extends designer {
                 console.log('saved');
             }, 0);
         }
-
-
-        //console.log(jqFeatures.data.source);
     }
-    /** @param {Usercontrol} uc */
-    pushChildSession(uc) {
-        let nstamp = uc.ucExtends.self.stamp();
-        /** @type {tabChilds}  */
-        let row = undefined;
-        row = this.SESSION_DATA.children.find(s => s.stamp == nstamp);
-        if (row == undefined) {
-            row = objectOpt.clone(tabChilds);
-            row.stamp = nstamp;
-            row.fstamp = uc.ucExtends.fileStamp;
-            row.filePath = uc.ucExtends.fileInfo.html.rootPath;
-
-            uc.ucExtends.session.exchangeParentWith(row.session, () => {
-                arrayOpt.removeByCallback(this.SESSION_DATA.children,
-                    /** @param {tabChilds} s */ s => s.stamp == nstamp);
-
-            });
-
-            this.SESSION_DATA.children.push(row);
-            this.ucExtends.session.onModify();
-        }
-        uc.ucExtends.Events.beforeClose.on(() => {
-            let index = this.SESSION_DATA.children.findIndex(s => s.stamp == nstamp);
-            //this.SESSION_DATA.inActiveChildren.push(ssn);
-            arrayOpt.removeAt(this.SESSION_DATA.children, index);
-            this.ucExtends.session.onModify();
-        });
-    }
-
 }
 module.exports = formDesigner;
