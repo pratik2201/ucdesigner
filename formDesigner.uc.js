@@ -8,13 +8,13 @@ const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
 const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
 const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
 /**
- * @typedef {import('@ucdesigner:/stageContent/projHandler.uc.js').projHandler} projHandler
- * @typedef {import('@ucdesigner:/stageContent/ucOutput.uc.js').ucOutput} ucOutput
- * @typedef {import('@ucdesigner:/stageContent/ucStyle.uc.js').ucStyle} ucStyle
- * @typedef {import('@ucdesigner:/stageContent/ucLayout.uc.js').ucLayout} ucLayout
- * @typedef {import('@ucdesigner:/Designer/util/assetsExplore.uc.js').assetsExplore} assetsExplore
- * @typedef {import('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js').ucJsonPerameterEditor} ucJsonPerameterEditor
- * @typedef {import('@ucdesigner:/stageContent/controlInfo.uc.js').controlInfo} controlInfo 
+ * @typedef {import('@ucdesigner:/stageContent/projHandler.uc.js')} projHandler
+ * @typedef {import('@ucdesigner:/stageContent/ucOutput.uc.js')} ucOutput
+ * @typedef {import('@ucdesigner:/stageContent/ucStyle.uc.js')} ucStyle
+ * @typedef {import('@ucdesigner:/stageContent/ucLayout.uc.js')} ucLayout
+ * @typedef {import('@ucdesigner:/Designer/util/assetsExplore.uc.js')} assetsExplore
+ * @typedef {import('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js')} ucJsonPerameterEditor
+ * @typedef {import('@ucdesigner:/stageContent/controlInfo.uc.js')} controlInfo 
  * @typedef {import('@ucbuilder:/Usercontrol.js').Usercontrol} Usercontrol
  */
 class formDesigner extends designer {
@@ -25,7 +25,7 @@ class formDesigner extends designer {
     
     constructor() {
         eval(designer.giveMeHug);
-
+        //this.splitter1.containerList
         this.splitter1.initMain(this.container1);
         this.cmd_deletesesion.addEventListener("mousedown", () => {
             pathInfo.removeFile(this.ucExtends.session.dataPath);
@@ -117,7 +117,7 @@ class formDesigner extends designer {
          * @param {Usercontrol} uc 
          * @returns {boolean|undefined}
          */
-        set: (type, uc) => {
+        set: (type, uc) => {            
             let tls = this.tools;
             switch (type) {
                 case designerToolsType.controlInfo:
