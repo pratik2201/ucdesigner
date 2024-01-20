@@ -1,6 +1,6 @@
-const {  controlOpt } = require("@ucbuilder:/build/common");
+const {  controlOpt } = require("ucbuilder/build/common");
 const { treeRecord, ucDesignerATTR } = require("@ucdesigner:/stageContent/ucLayout.uc.enumAndMore");
-const { elementEditor } = require("@ucbuilder:/global/elementEditor");
+const { elementEditor } = require("ucbuilder/global/elementEditor");
 
 class nodeNameEditor {
     constructor() {

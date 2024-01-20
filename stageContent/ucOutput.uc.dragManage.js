@@ -2,8 +2,8 @@ const ucLayout = require("@ucdesigner:/stageContent/ucLayout.uc");
 const { ucDesignerATTR, treeRecord } = require("@ucdesigner:/stageContent/ucLayout.uc.enumAndMore");
 const ucOutput = require("@ucdesigner:/stageContent/ucOutput.uc");
 const { selectionManage } = require("@ucdesigner:/stageContent/ucOutput.uc.selectionManage");
-const { dragHelper } = require("@ucbuilder:/global/drag/dragHelper");
-const { Point } = require("@ucbuilder:/global/drawing/shapes");
+const { dragHelper } = require("ucbuilder/global/drag/dragHelper");
+const { Point } = require("ucbuilder/global/drawing/shapes");
 
 class dragManage {
     constructor() {

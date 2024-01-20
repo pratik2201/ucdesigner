@@ -1,11 +1,11 @@
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
-const { commonEvent } = require('@ucbuilder:/global/commonEvent.js');
+const { commonEvent } = require('ucbuilder/global/commonEvent.js');
 const { designer } = require('./formDesigner.uc.designer.js');
-const {  pathInfo } = require('@ucbuilder:/build/common.js');
-const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
+const {  pathInfo } = require('ucbuilder/build/common.js');
+const { keyBoard } = require('ucbuilder/global/hardware/keyboard.js');
 const fs = require('fs');
-const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
-const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
+const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
 /**
  * @typedef {import('@ucdesigner:/stageContent/projHandler.uc.js')} projHandler
@@ -66,7 +66,7 @@ class formDesigner extends designer {
 
         this.cmd_built.addEventListener("click", () => {
             console.clear();
-            let { builder } = require('@ucbuilder:/build/builder');
+            let { builder } = require('ucbuilder/build/builder');
             let mgen = new builder();
             mgen.buildALL();
             console.log('BUILD SUCCESSFULL...');

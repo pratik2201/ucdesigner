@@ -1,11 +1,11 @@
 const fileExplorer = require("@ucdesigner:/Designer/util/fileExplorer.uc.js");
 const { pathRecord } = require("@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord");
 const { rootPathRow } = require("@ucdesigner:/Designer/util/fileExplorer.uc.enumAndMore");
-const { pathInfo, arrayOpt } = require("@ucbuilder:/build/common");
-const { commonEvent } = require("@ucbuilder:/global/commonEvent");
+const { pathInfo, arrayOpt } = require("ucbuilder/build/common");
+const { commonEvent } = require("ucbuilder/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
-const { keyBoard } = require("@ucbuilder:/global/hardware/keyboard");
+const { keyBoard } = require("ucbuilder/global/hardware/keyboard");
 /** @typedef {import("@ucbuilder:/global/listUI/scrollerLV").scrollerLV} scrollerLV */
 class collepser {
     constructor() { }

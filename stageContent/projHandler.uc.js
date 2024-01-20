@@ -1,10 +1,10 @@
 const { designer } = require('./projHandler.uc.designer.js');
-const { pathInfo, buildOptions } = require('@ucbuilder:/build/common');
+const { pathInfo, buildOptions } = require('ucbuilder/build/common');
 const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const { pathRecord } = require('@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord');
-const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
-const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
+const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 const { fileDataBank } = require('@ucdesigner:/../ucbuilder/global/fileDataBank.js');
 
 class projHandler extends designer {
@@ -15,7 +15,7 @@ class projHandler extends designer {
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.projectExplorer, this);
-        this.ignoreDirs = require('@ucbuilder:/build/builder').builder.ignoreDirs;
+        this.ignoreDirs = require('ucbuilder/build/builder').builder.ignoreDirs;
       
         this.initEvent();
         this.filexplorer1.listviewEvents.itemDoubleClick.on((index) => {

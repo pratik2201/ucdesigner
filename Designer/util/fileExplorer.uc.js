@@ -1,11 +1,11 @@
 const { collepser } = require('@ucdesigner:/Designer/util/fileExplorer.uc.collepser.js');
 const { rootPathRow } = require('@ucdesigner:/Designer/util/fileExplorer.uc.enumAndMore.js');
 const { pathRecord } = require('@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord.js');
-const { rootPathHandler } = require('@ucbuilder:/global/rootPathHandler.js');
+const { rootPathHandler } = require('ucbuilder/global/rootPathHandler.js');
 const { designer } = require('./fileExplorer.uc.designer.js');
 const fs = require('fs');
-const { objectOpt } = require('@ucbuilder:/build/common.js');
-const { replaceTextRow } = require('@ucbuilder:/global/findAndReplace.js');
+const { objectOpt } = require('ucbuilder/build/common.js');
+const { replaceTextRow } = require('ucbuilder/global/findAndReplace.js');
 /**
  * @typedef {import("@ucdesigner:/designer/util/fileexplorer/itemnode.tpt.js")} itemnode 
  */

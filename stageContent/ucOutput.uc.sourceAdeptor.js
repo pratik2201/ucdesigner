@@ -1,6 +1,6 @@
 const { ucDesignerATTR, treeRecord } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
 const ucOutput = require('@ucdesigner:/stageContent/ucOutput.uc.js');
-const { controlOpt, uniqOpt } = require('@ucbuilder:/build/common.js');
+const { controlOpt, uniqOpt } = require('ucbuilder/build/common.js');
 class sourceAdeptor {
 
     constructor() {

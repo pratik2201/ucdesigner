@@ -1,8 +1,8 @@
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { designer } = require('./ucStyle.uc.designer.js');
-const { rootPathHandler } = require('@ucbuilder:/global/rootPathHandler');
-const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
+const { rootPathHandler } = require('ucbuilder/global/rootPathHandler');
+const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 
 class ucStyle extends designer {
 

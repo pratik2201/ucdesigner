@@ -1,23 +1,23 @@
 const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
 const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
 const { ucDesignerATTR, treeRecord } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
-const { UcRendarer } = require('@ucbuilder:/build/UcRendarer.js');
+const { UcRendarer } = require('ucbuilder/build/UcRendarer.js');
 const { selectionManage } = require('@ucdesigner:/stageContent/ucOutput.uc.selectionManage.js');
 const sourceAdeptor = require('@ucdesigner:/stageContent/ucOutput.uc.sourceAdeptor.js');
-const { codeFileInfo } = require('@ucbuilder:/build/codeFileInfo.js');
-const { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt } = require('@ucbuilder:/build/common.js');
-const { fileDataBank } = require('@ucbuilder:/global/fileDataBank.js');
-const { Usercontrol } = require('@ucbuilder:/Usercontrol.js');
+const { codeFileInfo } = require('ucbuilder/build/codeFileInfo.js');
+const { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt } = require('ucbuilder/build/common.js');
+const { fileDataBank } = require('ucbuilder/global/fileDataBank.js');
+const { Usercontrol } = require('ucbuilder/Usercontrol.js');
 const { designer } = require('./ucOutput.uc.designer.js');
-const { Rect } = require('@ucbuilder:/global/drawing/shapes.js');
-const { Template } = require('@ucbuilder:/Template.js');
+const { Rect } = require('ucbuilder/global/drawing/shapes.js');
+const { Template } = require('ucbuilder/Template.js');
 const fs = require('fs');
-const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
+const { keyBoard } = require('ucbuilder/global/hardware/keyboard.js');
 const { tptManager } = require('@ucdesigner:/stageContent/ucOutput.uc.tptManager.js');
 const { ucManager } = require('@ucdesigner:/stageContent/ucOutput.uc.ucManager.js');
-const { intenseGenerator } = require('@ucbuilder:/intenseGenerator.js');
-const { ResourcesUC } = require('@ucbuilder:/ResourcesUC.js');
-const { timeoutCall } = require("@ucbuilder:/global/timeoutCall");
+const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
+const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
+const { timeoutCall } = require("ucbuilder/global/timeoutCall");
 
 class ucOutput extends designer {
     SESSION_DATA = {

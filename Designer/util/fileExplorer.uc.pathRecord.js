@@ -1,4 +1,4 @@
-const { pathInfo } = require("@ucbuilder:/build/common");
+const { pathInfo } = require("ucbuilder/build/common");
 const { existsSync } = require("original-fs");
 
 class pathRecord {

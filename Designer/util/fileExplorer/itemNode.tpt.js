@@ -1,8 +1,8 @@
 const fileExplorer = require('@ucdesigner:/Designer/util/fileExplorer.uc.js');
 const { pathRecord } = require('@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord');
-const {  pathInfo } = require('@ucbuilder:/build/common.js');
-const { elementEditor } = require('@ucbuilder:/global/elementEditor.js');
-const { keyBoard } = require('@ucbuilder:/global/hardware/keyboard.js');
+const {  pathInfo } = require('ucbuilder/build/common.js');
+const { elementEditor } = require('ucbuilder/global/elementEditor.js');
+const { keyBoard } = require('ucbuilder/global/hardware/keyboard.js');
 const fs = require('fs');
 const { designer } = require('./itemNode.tpt.designer.js');
 class itemNode extends designer {

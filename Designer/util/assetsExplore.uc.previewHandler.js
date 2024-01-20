@@ -1,7 +1,7 @@
 const assetsExplore = require('@ucdesigner:/Designer/util/assetsExplore.uc');
-const { pathInfo } = require('@ucbuilder:/build/common');
-const { UcRendarer } = require('@ucbuilder:/build/UcRendarer.js');
-const { codeFileInfo } = require('@ucbuilder:/build/codeFileInfo');
+const { pathInfo } = require('ucbuilder/build/common');
+const { UcRendarer } = require('ucbuilder/build/UcRendarer.js');
+const { codeFileInfo } = require('ucbuilder/build/codeFileInfo');
 
 class previewHandler {
     constructor() {

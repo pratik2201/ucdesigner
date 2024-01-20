@@ -1,5 +1,5 @@
-const { uniqOpt } = require("@ucbuilder:/build/common");
-const { Rect } = require("@ucbuilder:/global/drawing/shapes");
+const { uniqOpt } = require("ucbuilder/build/common");
+const { Rect } = require("ucbuilder/global/drawing/shapes");
 class treeRecord {
     constructor() { }
 
