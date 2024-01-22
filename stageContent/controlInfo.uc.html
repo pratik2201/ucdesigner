@@ -1,14 +1,14 @@
 <wrapper x-caption="Element Info">
-    <movable x-from="@uccontrols:/controls/movable.uc" x-name="movable1">
+    <movable x-from="uccontrols/controls/movable.uc" x-name="movable1">
         <dgv-res x-name="dgvrowTpt" x-from="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt"></dgv-res>
         <container>
             <header>
-                <combobox x-from="@uccontrols:/controls/combobox.uc"
+                <combobox x-from="uccontrols/controls/combobox.uc"
                     x.itemtemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt"
                     x.seletecteditemtemplate="=@ucdesigner:/stageContent/ucLayout/itemNode_ComboboxSelected.tpt"
                     x-name="comboBox1"></combobox>
             </header>
-            <datagrid x-from="@uccontrols:/controls/datagrid.uc" 
+            <datagrid x-from="uccontrols/controls/datagrid.uc" 
                 x.itemTemplate="this.dgvrowTpt"
                 x.headerTemplate="this.dgvrowTpt.newitem"
                 x.resizer.fillSize="true"

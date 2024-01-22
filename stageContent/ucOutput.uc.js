@@ -160,7 +160,7 @@ class ucOutput extends designer {
                     replaceContentWithKeys: false
                 });
                 if (this.cssContent == undefined)
-                    this.cssContent = fileDataBank.readFile('@ucbuilder:/appBuilder/Window/build/templete/tpt/styles.css', {
+                    this.cssContent = fileDataBank.readFile('ucbuilder/appBuilder/Window/build/templete/tpt/styles.css', {
                         replaceContentWithKeys: false
                     });
                 break;
@@ -170,7 +170,7 @@ class ucOutput extends designer {
                     replaceContentWithKeys: false
                 });
                 if (this.cssContent == undefined)
-                    this.cssContent = fileDataBank.readFile('@ucbuilder:/appBuilder/Window/build/templete/uc/styles.css', {
+                    this.cssContent = fileDataBank.readFile('ucbuilder/appBuilder/Window/build/templete/uc/styles.css', {
                         replaceContentWithKeys: false
                     });
                 break;

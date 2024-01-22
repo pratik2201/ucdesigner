@@ -6,7 +6,7 @@ const { commonEvent } = require("ucbuilder/global/commonEvent");
 const fs = require('fs');
 const path = require("path");
 const { keyBoard } = require("ucbuilder/global/hardware/keyboard");
-/** @typedef {import("@ucbuilder:/global/listUI/scrollerLV").scrollerLV} scrollerLV */
+/** @typedef {import("ucbuilder/global/listUI/scrollerLV").scrollerLV} scrollerLV */
 class collepser {
     constructor() { }
     /** @type {string}  */

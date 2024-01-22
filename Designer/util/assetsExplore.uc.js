@@ -1,6 +1,6 @@
 const { designer } = require('./assetsExplore.uc.designer.js');
 const { previewHandler } = require('@ucdesigner:/Designer/util/assetsExplore.uc.previewHandler.js');
-const { spliterType } = require('@uccontrols:/controls/Splitter.uc.enumAndMore.js');
+const { spliterType } = require('uccontrols/controls/Splitter.uc.enumAndMore.js');
 const { splitHandler } = require('ucbuilder/global/splitHandler');
 class assetsExplore extends designer {
     constructor() {

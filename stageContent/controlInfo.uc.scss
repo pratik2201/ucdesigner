@@ -4,7 +4,7 @@
     position: absolute;
     background-color: whitesmoke;
 }
-[inside="@uccontrols:/controls/LinearList.uc"]{
+[inside="uccontrols/controls/LinearList.uc"]{
     [SELF_]{
         display: table; table-layout: fixed;
         height: fit-content;

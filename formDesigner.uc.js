@@ -15,7 +15,7 @@ const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
  * @typedef {import('@ucdesigner:/Designer/util/assetsExplore.uc.js')} assetsExplore
  * @typedef {import('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js')} ucJsonPerameterEditor
  * @typedef {import('@ucdesigner:/stageContent/controlInfo.uc.js')} controlInfo 
- * @typedef {import('@ucbuilder:/Usercontrol.js').Usercontrol} Usercontrol
+ * @typedef {import('ucbuilder/Usercontrol.js').Usercontrol} Usercontrol
  */
 class formDesigner extends designer {
 
@@ -42,8 +42,8 @@ class formDesigner extends designer {
 
 
         this.cmd_sample1.addEventListener("mousedown", () => {
-            /**  @type {import ('@ucbuilder:/appBuilder/demo/create_ledger.uc.js')} (winFrame) */
-            let uc = intenseGenerator.generateUC('@ucbuilder:/appBuilder/demo/create_ledger.uc.js', { parentUc: undefined, wrapperHT: undefined });
+            /**  @type {import ('ucbuilder/appBuilder/demo/create_ledger.uc.js')} (winFrame) */
+            let uc = intenseGenerator.generateUC('ucbuilder/appBuilder/demo/create_ledger.uc.js', { parentUc: undefined, wrapperHT: undefined });
             uc.winframe1.showDialog();
         });
         this.cmd_sample2.addEventListener("mousedown", () => {
