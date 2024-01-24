@@ -32,7 +32,7 @@ class ucOutput extends designer {
     srcAdeptor = new sourceAdeptor();
     /**  @param {string} fpath */
     constructor(fpath) {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         this.uc_rendar = new UcRendarer();
         /*this.cmd_addTemplate.addEventListener("mousedown", (e) => {
              

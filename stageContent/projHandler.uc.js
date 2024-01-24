@@ -11,7 +11,7 @@ class projHandler extends designer {
     SESSION_DATA = {
     }
     constructor() {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         /** @type {formDesigner}  */
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.projectExplorer, this);

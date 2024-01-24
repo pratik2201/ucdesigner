@@ -24,7 +24,7 @@ class formDesigner extends designer {
     }
     
     constructor() {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         //this.splitter1.containerList
         this.splitter1.initMain(this.container1);
         this.cmd_deletesesion.addEventListener("mousedown", () => {

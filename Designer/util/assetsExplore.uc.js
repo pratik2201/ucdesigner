@@ -4,7 +4,7 @@ const { spliterType } = require('uccontrols/controls/Splitter.uc.enumAndMore.js'
 const { splitHandler } = require('ucbuilder/global/splitHandler');
 class assetsExplore extends designer {
     constructor() {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         this.init();
         // this.singleSplitter1.type = spliterType.COLUMN;
         /*this.splHandler = new splitHandler();

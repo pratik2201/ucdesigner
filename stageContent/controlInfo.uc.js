@@ -32,7 +32,7 @@ class controlInfo extends designer {
     currentIndex = -1;
     isAttributeChanging = false;
     constructor() {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         //new dgvManage(this);
         this.listview1.init();
         /** @type {attributeTemplate}  */

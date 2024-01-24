@@ -23,7 +23,7 @@ class fileExplorer extends designer {
     }
 
     constructor() {
-        eval(designer.giveMeHug);        
+        super(); this.initializecomponent(arguments, this);        
         this.init();
         /** @type {itemnode}  */ 
         this.tpt_itemNode = this.listview1.itemTemplate.extended.main;

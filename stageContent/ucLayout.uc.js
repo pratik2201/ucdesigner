@@ -36,7 +36,7 @@ class ucLayout extends designer {
 
 
     constructor() {
-        eval(designer.giveMeHug);
+        super(); this.initializecomponent(arguments, this);
         
         /** @type {itemnode}  */
         this.tpt_itemnode = this.listview1.itemTemplate.extended.main;

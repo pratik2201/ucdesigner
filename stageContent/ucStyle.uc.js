@@ -16,7 +16,7 @@ class ucStyle extends designer {
     refreshText = () => {
         this.editor.getSession().setValue(this.activeEditor.cssContent);
     }
-    constructor() { eval(designer.giveMeHug);
+    constructor() { super(); this.initializecomponent(arguments, this);
         
         let _this = this;
 
