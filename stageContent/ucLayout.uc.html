@@ -1,5 +1,5 @@
 <wrapper x-caption="Layout">
-        <movable x-from="uccontrols/controls/movable.uc" x-name="movable1">
+        <movable x-from="uccontrols/controls/Movable.uc" x-name="movable1">
                 <maincontainer>
                         <header>
                                 <btn role="newElement" x-name="cmd_addElement">+Element</btn>
@@ -9,8 +9,8 @@
                         </header>
                         <container>
 
-                                <listview x-from="uccontrols/controls/listview.uc"                                                              
-                                        x.itemtemplate="=@ucdesigner:/stageContent/ucLayout/itemnode.tpt"
+                                <listview x-from="uccontrols/controls/ListView.uc"                                                              
+                                        x.itemtemplate="=ucdesigner/stageContent/ucLayout/itemnode.tpt"
                                         x-name="listview1" x-tabindex="0"></listview>
 
                         </container>

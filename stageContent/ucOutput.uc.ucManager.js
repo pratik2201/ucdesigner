@@ -1,5 +1,5 @@
 /**
- * @typedef {import ("@ucdesigner:/stageContent/ucOutput.uc")} ucOutput
+ * @typedef {import ("ucdesigner/stageContent/ucOutput.uc")} ucOutput
  */
 
 class ucManager {

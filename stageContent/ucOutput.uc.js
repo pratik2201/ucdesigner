@@ -1,9 +1,9 @@
-const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
-const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
-const { ucDesignerATTR, treeRecord } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
+const { designerToolsType } = require('ucdesigner/enumAndMore.js');
+const formDesigner = require('ucdesigner/formDesigner.uc.js');
+const { ucDesignerATTR, treeRecord } = require('ucdesigner/stageContent/ucLayout.uc.enumAndMore.js');
 const { UcRendarer } = require('ucbuilder/build/UcRendarer.js');
-const { selectionManage } = require('@ucdesigner:/stageContent/ucOutput.uc.selectionManage.js');
-const sourceAdeptor = require('@ucdesigner:/stageContent/ucOutput.uc.sourceAdeptor.js');
+const { selectionManage } = require('ucdesigner/stageContent/ucOutput.uc.selectionManage.js');
+const sourceAdeptor = require('ucdesigner/stageContent/ucOutput.uc.sourceAdeptor.js');
 const { codeFileInfo } = require('ucbuilder/build/codeFileInfo.js');
 const { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt } = require('ucbuilder/build/common.js');
 const { fileDataBank } = require('ucbuilder/global/fileDataBank.js');
@@ -13,8 +13,8 @@ const { Rect } = require('ucbuilder/global/drawing/shapes.js');
 const { Template } = require('ucbuilder/Template.js');
 const fs = require('fs');
 const { keyBoard } = require('ucbuilder/global/hardware/keyboard.js');
-const { tptManager } = require('@ucdesigner:/stageContent/ucOutput.uc.tptManager.js');
-const { ucManager } = require('@ucdesigner:/stageContent/ucOutput.uc.ucManager.js');
+const { tptManager } = require('ucdesigner/stageContent/ucOutput.uc.tptManager.js');
+const { ucManager } = require('ucdesigner/stageContent/ucOutput.uc.ucManager.js');
 const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
 const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 const { timeoutCall } = require("ucbuilder/global/timeoutCall");
@@ -36,9 +36,9 @@ class ucOutput extends designer {
         this.uc_rendar = new UcRendarer();
         /*this.cmd_addTemplate.addEventListener("mousedown", (e) => {
              
-             @typedef {import("@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js")} frm_templateCreate
+             @typedef {import("ucdesigner/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js")} frm_templateCreate
              @type  {frm_templateCreate} 
-            let frm = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js', {});
+            let frm = intenseGenerator.generateUC('ucdesigner/stageContent/ucOutput/templateInfo/frm_templateCreate.uc.js', {});
             frm.winframe1.showDialog();
         });*/
         //console.log(this.outputBoard);

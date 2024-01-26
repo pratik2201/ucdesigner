@@ -1,8 +1,8 @@
-const { attrRecord } = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
+const { attrRecord } = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
 const { controlOpt } = require('ucbuilder/build/common.js');
 const { commonEvent } = require('ucbuilder/global/commonEvent.js');
 const { designer } = require('./attributeTemplate.tpt.designer.js');
-const { attributeNewItem } = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.newItem.js');
+const { attributeNewItem } = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.newItem.js');
 class attributeTemplate extends designer {
     constructor() {
         super(arguments);

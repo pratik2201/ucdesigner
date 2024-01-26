@@ -1,8 +1,8 @@
-const { ucDesignerATTR, treeRecord, ucLayoutATTR } = require("@ucdesigner:/stageContent/ucLayout.uc.enumAndMore");
-const { nodeNameEditor } = require("@ucdesigner:/stageContent/ucLayout.uc.js.nodeNameEditor");
-const ucOutput = require("@ucdesigner:/stageContent/ucOutput.uc");
-const { dragManage } = require("@ucdesigner:/stageContent/ucOutput.uc.dragManage");
-//const { resizerManage } = require("@ucdesigner:/stageContent/ucOutput.uc.resizerManage");
+const { ucDesignerATTR, treeRecord, ucLayoutATTR } = require("ucdesigner/stageContent/ucLayout.uc.enumAndMore");
+const { nodeNameEditor } = require("ucdesigner/stageContent/ucLayout.uc.js.nodeNameEditor");
+const ucOutput = require("ucdesigner/stageContent/ucOutput.uc");
+const { dragManage } = require("ucdesigner/stageContent/ucOutput.uc.dragManage");
+//const { resizerManage } = require("ucdesigner/stageContent/ucOutput.uc.resizerManage");
 const { controlOpt } = require("ucbuilder/build/common");
 const { Rect, Point } = require("ucbuilder/global/drawing/shapes");
 const { keyBoard } = require("ucbuilder/global/hardware/keyboard");

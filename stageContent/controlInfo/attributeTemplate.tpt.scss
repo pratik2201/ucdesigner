@@ -1,4 +1,4 @@
-[theme="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
+[theme="ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
 
 [SELF_][iscurrent="1"] {
     background-color: rgb(238, 209, 175);
@@ -36,10 +36,10 @@ btn {
     width: 16px;
     height: 16px;
 }
-btn[role="remove"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_drop.png); }
-btn[role="remove"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_drop.png); }
-btn[role="favourite"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/bd_favorite.png); }
-btn[role="favourite"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_favorite.png); }
+btn[role="remove"] { background-image: url(ucdesigner/stageContent/controlInfo/resource/bd_drop.png); }
+btn[role="remove"]:hover { background-image: url(ucdesigner/stageContent/controlInfo/resource/b_drop.png); }
+btn[role="favourite"] { background-image: url(ucdesigner/stageContent/controlInfo/resource/bd_favorite.png); }
+btn[role="favourite"]:hover { background-image: url(ucdesigner/stageContent/controlInfo/resource/b_favorite.png); }
 
 
 

@@ -1,4 +1,4 @@
-[inside="@ucdesigner:/Designer/util/fileexplorer.uc"]{
+[inside="ucdesigner/Designer/util/fileexplorer.uc"]{
     [SELF_]{
         width: inherit;
         height: inherit;
@@ -50,7 +50,7 @@ target{
     overflow: auto;
     height: inherit;
     box-sizing: border-box;
-    background:url(@ucdesigner:/Designer/resource/designer/output/blank16_16.png);;
+    background:url(ucdesigner/Designer/resource/designer/output/blank16_16.png);;
 }
 transparancy{
     position: absolute;

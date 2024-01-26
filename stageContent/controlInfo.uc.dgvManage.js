@@ -1,5 +1,5 @@
-const { fileDataBank } = require("@ucdesigner:/../ucbuilder/global/fileDataBank");
-const controlInfo = require("@ucdesigner:/stageContent/controlInfo.uc");
+const { fileDataBank } = require("ucdesigner/../ucbuilder/global/fileDataBank");
+const controlInfo = require("ucdesigner/stageContent/controlInfo.uc");
 const { readFileSync, writeFileSync, existsSync } = require("fs");
 const { fileInfo } = require("ucbuilder/build/codeFileInfo");
 const { rootPathHandler } = require("ucbuilder/global/rootPathHandler");
@@ -12,7 +12,7 @@ class dgvManage {
         this.main = main;
 
         let finfo = new fileInfo()
-        finfo.parse('@ucdesigner:/stageContent/controlInfo.uc.jsnData.json');
+        finfo.parse('ucdesigner/stageContent/controlInfo.uc.jsnData.json');
         this.jsnSources = JSON.parse(readFileSync(finfo.fullPath, "binary"));
         this.jsnSources.sort((a, b) => {
             let fa = '',

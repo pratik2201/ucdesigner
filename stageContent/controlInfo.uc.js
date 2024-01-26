@@ -1,7 +1,7 @@
-const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
-const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
-const { attrRecord } = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
-const { ucDesignerATTR, treeRecord } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
+const formDesigner = require('ucdesigner/formDesigner.uc.js');
+const { designerToolsType } = require('ucdesigner/enumAndMore.js');
+const { attrRecord } = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
+const { ucDesignerATTR, treeRecord } = require('ucdesigner/stageContent/ucLayout.uc.enumAndMore.js');
 const { fileInfo } = require('ucbuilder/build/codeFileInfo.js');
 const { buildOptions } = require('ucbuilder/build/common.js');
 const { commonEvent } = require('ucbuilder/global/commonEvent.js');
@@ -9,8 +9,8 @@ const { ATTR_OF } = require('ucbuilder/global/runtimeOpt.js');
 const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 const { tableSplitter } = require('ucbuilder/global/tableSplitter');
 const { designer } = require('./controlInfo.uc.designer.js');
-const attributeTemplate = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.js');
-const { dgvManage } = require('@ucdesigner:/stageContent/controlInfo.uc.dgvManage.js');
+const attributeTemplate = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.js');
+const { dgvManage } = require('ucdesigner/stageContent/controlInfo.uc.dgvManage.js');
 const { newObjectOpt } = require('ucbuilder/global/objectOpt.js');
 class controlInfo extends designer {
     IGNORE_ATTR_LIST = [

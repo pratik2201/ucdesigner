@@ -1,16 +1,16 @@
 const { designer } = require('./ucLayout.uc.designer.js');
 const { controlOpt, uniqOpt } = require('ucbuilder/build/common');
-const { treeRecord, ucDesignerATTR, ucLayoutATTR } = require('@ucdesigner:/stageContent/ucLayout.uc.enumAndMore.js');
+const { treeRecord, ucDesignerATTR, ucLayoutATTR } = require('ucdesigner/stageContent/ucLayout.uc.enumAndMore.js');
 const { dragHelper } = require('ucbuilder/global/drag/dragHelper.js');
-const { nodeNameEditor } = require('@ucdesigner:/stageContent/ucLayout.uc.js.nodeNameEditor.js');
+const { nodeNameEditor } = require('ucdesigner/stageContent/ucLayout.uc.js.nodeNameEditor.js');
 const { fileDataBank } = require('ucbuilder/global/fileDataBank.js');
-const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
-const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
+const formDesigner = require('ucdesigner/formDesigner.uc.js');
+const { designerToolsType } = require('ucdesigner/enumAndMore.js');
 const { keyBoard } = require('ucbuilder/global/hardware/keyboard.js');
 const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
-const { timeoutCall } = require('@ucdesigner:/../ucbuilder/global/timeoutCall.js');
+const { timeoutCall } = require('ucdesigner/../ucbuilder/global/timeoutCall.js');
 /**
-* @typedef {import ('@ucdesigner:/stagecontent/uclayout/itemnode.tpt.js')} itemnode 
+* @typedef {import ('ucdesigner/stagecontent/uclayout/itemnode.tpt.js')} itemnode 
 **/
 class ucLayout extends designer {
     //templeteText = fileDataBank.readFile("stageContent/ucLayout.uc.templates.html");

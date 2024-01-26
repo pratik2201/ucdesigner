@@ -1,4 +1,4 @@
-const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
+const { designerToolsType } = require('ucdesigner/enumAndMore.js');
 const { commonEvent } = require('ucbuilder/global/commonEvent.js');
 const { designer } = require('./formDesigner.uc.designer.js');
 const {  pathInfo } = require('ucbuilder/build/common.js');
@@ -8,13 +8,13 @@ const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
 const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
 const { timeoutCall } = require('ucbuilder/global/timeoutCall.js');
 /**
- * @typedef {import('@ucdesigner:/stageContent/projHandler.uc.js')} projHandler
- * @typedef {import('@ucdesigner:/stageContent/ucOutput.uc.js')} ucOutput
- * @typedef {import('@ucdesigner:/stageContent/ucStyle.uc.js')} ucStyle
- * @typedef {import('@ucdesigner:/stageContent/ucLayout.uc.js')} ucLayout
- * @typedef {import('@ucdesigner:/Designer/util/assetsExplore.uc.js')} assetsExplore
- * @typedef {import('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.js')} ucJsonPerameterEditor
- * @typedef {import('@ucdesigner:/stageContent/controlInfo.uc.js')} controlInfo 
+ * @typedef {import('ucdesigner/stageContent/projHandler.uc.js')} projHandler
+ * @typedef {import('ucdesigner/stageContent/ucOutput.uc.js')} ucOutput
+ * @typedef {import('ucdesigner/stageContent/ucStyle.uc.js')} ucStyle
+ * @typedef {import('ucdesigner/stageContent/ucLayout.uc.js')} ucLayout
+ * @typedef {import('ucdesigner/Designer/util/assetsExplore.uc.js')} assetsExplore
+ * @typedef {import('ucdesigner/stageContent/ucJsonPerameterEditor.uc.js')} ucJsonPerameterEditor
+ * @typedef {import('ucdesigner/stageContent/controlInfo.uc.js')} controlInfo 
  * @typedef {import('ucbuilder/Usercontrol.js').Usercontrol} Usercontrol
  */
 class formDesigner extends designer {
@@ -177,32 +177,32 @@ class formDesigner extends designer {
         this.ucExtends.session.readfile();
         this.cmd_layout.on('mousedown', () => {
             if (this.tools.layoutManager == undefined) {
-                let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucLayout.uc.html', { parentUc: this });
+                let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucLayout.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
                 this.splitter1.pushChildSession(uc);
-                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucLayout.uc.html');
+                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, 'ucdesigner/stageContent/ucLayout.uc.html');
             }
         });
         this.cmd_style.on('mousedown', () => {
             if (this.tools.styleEditor == undefined) {
-                let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucStyle.uc.html', { parentUc: this });
+                let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucStyle.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
                 this.splitter1.pushChildSession(uc);
-                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucStyle.uc.html');
+                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, 'ucdesigner/stageContent/ucStyle.uc.html');
             }
         });
 
         this.cmd_jsonPera.on('mousedown', () => {
             if (this.tools.jsonPeramaterEditor == undefined) {
-                let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucJsonPerameterEditor.uc.html', { parentUc: this });
+                let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucJsonPerameterEditor.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
                 this.splitter1.pushChildSession(uc);
-                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, '@ucdesigner:/stageContent/ucStyle.uc.html');
+                //this.splitter1.dropUc(this.splitterRolesType.contentEditor, 'ucdesigner/stageContent/ucStyle.uc.html');
             }
         });
         this.cmd_fileExplorer.on('mousedown', () => {
             if (this.tools.styleEditor == undefined) {
-                let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/projHandler.uc.html', { parentUc: this });
+                let uc = intenseGenerator.generateUC('ucdesigner/stageContent/projHandler.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
                 this.splitter1.pushChildSession(uc);
             }
@@ -210,7 +210,7 @@ class formDesigner extends designer {
         this.cmd_controlInfo.addEventListener("mousedown", () => {
             if (this.tools.controlInfo == undefined) {
                 /** @type {controlInfo}  */
-                let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/controlInfo.uc.html', { parentUc: this });
+                let uc = intenseGenerator.generateUC('ucdesigner/stageContent/controlInfo.uc.html', { parentUc: this });
                 this.container1.append(uc.ucExtends.self);
                 this.splitter1.pushChildSession(uc);
                 //uc.winframe1.showDialog();
@@ -219,7 +219,7 @@ class formDesigner extends designer {
 
         this.cmd_ucbrowser.addEventListener("click", () => {
             /** @type {assetsExplore}  */
-            let uc = intenseGenerator.generateUC('@ucdesigner:/Designer/util/assetsExplore.uc.html', { parentUc: this });
+            let uc = intenseGenerator.generateUC('ucdesigner/Designer/util/assetsExplore.uc.html', { parentUc: this });
             uc.winframe1.showDialog();
 
         })

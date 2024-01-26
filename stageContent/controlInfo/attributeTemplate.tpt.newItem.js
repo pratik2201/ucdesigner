@@ -1,5 +1,5 @@
-const { attrRecord } = require('@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
-/** @typedef {import ('@ucdesigner:/stagecontent/controlinfo/attributeTemplate.tpt.js')} attributeTemplate */
+const { attrRecord } = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
+/** @typedef {import ('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt.js')} attributeTemplate */
 class attributeNewItem {
     constructor() {
 

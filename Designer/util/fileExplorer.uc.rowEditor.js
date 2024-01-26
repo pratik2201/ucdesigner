@@ -1,6 +1,6 @@
-const { pathRecord } = require("@ucdesigner:/Designer/util/fileExplorer.uc.collepser");
+const { pathRecord } = require("ucdesigner/Designer/util/fileExplorer.uc.collepser");
 const {  pathInfo } = require("ucbuilder/build/common");
-const fileExplorer = require("@ucdesigner:/Designer/util/FILEEXPLORER.uc");
+const fileExplorer = require("ucdesigner/Designer/util/FILEEXPLORER.uc");
 const fs = require('fs');
 const path = require("path");
 const { keyBoard } = require("ucbuilder/global/hardware/keyboard");

@@ -1,11 +1,11 @@
 const { designer } = require('./projHandler.uc.designer.js');
 const { pathInfo, buildOptions } = require('ucbuilder/build/common');
-const formDesigner = require('@ucdesigner:/formDesigner.uc.js');
-const { designerToolsType } = require('@ucdesigner:/enumAndMore.js');
-const { pathRecord } = require('@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord');
+const formDesigner = require('ucdesigner/formDesigner.uc.js');
+const { designerToolsType } = require('ucdesigner/enumAndMore.js');
+const { pathRecord } = require('ucdesigner/Designer/util/fileExplorer.uc.pathRecord');
 const { intenseGenerator } = require('ucbuilder/intenseGenerator.js');
 const { ResourcesUC } = require('ucbuilder/ResourcesUC.js');
-const { fileDataBank } = require('@ucdesigner:/../ucbuilder/global/fileDataBank.js');
+const { fileDataBank } = require('ucdesigner/../ucbuilder/global/fileDataBank.js');
 
 class projHandler extends designer {
     SESSION_DATA = {
@@ -24,7 +24,7 @@ class projHandler extends designer {
             switch (finfo.type) {
                 case pathInfo.CODEFILE_TYPE.ucHtmlFile:
                 case pathInfo.CODEFILE_TYPE.ucTemplateFile:
-                    let uc = intenseGenerator.generateUC('@ucdesigner:/stageContent/ucOutput.uc.html', {
+                    let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucOutput.uc.html', {
                         parentUc: this.main,
 
                     }, finfo.path);
@@ -39,7 +39,7 @@ class projHandler extends designer {
 
     set ignoreFiles(val) { this.filexplorer1.ignoreFiles = val; }
     get ignoreFiles() { return this.filexplorer1.ignoreFiles; }
-    static iconDirPath = "@ucdesigner:/stageContent/projHandler".__();
+    static iconDirPath = "ucdesigner/stageContent/projHandler".__();
     initEvent() {
         let _this = this;
         this.filexplorer1.fileExplorerEvents.filterDirs = (row) => {

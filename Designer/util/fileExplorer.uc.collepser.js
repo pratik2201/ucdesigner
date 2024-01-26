@@ -1,6 +1,6 @@
-const fileExplorer = require("@ucdesigner:/Designer/util/fileExplorer.uc.js");
-const { pathRecord } = require("@ucdesigner:/Designer/util/fileExplorer.uc.pathRecord");
-const { rootPathRow } = require("@ucdesigner:/Designer/util/fileExplorer.uc.enumAndMore");
+const fileExplorer = require("ucdesigner/Designer/util/fileExplorer.uc.js");
+const { pathRecord } = require("ucdesigner/Designer/util/fileExplorer.uc.pathRecord");
+const { rootPathRow } = require("ucdesigner/Designer/util/fileExplorer.uc.enumAndMore");
 const { pathInfo, arrayOpt } = require("ucbuilder/build/common");
 const { commonEvent } = require("ucbuilder/global/commonEvent");
 const fs = require('fs');
@@ -10,7 +10,7 @@ const { keyBoard } = require("ucbuilder/global/hardware/keyboard");
 class collepser {
     constructor() { }
     /** @type {string}  */
-    static iconDirPath = "@ucdesigner:/Designer/util/fileExplorer/type-icons/style4/".__();
+    static iconDirPath = "ucdesigner/Designer/util/fileExplorer/type-icons/style4/".__();
     iconFilePath = {
         folder: collepser.iconDirPath + "folder.png",
         folderOpened: collepser.iconDirPath + "folder-opened.png",

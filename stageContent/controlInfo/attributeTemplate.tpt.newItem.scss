@@ -1,4 +1,4 @@
-[theme="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
+[theme="ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.common.scss"]
 [SELF_] {
     background-color: rgb(236, 232, 232);
     display: grid; box-sizing: border-box;
@@ -29,5 +29,5 @@ btn {
     width: 16px;
     height: 16px;
 }
-btn[role="addnew"] { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/addnew.png); }
-btn[role="addnew"]:hover { background-image: url(@ucdesigner:/stageContent/controlInfo/resource/addnew-hover.png); }
+btn[role="addnew"] { background-image: url(ucdesigner/stageContent/controlInfo/resource/addnew.png); }
+btn[role="addnew"]:hover { background-image: url(ucdesigner/stageContent/controlInfo/resource/addnew-hover.png); }

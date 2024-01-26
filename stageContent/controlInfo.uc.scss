@@ -13,7 +13,7 @@
         
     }
 
-    [inside="@ucdesigner:/stageContent/controlInfo/attributeTemplate.tpt"]{
+    [inside="ucdesigner/stageContent/controlInfo/attributeTemplate.tpt"]{
         [SELF_]{
             box-sizing: border-box;
             
@@ -77,5 +77,5 @@ btn:hover {
 }
 
 btn[role="attr-cmd-add"] {
-    background-image: url(@ucdesigner:/stageContent/controlInfo/resource/b_snewtbl.png);
+    background-image: url(ucdesigner/stageContent/controlInfo/resource/b_snewtbl.png);
 }
