@@ -1,5 +1,6 @@
 import { existsSync } from "fs";
-import { pathInfo } from "ucbuilder/build/common";
+import { nodeType } from "./fileexplorer.uc";
+export type TemplateViewType = "viewNode" | "editNode";
 export class pathRecord {
     iconFilePath: string = "";
     nodeName: string = "";
@@ -7,15 +8,13 @@ export class pathRecord {
     level: number = 0;
     get leftSpace(): number { return this.level * 10; }
     sort: number = 0;
-    type: pathInfo.TYPE = pathInfo.TYPE.directory;
-
+    type: nodeType = 'directory';
     isFolder: boolean = true;
-
     isOpened: boolean = false;
     children: pathRecord[] = [];
-    parent: pathRecord | undefined = undefined;
-
-    relevantElement: HTMLElement | undefined = undefined;
+    parent: pathRecord = undefined;
+    viewType: TemplateViewType = 'viewNode';
+    relevantElement: HTMLElement = undefined;
 
     get exists(): boolean {
         return existsSync(this.path);

@@ -97,7 +97,7 @@ export class itemNode extends Designer {
 
     addFolder() {
         let row: pathRecord = this.lvUI.currentRecord as pathRecord;
-        let parent: pathRecord = (row.type == pathInfo.TYPE.file) ? row.parent : row;
+        let parent: pathRecord = (row.type == 'file') ? row.parent : row;
         if (parent != undefined) {
             let fpath = this.getNextFolderName(parent.path);
             fs.mkdirSync(fpath);
@@ -113,7 +113,7 @@ export class itemNode extends Designer {
 
     addFile() {
         let row: pathRecord = this.lvUI.currentRecord  as pathRecord;
-        let parent: pathRecord = (row.type == pathInfo.TYPE.file) ? row.parent : row;
+        let parent: pathRecord = (row.type == 'file') ? row.parent : row;
         if (parent != undefined) {
             let fpath = this.getNextFileName(parent.path);
             fs.writeFileSync(fpath, "");

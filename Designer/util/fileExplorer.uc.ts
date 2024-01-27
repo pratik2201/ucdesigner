@@ -1,5 +1,4 @@
 import { collepser } from 'ucdesigner/Designer/util/fileExplorer.uc.collepser.js';
-import { rootPathRow } from 'ucdesigner/Designer/util/fileExplorer.uc.enumAndMore.js';
 import { pathRecord } from 'ucdesigner/Designer/util/fileExplorer.uc.pathRecord.js';
 import { rootPathHandler } from 'ucbuilder/global/rootPathHandler.js';
 import {Designer} from './fileExplorer.uc.designer.js';
@@ -8,10 +7,19 @@ import { objectOpt } from 'ucbuilder/build/common.js';
 import { replaceTextRow,ReplaceTextRow } from 'ucbuilder/global/findAndReplace.js';
 import { itemNode } from './fileExplorer/itemNode.tpt.js';
 
+export type nodeType = 'directory' | 'file';
+export interface RootPathRow {
+    key: string;
+    path: string;
+    openedFolderList: string[];
+}
+declare const rootPathRow: RootPathRow;
+
+
 export class fileExplorer extends Designer {
 
     SESSION_DATA: {
-        rootPath: rootPathRow[];
+        rootPath: RootPathRow[];
         activePath: string;
     } = {
         rootPath: [],
@@ -29,7 +37,7 @@ export class fileExplorer extends Designer {
         this.tpt_itemNode = this.listview1.itemTemplate.extended.main as itemNode;
         this.tpt_itemNode.init(this);
         this.comboBox1.source = rootPathHandler.source;
-
+       // this.listview1.source
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex: number) => {
             let selRec = this.comboBox1.binder.selectedRecord as ReplaceTextRow;
             this.fillRows(selRec.originalFinderText);
@@ -84,9 +92,9 @@ export class fileExplorer extends Designer {
     fillRows(key: string): any {
         let info = rootPathHandler.getInfo(key);
         if (info != undefined && info.path != '' && fs.existsSync(info.path)) {
-            let nrow = this.SESSION_DATA.rootPath.find((s: rootPathRow) => s.path == info.path);
+            let nrow = this.SESSION_DATA.rootPath.find((s: RootPathRow) => s.path == info.path);
             if (nrow == undefined) {
-                nrow = objectOpt.clone(rootPathRow);
+                nrow = Object.assign({},rootPathRow);
                 nrow.path = info.path;
                 this.SESSION_DATA.rootPath.push(nrow);
             }

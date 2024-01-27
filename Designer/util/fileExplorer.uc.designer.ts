@@ -20,7 +20,7 @@ export class Designer extends Usercontrol {
     public comboBox1: import('uccontrols/controls/combobox.uc').comboBox;
          
    
-    public listview1: import('uccontrols/controls/listview.uc').ListView;
+    public listview1: import('uccontrols/controls/listview.uc').ListView<import('ucdesigner/Designer/util/fileExplorer.uc.pathRecord').pathRecord>;
 
     
     constructor(){ super(); }
