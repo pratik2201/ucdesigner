@@ -1,10 +1,11 @@
-const { designer } = require('./create_ledger.uc.designer.js');
-class create_ledger extends designer{
-    constructor() { super(); this.initializecomponent(arguments, this); 
-        this.cmd_save.addEventListener("mousedown",(e)=>{
-            
-        });
-        //this.txt_city
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.create_ledger = void 0;
+const create_ledger_uc_designer_1 = require("./create_ledger.uc.designer");
+class create_ledger extends create_ledger_uc_designer_1.Designer {
+    constructor() {
+        super();
+        this.initializecomponent(arguments, this);
     }
 }
-module.exports = create_ledger;
+exports.create_ledger = create_ledger;

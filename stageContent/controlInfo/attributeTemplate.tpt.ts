@@ -1,4 +1,4 @@
-import { attrRecord } from 'ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js';
+import { AttrRecord } from 'ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js';
 import { controlOpt } from 'ucbuilder/build/common.js';
 import { CommonEvent } from 'ucbuilder/global/commonEvent.js';
 import {Designer} from './attributeTemplate.tpt.designer.js';
@@ -8,7 +8,7 @@ export class attributeTemplate extends Designer {
     constructor() {
         super(arguments);
 
-        this.primary.extended.Events.onGenerateNode = (eleHT: HTMLElement, row: attrRecord) => {
+        this.primary.extended.Events.onGenerateNode = (eleHT: HTMLElement, row: AttrRecord) => {
             let ctrls = this.primary.getAllControls(eleHT);
             switch (row.nodeName) {
                 case "x-name":
@@ -27,32 +27,32 @@ export class attributeTemplate extends Designer {
                 ctrls.txt_attrName.removeAttribute("disabled");
                 eleHT.setAttribute("new-row", "1");
             }
-            eleHT.rowData = row;
-            ctrls.cmd_remove.rowData = row;
+            eleHT.data('rowData',row);
+            ctrls.cmd_remove.data('rowData',row);
             ctrls.cmd_remove.addEventListener("mouseup", this.cmd_remove_mouseup);
-            ctrls.txt_attrValue.mainHT = eleHT;
+            ctrls.txt_attrValue.data('mainHT',eleHT);
         }
 
         this.attrNewItm = new attributeNewItem();
         this.attrNewItm.init(this);
     }
-
+    attrNewItm: attributeNewItem;
     getSelectedControls = (): HTMLElement[] => {
         return [];
     }
 
     cmd_remove_mouseup = (event: MouseEvent) => {
-        let row: attrRecord = event.currentTarget.rowData;
+        let row: AttrRecord = event.currentTarget.data('rowData');
         row.ownerControl.removeAttribute(row.nodeName);
         this.attrEvents.extended.onAttrChange.fire();
     }
 
     currentIndex: number = -1;
-    lastFocusedElement: HTMLElement | undefined = undefined;
+    lastFocusedElement: HTMLElement  = undefined;
 
     focus(itemHT: HTMLElement) {
         if (itemHT == undefined) return;
-        this.lastFocusedElement = document.activeElement;
+        this.lastFocusedElement = document.activeElement as HTMLElement;
         let ctrls = this.primary.getAllControls(itemHT);
         if (!ctrls.txt_attrName.hasAttribute("disabled")) {
             controlOpt.selectAllText(ctrls.txt_attrName);
@@ -64,7 +64,7 @@ export class attributeTemplate extends Designer {
     saveRow(mainHT: HTMLElement) {
         if (mainHT == undefined) return;
         let ctrs = this.primary.getAllControls(mainHT);
-        let row: attrRecord = mainHT.rowData;
+        let row: AttrRecord = mainHT.data('rowData');
         let val = ctrs.txt_attrValue.value;
         let key = ctrs.txt_attrName.value;
         if (key != "" && row.value != val) {
@@ -75,7 +75,7 @@ export class attributeTemplate extends Designer {
 
     attrEvents = {
         extended: {
-            onAttrChange: new CommonEvent(),
+            onAttrChange: new CommonEvent<()=>void>(),
         },
         onAttrChange(callback: () => void) {
             this.extended.onAttrChange.on(callback);

@@ -1,7 +1,8 @@
 import * as ct from 'uccontrols';
 import ucb from "ucbuilder"; 
 ucb.registar();
-import { intenseGenerator } from 'ucbuilder/intenseGenerator';
+let s = ct;
+//import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 
 interface Session {
     loadBySession: boolean;

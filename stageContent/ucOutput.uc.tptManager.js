@@ -1,16 +1,10 @@
-/**
- * @typedef {import ("ucdesigner/stageContent/ucOutput.uc")} ucOutput
- */
-const { templeteItemRow } = require("ucdesigner/stageContent/ucOutput/tpt_templeteItem.tpt.templeteItemRow");
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tptManager = void 0;
 class tptManager {
     constructor() { }
-    /** @type {ucOutput}  */
-    main = undefined;
-   
     init(main) {
         this.main = main;
-        
     }
 }
-module.exports = { tptManager };
+exports.tptManager = tptManager;

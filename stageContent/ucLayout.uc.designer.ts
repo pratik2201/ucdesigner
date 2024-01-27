@@ -14,7 +14,7 @@ export class Designer extends Usercontrol {
     
          
    
-    public movable1: import('uccontrols/controls/movable.uc').Movable;
+    public movable1: import('uccontrols/controls/Movable.uc').Movable;
     public cmd_addElement: HTMLUnknownElement;
     public cmd_addTextNode: HTMLUnknownElement;
     public cmd_removeTextNode: HTMLUnknownElement;
@@ -34,7 +34,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/movable.uc.ts',{ 
+        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

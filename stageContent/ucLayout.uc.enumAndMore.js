@@ -1,66 +1,63 @@
-const { uniqOpt } = require("ucbuilder/build/common");
-const { Rect } = require("ucbuilder/global/drawing/shapes");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.treeRecord = exports.ucLayoutATTR = exports.ucDesignerATTR = void 0;
+const common_1 = require("ucbuilder/build/common");
 class treeRecord {
-    constructor() { }
-
-    /** @type {number}  */
-    index = -1;
-    uniqId = "";
-
-    _element = undefined;
-    nodeType = undefined;
-    /** @type {HTMLElement}  */
-    set element(val) { this._element = val; this.nodeType = this.element.nodeType; }
-    /** @type {HTMLElement}  */
-    get element() { return this._element; }
-
-    /** @type {HTMLElement}  */
-    outputElement = undefined;
-
-    /** @type {Rect}  */
-    rect = undefined;
-
-
-    /** @type {HTMLElement}  */
-    layoutitemElement = undefined;
-
-    iconFileName = "other-tags.png";
+    constructor() {
+        this.index = -1;
+        this.uniqId = "";
+        this._element = undefined;
+        this.nodeType = undefined;
+        this.outputElement = undefined;
+        this.rect = undefined;
+        this.layoutitemElement = undefined;
+        this.iconFileName = "other-tags.png";
+        this.level = 0;
+    }
+    set element(val) {
+        this._element = val;
+        this.nodeType = this.element.nodeType;
+    }
+    get element() {
+        return this._element;
+    }
     get xName() {
-        let ele = this.element; 
-        if (ele === undefined) return "";
+        let ele = this.element;
+        if (ele === undefined)
+            return "";
         switch (ele.nodeType) {
             case ele.ELEMENT_NODE: return ele.hasAttribute("x-name") ? ele.getAttribute("x-name") : "";
             default: return "";
         }
     }
-    
     get nodeName() {
         let ele = this.element;
-        if (ele === undefined) return "";
+        if (ele === undefined)
+            return "";
         switch (ele.nodeType) {
             case ele.ELEMENT_NODE: return ele.nodeName;
             case ele.TEXT_NODE: return ele.textContent;
         }
     }
-    level = 0;
-    get leftSpace() { return this.level * 10; }
-
-    /** @type {NamedNodeMap[]}  */
+    get leftSpace() {
+        return this.level * 10;
+    }
     get attributes() {
         let ele = this.element;
-        if (ele === undefined) return [];
-        /** @type {NamedNodeMap[]}  */
+        if (ele === undefined)
+            return [];
         let rtrn = [];
         switch (ele.nodeType) {
             case ele.ELEMENT_NODE:
-                Array.from(ele.attributes).forEach(s => {
-                    rtrn.push(s);
-                });
+                for (let index = 0; index < ele.attributes.length; index++) {
+                    rtrn.push(ele.attributes.item(index));
+                }
                 rtrn.sort((a, b) => {
-                    let fa = a.name.toLowerCase(),
-                        fb = b.name.toLowerCase();
-                    if (fa < fb) return -1;
-                    if (fa > fb) return 1;
+                    let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+                    if (fa < fb)
+                        return -1;
+                    if (fa > fb)
+                        return 1;
                     return 0;
                 });
                 return rtrn;
@@ -68,17 +65,18 @@ class treeRecord {
         }
     }
 }
+exports.treeRecord = treeRecord;
 const ucLayoutATTR = Object.freeze({
     SELECTED_INDEX: "is-selected",
 });
+exports.ucLayoutATTR = ucLayoutATTR;
 const ucDesignerATTR = Object.freeze({
     JSON_ROW: "x.temp-jsonperameters",
     IGNORE_IN_DESIGNER: "ignore-in-designer",
-
-    ITEM_INDEX: "ii" + uniqOpt.randomNo(),
-    UNIQID: "ui" + uniqOpt.randomNo(),
-    SELECTED: "sel" + uniqOpt.randomNo(),
-    TEXT_NODE_TAG: "TN" + uniqOpt.randomNo(),
+    ITEM_INDEX: "ii" + common_1.uniqOpt.randomNo(),
+    UNIQID: "ui" + common_1.uniqOpt.randomNo(),
+    SELECTED: "sel" + common_1.uniqOpt.randomNo(),
+    TEXT_NODE_TAG: "TN" + common_1.uniqOpt.randomNo(),
     transAssets: {
         tag: {
             SELECTION: "CTRRECT",
@@ -86,10 +84,6 @@ const ucDesignerATTR = Object.freeze({
             CORNER: "CORNER",
             DRAG: "DRGRECT",
         },
-        /** 
-         * @param {HTMLElement} htEle
-         * @returns {HTMLElement}
-         */
         getMainTag(htEle) {
             switch (htEle.nodeName) {
                 case this.tag.RESIZER:
@@ -97,7 +91,6 @@ const ucDesignerATTR = Object.freeze({
                 default: return htEle;
             }
         },
-        /** @type {HTMLElement}  */
         isAssetTag(htEle) {
             switch (htEle.nodeName) {
                 case this.tag.SELECTION:
@@ -109,8 +102,4 @@ const ucDesignerATTR = Object.freeze({
         }
     }
 });
-module.exports = {
-    ucDesignerATTR,
-    ucLayoutATTR,
-    treeRecord
-};
+exports.ucDesignerATTR = ucDesignerATTR;

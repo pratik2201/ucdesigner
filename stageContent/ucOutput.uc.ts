@@ -1,11 +1,11 @@
 import { designerToolsType } from 'ucdesigner/enumAndMore.js';
-import {formDesigner} from 'ucdesigner/formDesigner.uc.js';
+import { formDesigner } from 'ucdesigner/formDesigner.uc.js';
 import { ucDesignerATTR, treeRecord } from 'ucdesigner/stageContent/ucLayout.uc.enumAndMore.js';
 import { UcRendarer } from 'ucbuilder/build/UcRendarer.js';
 import { selectionManage } from 'ucdesigner/stageContent/ucOutput.uc.selectionManage.js';
-import sourceAdeptor from 'ucdesigner/stageContent/ucOutput.uc.sourceAdeptor.js';
+import { sourceAdeptor } from 'ucdesigner/stageContent/ucOutput.uc.sourceAdeptor.js';
 import { codeFileInfo } from 'ucbuilder/build/codeFileInfo.js';
-import { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt } from 'ucbuilder/build/common.js';
+import { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt, ExtensionType } from 'ucbuilder/build/common.js';
 import { FileDataBank } from 'ucbuilder/global/fileDataBank.js';
 import { Usercontrol } from 'ucbuilder/Usercontrol.js';
 import { Designer } from './ucOutput.uc.designer.js';
@@ -22,22 +22,23 @@ import { timeoutCall } from "ucbuilder/global/timeoutCall";
 export class ucOutput extends Designer {
     SESSION_DATA: {
         filePath: string;
-        extCode: buildOptions.extType.Usercontrol;
+        extCode: ExtensionType;
         isActive: boolean;
     } = {
-        filePath: "",
-        extCode: buildOptions.extType.Usercontrol,
-        isActive: false,
-    }
-
+            filePath: "",
+            extCode: '.uc',
+            isActive: false,
+        }
+    source: treeRecord[];
     tptManage: tptManager = new tptManager();
     ucManage: ucManager = new ucManager();
     srcAdeptor: sourceAdeptor = new sourceAdeptor();
+    main: formDesigner;
+    get tools() { return this.main.tools; }
     constructor(fpath: string) {
         super(); this.initializecomponent(arguments, this);
         this.uc_rendar = new UcRendarer();
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
-        this.tools = this.main.tools;
 
         this.srcAdeptor.init(this);
         this.selection.init(this);
@@ -50,10 +51,9 @@ export class ucOutput extends Designer {
         });
 
 
-        this.ucExtends.session.varify =
-            (ssn: ucOutput.SESSION_DATA) => {
-
-            }
+        this.ucExtends.session.varify = (ssn: typeof this.SESSION_DATA) => {
+            return true;
+        }
         this.ucExtends.Events.beforeClose.on(() => {
             this.tools.activeEditor = undefined;
             this.tools.selectedElementList = [];
@@ -171,7 +171,7 @@ export class ucOutput extends Designer {
     set mainNode(val: HTMLElement) { this._mainNode = val; }
 
 
-    fInfo: codeFileInfo = new codeFileInfo();
+    fInfo = new codeFileInfo('none');
 
     uc: Usercontrol = undefined;
 
@@ -204,7 +204,7 @@ export class ucOutput extends Designer {
                     timeoutCall.start(() => {
                         this.selection.fillOutputScaleSource(this.tools.selectedElementList);
                         this.main.editorEvent.changeLayout.fire();
-                    }, 0);
+                    });
                 } catch (e) {
                     console.log(e);
                 }
@@ -221,7 +221,7 @@ export class ucOutput extends Designer {
                     timeoutCall.start(() => {
                         this.selection.fillOutputScaleSource(this.tools.selectedElementList);
                         this.main.editorEvent.changeLayout.fire();
-                    }, 0);
+                    });
                 } catch (e) {
                     console.log(e);
                 }
@@ -243,7 +243,7 @@ export class ucOutput extends Designer {
             range.selectNodeContents(textNode);
             var rects = range.getClientRects();
             if (rects.length > 0) {
-                rectObj.setBy.domRect(rects);
+                rectObj.setBy.domRect(rects[0]);
                 rectObj.location.move(-(offsetx + 1), -(offsety + 1));
             }
         }
@@ -251,8 +251,9 @@ export class ucOutput extends Designer {
 
     selection: selectionManage = new selectionManage();
     getcleanData() {
-        let dtos = this.mainNode.cloneNode(true);
-        dtos.querySelectorAll(ucDesignerATTR.TEXT_NODE_TAG).forEach(s => controlOpt.unwrap(s));
+        let dtos = this.mainNode.cloneNode(true) as HTMLElement;
+        dtos.querySelectorAll(ucDesignerATTR.TEXT_NODE_TAG)
+                .forEach(s => controlOpt.unwrap(s as HTMLElement));
         dtos.querySelectorAll("*").forEach(s => {
             s.removeAttribute(ucDesignerATTR.SELECTED);
             s.removeAttribute(ucDesignerATTR.ITEM_INDEX);

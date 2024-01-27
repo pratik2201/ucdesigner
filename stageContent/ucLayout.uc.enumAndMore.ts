@@ -4,20 +4,20 @@ import { Rect } from "ucbuilder/global/drawing/shapes";
 class treeRecord {
     index: number = -1;
     uniqId: string = "";
-    private _element: HTMLElement | undefined = undefined;
-    nodeType: string | undefined = undefined;
+    private _element: HTMLElement = undefined;
+    nodeType: number = undefined;
 
     set element(val: HTMLElement) { 
         this._element = val; 
         this.nodeType = this.element.nodeType; 
     }
-    get element(): HTMLElement | undefined { 
+    get element(): HTMLElement { 
         return this._element; 
     }
 
-    outputElement: HTMLElement | undefined = undefined;
-    rect: Rect | undefined = undefined;
-    layoutitemElement: HTMLElement | undefined = undefined;
+    outputElement: HTMLElement = undefined;
+    rect: Rect = undefined;
+    layoutitemElement: HTMLElement = undefined;
     iconFileName: string = "other-tags.png";
 
     get xName(): string {
@@ -43,15 +43,15 @@ class treeRecord {
         return this.level * 10; 
     }
 
-    get attributes(): NamedNodeMap[] {
+    get attributes(): Attr[] {
         let ele = this.element;
         if (ele === undefined) return [];
-        let rtrn: NamedNodeMap[] = [];
+        let rtrn: Attr[] = [];
         switch (ele.nodeType) {
             case ele.ELEMENT_NODE:
-                Array.from(ele.attributes).forEach(s => {
-                    rtrn.push(s);
-                });
+                for (let index = 0; index < ele.attributes.length; index++) {
+                    rtrn.push(ele.attributes.item(index));
+                }
                 rtrn.sort((a, b) => {
                     let fa = a.name.toLowerCase(),
                         fb = b.name.toLowerCase();

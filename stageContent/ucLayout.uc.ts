@@ -9,12 +9,14 @@ import { designerToolsType } from 'ucdesigner/enumAndMore.js';
 import { keyBoard } from 'ucbuilder/global/hardware/keyboard.js';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
 import { timeoutCall } from 'ucdesigner/../ucbuilder/global/timeoutCall.js';
-const ElementPushAs = Object.freeze({
+import { itemNode } from './ucLayout/itemNode.tpt.js';
+/*const ElementPushAs = Object.freeze({
     append: 0,
     prepend: 1,
     after: 2,
     before: 3
-});
+});*/
+type ElementPushAs = 'append' | 'prepend' | 'after' | 'before';
 export class ucLayout extends Designer {
     SESSION_DATA: any = {};
     main: formDesigner | undefined;
@@ -22,24 +24,24 @@ export class ucLayout extends Designer {
     get activeEditor() { return this.tools.activeEditor; }
     get mainNode() { return this.activeEditor.mainNode; }
     get dragBucket() { return this.main.tools.dragBucket; }
-    allItemsHT: HTMLElement[] | undefined;
-
+    allItemsHT: NodeListOf<HTMLElement>;
+    tpt_itemnode: itemNode;
+    get editorEvent() { return this.main.editorEvent; }
+    uniqKey = '';
+    dragDataElement: HTMLElement;
     constructor() {
         super();
         this.initializecomponent(arguments, this);
-        this.tpt_itemnode = this.listview1.itemTemplate.extended.main;
+        this.tpt_itemnode = this.listview1.itemTemplate.extended.main as itemNode;
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.layout, this);
         this.allItemsHT = this.listview1.lvUI.allItemHT;
-        this.editorEvent = this.main.editorEvent;
         let stamp_onSelectControl = this.editorEvent.selectControl.on((index: number, isMultiSelect: boolean) => {
-            this.listview1.lvUI.currentIndex = parseInt(index);
+            this.listview1.lvUI.currentIndex = index;
         });
-
-        this.Events.onLoadLastSession(() => {
+        this.ucExtends.Events.loadLastSession.on(() => {
             console.log(this.SESSION_DATA);
         });
-
         this.ucExtends.Events.beforeClose.on(evt => {
             this.main.tools.layoutManager = undefined;
             this.editorEvent.selectControl.removeByStamp(stamp_onSelectControl);
@@ -53,9 +55,9 @@ export class ucLayout extends Designer {
 
         let _this = this;
         this.listview1.Events.newItemGenerate.on(
-            (itemNode: itemnode, index: number) => {
+            (itemHt: HTMLElement, index: number) => {
                 let rsw = _this.activeEditor.source[index];
-                rsw.layoutitemElement = itemNode;
+                rsw.layoutitemElement = itemHt;
             });
 
         this.listview1.ucExtends.self.addEventListener("mouseup", (evt: MouseEvent) => {
@@ -63,7 +65,7 @@ export class ucLayout extends Designer {
             this.activeEditor.selection.doSelect(index, {
                 multiSelect: evt.ctrlKey
             });
-            this.editorEvent.selectControl.fire(index, evt);
+            this.editorEvent.selectControl.fire([index, evt.ctrlKey]);
         });
 
         this.listview1.ucExtends.self.addEventListener("keyup", (ev: KeyboardEvent) => {
@@ -75,7 +77,7 @@ export class ucLayout extends Designer {
                             multiSelect: ev.ctrlKey,
                             removeIfExist: false,
                         });
-                    this.editorEvent.selectControl.fire(this.listview1.lvUI.currentIndex, ev.ctrlKey);
+                    this.editorEvent.selectControl.fire([this.listview1.lvUI.currentIndex, ev.ctrlKey]);
                     break;
                 case keyBoard.keys.delete:
                     let c = this.listview1.lvUI.currentRecord;
@@ -103,7 +105,7 @@ export class ucLayout extends Designer {
                 case keyBoard.keys.v:
                     if (ev.shiftKey || ev.ctrlKey) {
                         let cTree = this.listview1.lvUI.currentRecord;
-                        let pushAs = ev.shiftKey ? ElementPushAs.before : ElementPushAs.append;
+                        let pushAs:ElementPushAs = ev.shiftKey ? 'before' : 'append';
                         let src = this.activeEditor.source;
                         this.dragBucket.forEach(s => {
                             this.transferElement(src[s],
@@ -158,7 +160,7 @@ export class ucLayout extends Designer {
         });
 
         this.uniqKey = "tosee" + this.ucExtends.stampRow.uniqStamp;
-        DragHelper.ON_START((ev: MouseEvent) => {
+        DragHelper.ON_START((ele,ev) => {
             let dta = DragHelper.draggedData;
             if (dta.unqKey == this.uniqKey) {
                 _this.dragDataElement = DragHelper.draggedData.data;
@@ -168,16 +170,16 @@ export class ucLayout extends Designer {
                 this.itemDrag.start();
                 this.fillBucket();
             }
-        }, (ev: MouseEvent) => {
+        }, (ele,ev) => {
             this.itemDrag.stop();
         });
 
         this.itemDrag
-            .dragLeave((ev: DragEvent) => {
+            .dragLeave((ele,ev) => {
                 let te = ev.currentTarget as HTMLElement;
                 te.setAttribute("drag-mode", "none");
             }, [])
-            .dragOver((ev: DragEvent) => {
+            .dragOver((ele,ev) => {
                 let curTarget = ev.currentTarget as HTMLElement;
                 let itmlst = this.allItemsHT;
                 if (ev.ctrlKey) {
@@ -196,17 +198,17 @@ export class ucLayout extends Designer {
                     curTarget.setAttribute("drag-mode", ev.offsetY < (curTarget.offsetHeight / 2) ? "t-before" : "t-after");
                 }
             }, [])
-            .dragDrop((ev: DragEvent) => {
+            .dragDrop((ele,ev) => {
                 let data = _this.dragDataElement;
                 this.dragDataElement.removeAttribute("drag-mode");
                 if (data == undefined) { ev.stopPropagation(); return; }
                 let tg = ev.target as HTMLElement;
                 let curTarget = ev.currentTarget as HTMLElement;
-                let pushAs = ElementPushAs.append;
+                let pushAs:ElementPushAs = 'append';
                 if (tg.nodeName == "SPAN" || tg.nodeName == "IMG") {
-                    pushAs = ElementPushAs.prepend;
+                    pushAs = 'prepend';
                 } else {
-                    pushAs = ev.offsetY > (curTarget.offsetHeight / 2) ? ElementPushAs.after : ElementPushAs.before;
+                    pushAs = ev.offsetY > (curTarget.offsetHeight / 2) ? 'after' : 'before';
                 }
                 let cTree = this.activeEditor.source[curTarget.index()];
                 let src = this.activeEditor.source;
@@ -231,7 +233,7 @@ export class ucLayout extends Designer {
             this.refresh();
             lvUI.currentIndex = index;
             if (editNode) {
-                this.listview1.listvw1.focus();
+                this.listview1.ll_view.focus();
                 this.doEditProcess();
             }
         }
@@ -250,7 +252,7 @@ export class ucLayout extends Designer {
         }, (oval: string) => {
             timeoutCall.start(() => {
                 lvUI.currentIndex = lvUI.currentIndex;
-            }, 0);
+            });
         });
     }
 
@@ -305,7 +307,7 @@ export class ucLayout extends Designer {
     bindDragEvent() {
         let itmlst = this.allItemsHT;
         DragHelper
-            .DRAG_ME(itmlst, (evt: MouseEvent) => {
+            .DRAG_ME(Array.from(itmlst), (evt: MouseEvent) => {
                 return {
                     type: 'tpt',
                     unqKey: this.uniqKey,
@@ -314,31 +316,30 @@ export class ucLayout extends Designer {
             }, (evt: MouseEvent) => {
 
             });
-        this.itemDrag.pushElements(itmlst);
+        this.itemDrag.pushElements(Array.from(itmlst));
     }
 
     lastCommandIsForCopy = true;
 
-    transferElement(fromRec: treeRecord, toRec: treeRecord, viaCopy: boolean = false, pushAs: ElementPushAs = ElementPushAs.append) {
+    transferElement(fromRec: treeRecord, toRec: treeRecord, viaCopy: boolean = false, pushAs: ElementPushAs = 'append') {
         if (!fromRec.element.contains(toRec.element)) {
             if (fromRec.nodeType == fromRec.element.ELEMENT_NODE &&
                 (toRec.element.nodeName == "TEXTAREA" &&
-                    (pushAs == ElementPushAs.append || pushAs == ElementPushAs.prepend)
+                    (pushAs == 'append' || pushAs == 'prepend')
                 )
             ) return;
-            let eToI: HTMLElement | undefined = undefined;
-            eToI = viaCopy ? fromRec.element.cloneNode(true) : fromRec.element;
+            let eToI: HTMLElement = viaCopy ? fromRec.element.cloneNode(true) as HTMLElement : fromRec.element;
             switch (pushAs) {
-                case ElementPushAs.append:
+                case 'append':
                     if (!controlOpt.hasClosingTag(toRec.element)) return;
                     toRec.element.append(eToI);
                     break;
-                case ElementPushAs.prepend:
+                case 'prepend':
                     if (!controlOpt.hasClosingTag(toRec.element)) return;
                     toRec.element.prepend(eToI);
                     break;
-                case ElementPushAs.after: toRec.element.after(eToI); break;
-                case ElementPushAs.before: toRec.element.before(eToI); break;
+                case 'after': toRec.element.after(eToI); break;
+                case 'before': toRec.element.before(eToI); break;
             }
         }
     }

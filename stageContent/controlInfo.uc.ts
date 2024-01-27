@@ -68,7 +68,7 @@ export class controlInfo extends Designer {
                 this.main.tools.activeEditor.selection.doSelect(nindex, {
                     multiSelect: false
                 });
-                this.main.editorEvent.selectControl.fire(nindex);
+                this.main.editorEvent.selectControl.fire([nindex,false]);
                 this.isAttributeChanging = false;
             }
         });
@@ -137,7 +137,7 @@ export class controlInfo extends Designer {
         this.listview1.fill({
             addHeader: true,
             addFooter: false,
-            headerRow: newObjectOpt.copyProps({ ownerControl: row.element, }, attrRecord),
+            headerRow: Object.assign({ ownerControl: row.element, }, attrRecord),
         });
     }
     disableme() {
@@ -147,7 +147,7 @@ export class controlInfo extends Designer {
         this.listview1.fill({
             addHeader: true,
             addFooter: false,
-            headerRow: newObjectOpt.copyProps({}, attrRecord),
+            headerRow: Object.assign({}, attrRecord),
         });
     }
 }

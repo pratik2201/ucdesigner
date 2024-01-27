@@ -9,10 +9,9 @@ export class dragManage {
     draging: DragHelper;
     dragRectHT: HTMLElement;
     lastCommandIsForCopy: boolean;
-    treeInfo: treeRecord | undefined;
+    treeInfo: treeRecord;
     dragBucket: treeRecord[];
     output: ucOutput;
-    get layout(): ucLayout;
     main: selectionManage;
 
     constructor() {
@@ -43,27 +42,27 @@ export class dragManage {
     init(main: selectionManage): void {
         this.main = main;
         this.output = this.main.main;
-        DragHelper.ON_START((ev: MouseEvent) => {
-            let obj = this.main.fatchFromPoint(ev.target, new Point(ev.pageX, ev.pageY), ev.altKey);
+        DragHelper.ON_START((ht,ev) => {
+            let obj = this.main.fatchFromPoint(ev.target as HTMLElement, new Point(ev.pageX, ev.pageY), ev.altKey);
             if (obj != undefined) {
                 ev.dataTransfer.setDragImage(obj.element, 0, 0);
                 this.fillBucket();
-                this.dragRectHT.style = `left : -50px;
-                                            top : -50px;
-                                            height : 0px;
-                                            width : 0px`;
+                this.dragRectHT.setAttribute('style',`left : -50px;
+                                                        top : -50px;
+                                                        height : 0px;
+                                                        width : 0px`);
             }
         })
         this.draging
-            .dragOver((ev: MouseEvent) => {
-                let row = this.main.fatchFromPoint(ev.target, new Point(ev.pageX, ev.pageY), ev.altKey);
-                if (this.treeInfo == undefined ||
-                    row.id != this.treeInfo.id) {
+            .dragOver((ht,ev) => {
+                let row = this.main.fatchFromPoint(ev.target as HTMLElement, new Point(ev.pageX, ev.pageY), ev.altKey);
+                if (this.treeInfo == undefined  ||
+                    row.index != this.treeInfo.index) {
                     this.treeInfo = row;
-                    this.dragRectHT.style = `left : ${row.rect.left}px;
-                                            top : ${row.rect.top}px;
-                                            height : ${row.rect.height}px;
-                                            width : ${row.rect.width}px`;
+                    this.dragRectHT.setAttribute('style',`left : ${row.rect.left}px;
+                                                            top : ${row.rect.top}px;
+                                                            height : ${row.rect.height}px;
+                                                            width : ${row.rect.width}px`);
                 }
                 switch (row.rect.getDockSide(ev.offsetX, ev.offsetY)) {
                     case "left":
@@ -75,25 +74,25 @@ export class dragManage {
                         break;
                 }
             }, [])
-            .dragDrop((ev: MouseEvent) => {
-                let row = this.main.fatchFromPoint(ev.target, new Point(ev.pageX, ev.pageY), ev.altKey);
+            .dragDrop((ht,ev) => {
+                let row = this.main.fatchFromPoint(ev.target as HTMLElement, new Point(ev.pageX, ev.pageY), ev.altKey);
                 let index = row.element.getAttribute(ucDesignerATTR.ITEM_INDEX);
                 let torec = this.main.source[index];
-                this.dragRectHT.style = `left : 0px;
-                                                top : 0px;
-                                                height : 0px;
-                                                width : 0px;`;
+                this.dragRectHT.setAttribute('style',`left : 0px;
+                                                        top : 0px;
+                                                        height : 0px;
+                                                        width : 0px;`);
                 switch (row.rect.getDockSide(ev.offsetX, ev.offsetY)) {
                     case "left":
                     case "top":
                         this.dragBucket.forEach(fromrec => {
-                            this.layout.transferElement(fromrec, torec, ev.ctrlKey, 1);
+                            this.layout.transferElement(fromrec, torec, ev.ctrlKey,'prepend');
                         });
                         this.output.refresh();
                         break;
                     default:
                         this.dragBucket.forEach(fromrec => {
-                            this.layout.transferElement(fromrec, torec, ev.ctrlKey, 0);
+                            this.layout.transferElement(fromrec, torec, ev.ctrlKey,'append');
                         });
                         this.output.refresh();
                         break;
@@ -104,9 +103,9 @@ export class dragManage {
 
     }
 
-    pushElements(ctrs: HTMLElement): void {
-        DragHelper
-            .DRAG_ME(ctrs, (evt: MouseEvent) => { }, (evt: MouseEvent) => { })
+    pushElements(ctrs: HTMLElement[]): void {
+        /*DragHelper
+            .DRAG_ME(ctrs, (ev) => {  }, (ev) => { })*/
         this.draging.pushElements(ctrs);
     }
 }

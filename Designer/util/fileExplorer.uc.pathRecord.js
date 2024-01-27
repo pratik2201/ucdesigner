@@ -1,34 +1,25 @@
-const { pathInfo } = require("ucbuilder/build/common");
-const { existsSync } = require("original-fs");
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.pathRecord = void 0;
+const fs_1 = require("fs");
 class pathRecord {
-    iconFilePath = "";
-    nodeName = "";
-    path = "";
-    level = 0;
+    constructor() {
+        this.iconFilePath = "";
+        this.nodeName = "";
+        this.path = "";
+        this.level = 0;
+        this.sort = 0;
+        this.type = 'directory';
+        this.isFolder = true;
+        this.isOpened = false;
+        this.children = [];
+        this.parent = undefined;
+        this.viewType = 'viewNode';
+        this.relevantElement = undefined;
+    }
     get leftSpace() { return this.level * 10; }
-    sort = 0;
-    /** @type {pathInfo.TYPE} */
-    type = pathInfo.TYPE.directory;
-
-    isFolder = true;
-
-    /** @type {boolean} */
-    isOpened = false;
-    /** @type {pathRecord[]} */
-    children = [];
-    /** @type {pathRecord} */
-    parent = undefined;
-
-
-    /** @type {HTMLElement} */
-    relevantElement = undefined;
-
     get exists() {
-        return existsSync(this.path);
+        return (0, fs_1.existsSync)(this.path);
     }
 }
-module.exports = {    
-
-    pathRecord
-};
+exports.pathRecord = pathRecord;

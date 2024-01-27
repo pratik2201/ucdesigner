@@ -14,7 +14,7 @@ export class Designer extends Usercontrol {
     
          
    
-    public movable1: import('uccontrols/controls/movable.uc').Movable;
+    public movable1: import('uccontrols/controls/Movable.uc').Movable;
         
     public dgvrowTpt: import('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt').attributeTemplate;
          
@@ -36,7 +36,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/movable.uc.ts',{ 
+        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

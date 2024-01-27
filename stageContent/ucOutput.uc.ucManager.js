@@ -1,14 +1,10 @@
-/**
- * @typedef {import ("ucdesigner/stageContent/ucOutput.uc")} ucOutput
- */
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ucManager = void 0;
 class ucManager {
     constructor() { }
-    /** @type {ucOutput}  */
-    main = undefined;
     init(main) {
         this.main = main;
-
     }
 }
-module.exports = { ucManager };
+exports.ucManager = ucManager;

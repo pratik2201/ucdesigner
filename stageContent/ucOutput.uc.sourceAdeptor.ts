@@ -57,7 +57,7 @@ export class sourceAdeptor {
             default: return;
         }
         row.index = indexer.index;
-        element.setAttribute(ucDesignerATTR.ITEM_INDEX, row.index);
+        element.setAttribute(ucDesignerATTR.ITEM_INDEX, ''+row.index);
         row.uniqId = element.getAttribute(ucDesignerATTR.UNIQID);
         if (row.uniqId == null) {
             row.uniqId = uniqOpt.guidAs_;

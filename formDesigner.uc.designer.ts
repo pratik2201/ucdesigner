@@ -14,7 +14,7 @@ export class Designer extends Usercontrol {
     
          
    
-    public winFrame1: import('uccontrols/controls/winframe.uc').winframe;
+    public winFrame1: import('uccontrols/controls/winFrame.uc').winFrame;
     public cmd_built: HTMLButtonElement;
     public cmd_fileExplorer: HTMLButtonElement;
     public cmd_sample1: HTMLButtonElement;
@@ -30,7 +30,7 @@ export class Designer extends Usercontrol {
     public cmd_resetsesion: HTMLButtonElement;
          
    
-    public splitter1: import('uccontrols/controls/splitter.uc').splitter;
+    public splitter1: import('uccontrols/controls/splitter.uc').Splitter;
     public container1: HTMLDivElement;
 
     
@@ -45,7 +45,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.winFrame1 = intenseGenerator.generateUC('uccontrols/controls/winframe.uc.ts',{ 
+        this.winFrame1 = intenseGenerator.generateUC('uccontrols/controls/winFrame.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

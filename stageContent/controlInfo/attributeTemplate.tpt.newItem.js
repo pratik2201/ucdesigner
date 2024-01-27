@@ -1,14 +1,10 @@
-const { attrRecord } = require('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js');
-/** @typedef {import ('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt.js')} attributeTemplate */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.attributeNewItem = void 0;
 class attributeNewItem {
     constructor() {
-
+        this.row = undefined;
     }
-    /** @type {attrRecord}  */
-    row = undefined;
-    /**
-     * @param {attributeTemplate} main 
-     */
     init(main) {
         this.main = main;
         this.main.newitem.extended.Events.onGenerateNode = (mainnode, row) => {
@@ -26,11 +22,10 @@ class attributeNewItem {
     saveAttr() {
         let val = this.controls.txt_attrValue.value;
         let key = this.controls.txt_attrName.value;
-        
         if (key != "" && this.row.value != val) {
             this.row.ownerControl.setAttribute(key, val);
             this.main.attrEvents.extended.onAttrChange.fire();
         }
     }
 }
-module.exports = { attributeNewItem };
+exports.attributeNewItem = attributeNewItem;

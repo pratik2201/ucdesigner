@@ -1,8 +1,8 @@
-import { attrRecord } from 'ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js';
+import { AttrRecord } from 'ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.enumAndmore.js';
 import { attributeTemplate } from 'ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt.js';
 
 export class attributeNewItem {
-    row: attrRecord;
+    row: AttrRecord;
     main: attributeTemplate;
     mainnode: any;
     controls: any;
@@ -13,7 +13,7 @@ export class attributeNewItem {
 
     init(main: attributeTemplate) {
         this.main = main;
-        this.main.newitem.extended.Events.onGenerateNode = (mainnode: any, row: attrRecord) => {
+        this.main.newitem.extended.Events.onGenerateNode = (mainnode: any, row: AttrRecord) => {
             this.mainnode = mainnode;
             this.row = row;
             this.controls = this.main.newitem.getAllControls(this.mainnode);

@@ -1,9 +1,9 @@
-module.exports = {
-    attrRecord: {
-        nodeName:"",
-        value:"",
-        /** @type {HTMLElement}  */ 
-        ownerControl:undefined,
-        assigned:1,
-    }
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.attrRecord = void 0;
+exports.attrRecord = {
+    nodeName: "",
+    value: "",
+    ownerControl: undefined,
+    assigned: true,
+};

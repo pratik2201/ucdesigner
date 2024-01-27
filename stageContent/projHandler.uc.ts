@@ -1,39 +1,47 @@
 import { Designer } from './projHandler.uc.designer.js';
 import { pathInfo, buildOptions } from 'ucbuilder/build/common';
-import {formDesigner} from 'ucdesigner/formDesigner.uc.js';
+import { formDesigner } from 'ucdesigner/formDesigner.uc.js';
 import { designerToolsType } from 'ucdesigner/enumAndMore.js';
 import { pathRecord } from 'ucdesigner/Designer/util/fileExplorer.uc.pathRecord';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator.js';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
 import { FileDataBank } from 'ucdesigner/../ucbuilder/global/fileDataBank.js';
+import { builder } from 'ucbuilder/build/builder.js';
+import { iconFilePath } from 'ucdesigner/Designer/util/fileExplorer.uc.collepser.js';
 
+export let iconDirPath = "ucdesigner/stageContent/projHandler";
+
+(async () => {
+    iconDirPath = await iconDirPath.__({});
+    
+})();
 export class projHandler extends Designer {
     SESSION_DATA: any = {
     }
     main: formDesigner;
-    ignoreDirs: any;
-    ignoreFiles: any;
-    static iconDirPath: string = "ucdesigner/stageContent/projHandler".__();
 
+    
     constructor() {
         super();
         this.initializecomponent(arguments, this);
         this.main = ResourcesUC.resources[designerToolsType.mainForm];
         this.main.tools.set(designerToolsType.projectExplorer, this);
-        this.ignoreDirs = require('ucbuilder/build/builder').builder.ignoreDirs;
+        this.ignoreDirs = builder.ignoreDirs;
 
         this.initEvent();
         this.filexplorer1.listviewEvents.itemDoubleClick.on((index: number) => {
             let finfo: pathRecord = this.filexplorer1.listview1.source.rows[index];
             switch (finfo.type) {
-                case pathInfo.CODEFILE_TYPE.ucHtmlFile:
-                case pathInfo.CODEFILE_TYPE.ucTemplateFile:
+                case 'file':
+
+                    //case pathInfo.CODEFILE_TYPE.ucHtmlFile:
+                    //case pathInfo.CODEFILE_TYPE.ucTemplateFile:
                     let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucOutput.uc.html', {
                         parentUc: this.main,
 
                     }, finfo.path);
                     this.main.container1.append(uc.ucExtends.self);
-                    this.main.pushChildSession(uc);
+                    this.main.splitter1.pushChildSession(uc);
                     break;
             }
         });
@@ -47,16 +55,17 @@ export class projHandler extends Designer {
 
     initEvent() {
         let _this = this;
+        
         this.filexplorer1.fileExplorerEvents.filterDirs = (row: any) => {
             if (!row.isOpened)
-                row.iconFilePath = this.filexplorer1.manager.iconFilePath.folder;
+                row.iconFilePath = iconFilePath.folder;
         }
         this.filexplorer1.fileExplorerEvents.filterFiles = (row: any) => {
-            row.iconFilePath = this.filexplorer1.manager.iconFilePath.otherFile;
+            row.iconFilePath = iconFilePath.otherFile;
             if (row.path.includes(".uc.")) {
                 if (row.path.endsWith(".uc.html")) {
                     row.type = pathInfo.CODEFILE_TYPE.ucHtmlFile;
-                    row.iconFilePath = `${projHandler.iconDirPath}/form.png`;
+                    row.iconFilePath = `${iconDirPath}/form.png`;
                     return true;
                 } else {
                     return false;
@@ -64,7 +73,7 @@ export class projHandler extends Designer {
             } else if (row.path.includes(".tpt.")) {
                 if (row.path.endsWith(".tpt.html")) {
                     row.type = pathInfo.CODEFILE_TYPE.ucTemplateFile;
-                    row.iconFilePath = `${projHandler.iconDirPath}/template.png`;
+                    row.iconFilePath = `${iconDirPath}/template.png`;
                     return true;
                 } else {
                     return false;

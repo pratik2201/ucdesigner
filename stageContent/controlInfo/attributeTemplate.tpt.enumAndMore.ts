@@ -2,12 +2,12 @@ export interface AttrRecord {
     nodeName: string;
     value: string;
     ownerControl?: HTMLElement;
-    assigned: number;
+    assigned: boolean;
 }
 
 export const attrRecord: AttrRecord = {
     nodeName: "",
     value: "",
     ownerControl: undefined,
-    assigned: 1,
+    assigned: true,
 };

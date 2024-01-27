@@ -4,7 +4,7 @@ import { elementEditor } from "ucbuilder/global/elementEditor";
 
 export class nodeNameEditor {
     editor: elementEditor = new elementEditor();
-    row: treeRecord | undefined = undefined;
+    row: treeRecord = undefined;
 
     constructor() {
         this.editor.onDemandActualValue = () => {
@@ -19,7 +19,7 @@ export class nodeNameEditor {
         }
     }
 
-    editRow(row: treeRecord, htEle: HTMLElement | undefined = undefined, callbackAfterSave: (nval: string, oval: string) => void = (nval, oval) => { }, callbackAfterReset: (oval: string) => void = (oval) => { }) {
+    editRow(row: treeRecord, htEle: HTMLElement  = undefined, callbackAfterSave: (nval: string, oval: string) => void = (nval, oval) => { }, callbackAfterReset: (oval: string) => void = (oval) => { }) {
         let _this = this;
         this.row = row;
 

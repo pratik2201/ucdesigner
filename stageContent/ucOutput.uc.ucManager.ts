@@ -1,7 +1,7 @@
-import { ucOutput } from "ucdesigner/stageContent/ucOutput";
+import { ucOutput } from "ucdesigner/stageContent/ucOutput.uc";
 
 export class ucManager {
-    main: ucOutput | undefined;
+    main: ucOutput;
     constructor() { }
     init(main: ucOutput) {
         this.main = main;

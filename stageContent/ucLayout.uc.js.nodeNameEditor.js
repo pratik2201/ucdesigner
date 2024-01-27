@@ -1,50 +1,49 @@
-const {  controlOpt } = require("ucbuilder/build/common");
-const { treeRecord, ucDesignerATTR } = require("ucdesigner/stageContent/ucLayout.uc.enumAndMore");
-const { elementEditor } = require("ucbuilder/global/elementEditor");
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.nodeNameEditor = void 0;
+const common_1 = require("ucbuilder/build/common");
+const elementEditor_1 = require("ucbuilder/global/elementEditor");
 class nodeNameEditor {
     constructor() {
+        this.editor = new elementEditor_1.elementEditor();
+        this.row = undefined;
         this.editor.onDemandActualValue = () => {
-            switch (this.row.nodeType) {
-                case this.row.element.ELEMENT_NODE:
-                    return this.row.element.nodeName;
-                case this.row.element.TEXT_NODE:
-                    return this.row.element.textContent;
+            var _a, _b, _c, _d, _e;
+            switch ((_a = this.row) === null || _a === void 0 ? void 0 : _a.nodeType) {
+                case (_b = this.row) === null || _b === void 0 ? void 0 : _b.element.ELEMENT_NODE:
+                    return (_c = this.row) === null || _c === void 0 ? void 0 : _c.element.nodeName;
+                case (_d = this.row) === null || _d === void 0 ? void 0 : _d.element.TEXT_NODE:
+                    return (_e = this.row) === null || _e === void 0 ? void 0 : _e.element.textContent;
+                default:
+                    return "";
             }
-        }
+        };
     }
-    editor = new elementEditor();
-    /** @type {treeRecord}  */
-    row = undefined;
-    /**
-     * @param {treeRecord} row 
-     * @param {HTMLElement} htEle 
-     */
     editRow(row, htEle = undefined, callbackAfterSave = (nval, oval) => { }, callbackAfterReset = (oval) => { }) {
         let _this = this;
         this.row = row;
-
         this.editor.editRow(htEle, (nval, oval) => {
-            if (_this.row == undefined) return;
+            if (_this.row == undefined)
+                return;
             _this.editor.isInEditMode = false;
             if (_this.row.nodeType == _this.row.element.ELEMENT_NODE) {
                 let nName = nval.trim().replace(/\n|\r|<br>/ig, "");
-                controlOpt.renameTag(this.row.element, nName);
-            } else {
-                if (nval == htEle.innerText) {
+                common_1.controlOpt.renameTag(_this.row.element, nName);
+            }
+            else {
+                if (nval == (htEle === null || htEle === void 0 ? void 0 : htEle.innerText)) {
                     let e = _this.row.element;
                     e.textContent = nval;
-                } else {
+                }
+                else {
                     _this.row.element.parentElement.innerHTML = nval;
                 }
             }
             callbackAfterSave(nval, oval);
-            _this._row = undefined;
+            _this.row = undefined;
         }, (oval) => {
             callbackAfterReset(oval);
         }, true);
-
     }
-
 }
-module.exports = { nodeNameEditor };
+exports.nodeNameEditor = nodeNameEditor;

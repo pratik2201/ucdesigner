@@ -1,16 +1,15 @@
-import { ucDesignerATTR, ucLayoutATTR } from "ucdesigner/stageContent/ucLayout.uc.enumAndMore";
+import { treeRecord, ucDesignerATTR, ucLayoutATTR } from "ucdesigner/stageContent/ucLayout.uc.enumAndMore";
 import { nodeNameEditor } from "ucdesigner/stageContent/ucLayout.uc.js.nodeNameEditor";
 import {ucOutput} from "ucdesigner/stageContent/ucOutput.uc";
 import { dragManage } from "ucdesigner/stageContent/ucOutput.uc.dragManage";
-//import { resizerManage } from "ucdesigner/stageContent/ucOutput.uc.resizerManage";
-import { controlOpt } from "ucbuilder/build/common";
+import { arrayOpt, controlOpt } from "ucbuilder/build/common";
 import { Rect, Point } from "ucbuilder/global/drawing/shapes";
 import { keyBoard } from "ucbuilder/global/hardware/keyboard";
 
 export class selectionManage {
     main: ucOutput;
     opDrag: dragManage;
-    lastFatchedObject: treeRecord | undefined;
+    lastFatchedObject: treeRecord;
     source: treeRecord[];
 
     constructor() {
@@ -108,7 +107,7 @@ export class selectionManage {
 
     fatchFromPoint(htEle: HTMLElement, pt: Point, allowTextnodeToSelect: boolean): treeRecord | undefined {
         htEle = ucDesignerATTR.transAssets.getMainTag(htEle);
-        htEle = this.maroElementMoklo(Array.from(document.elementsFromPoint(pt.x, pt.y)), allowTextnodeToSelect, 6) as HTMLElement;
+        htEle = this.maroElementMoklo(document.elementsFromPoint(pt.x, pt.y) as HTMLElement[], allowTextnodeToSelect, 6) as HTMLElement;
         if (htEle == undefined) return;
         return this.source.find(row => row.outputElement.is(htEle));
     }

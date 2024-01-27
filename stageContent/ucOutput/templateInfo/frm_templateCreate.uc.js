@@ -1,8 +1,11 @@
-const { designer } = require('./frm_templateCreate.uc.designer.js');
-class frm_templateCreate extends designer{
-    constructor() { super(); this.initializecomponent(arguments, this);
-        
-        
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.frm_templateCreate = void 0;
+const frm_templateCreate_uc_designer_1 = require("./frm_templateCreate.uc.designer");
+class frm_templateCreate extends frm_templateCreate_uc_designer_1.Designer {
+    constructor() {
+        super();
+        this.initializecomponent(arguments, this);
     }
 }
-module.exports = frm_templateCreate;
+exports.frm_templateCreate = frm_templateCreate;

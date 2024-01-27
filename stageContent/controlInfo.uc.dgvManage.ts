@@ -19,10 +19,10 @@ export class dgvManage {
         fb = "",
         ca = "",
         cb = "";
-      fa = a.first_name; //.toLowerCase();
+      /*fa = a.first_name; //.toLowerCase();
       fb = b.first_name; //.toLowerCase();
       ca = a.color; //.toLowerCase();
-      cb = b.color; //.toLowerCase();
+      cb = b.color; //.toLowerCase();*/
       return ca.localeCompare(cb) || fa.localeCompare(fb);
       if (fa < fb || ca < cb) {
         return -1;
@@ -33,9 +33,9 @@ export class dgvManage {
       return 0;
     });
 
-    this.main.datagrid1.detail.source.rows = this.jsnSources;
-    this.main.datagrid1.fill({
-      addFooter: true,
-    });
+    // this.main.datagrid1.detail.source.rows = this.jsnSources;
+    // this.main.datagrid1.fill({
+    //   addFooter: true,
+    // });
   }
 }
