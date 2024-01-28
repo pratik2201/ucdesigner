@@ -20,7 +20,7 @@ export class Designer extends Usercontrol {
     public cmd_removeTextNode: HTMLUnknownElement;
          
    
-    public listview1: import('uccontrols/controls/listview.uc').ListView;
+    public listview1: import('uccontrols/controls/ListView.uc').ListView;
 
     
     constructor(){ super(); }
@@ -50,7 +50,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.listview1 = intenseGenerator.generateUC('uccontrols/controls/listview.uc.ts',{ 
+        this.listview1 = intenseGenerator.generateUC('uccontrols/controls/ListView.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

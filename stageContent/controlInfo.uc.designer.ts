@@ -19,7 +19,7 @@ export class Designer extends Usercontrol {
     public dgvrowTpt: import('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt').attributeTemplate;
          
    
-    public comboBox1: import('uccontrols/controls/combobox.uc').comboBox;
+    public comboBox1: import('uccontrols/controls/comboBox.uc').comboBox;
          
    
     public listview1: import('uccontrols/controls/datagrid.uc').datagrid;
@@ -55,7 +55,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.comboBox1 = intenseGenerator.generateUC('uccontrols/controls/combobox.uc.ts',{ 
+        this.comboBox1 = intenseGenerator.generateUC('uccontrols/controls/comboBox.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

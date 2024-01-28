@@ -30,7 +30,7 @@ export class Designer extends Usercontrol {
     public cmd_resetsesion: HTMLButtonElement;
          
    
-    public splitter1: import('uccontrols/controls/splitter.uc').Splitter;
+    public splitter1: import('uccontrols/controls/Splitter.uc').Splitter;
     public container1: HTMLDivElement;
 
     
@@ -71,7 +71,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.splitter1 = intenseGenerator.generateUC('uccontrols/controls/splitter.uc.ts',{ 
+        this.splitter1 = intenseGenerator.generateUC('uccontrols/controls/Splitter.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

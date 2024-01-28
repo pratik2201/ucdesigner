@@ -1,25 +1,15 @@
-import * as ct from 'uccontrols';
-import ucb from "ucbuilder"; 
-ucb.registar();
-let s = ct;
+
 //import { intenseGenerator } from 'ucbuilder/intenseGenerator';
+import * as ct from 'uccontrols';
+import ucb from "ucbuilder";
+import { intenseGenerator } from 'ucbuilder/intenseGenerator';
+export const startDesigner = (): void => {
 
-interface Session {
-    loadBySession: boolean;
-}
-
-interface FormDesignerOptions {
-    wrapperHT: HTMLElement;
-    session: Session;
-}
-
-const startDesigner = (): void => {
-    /*const frm: import('ucdesigner/formDesigner.uc') = intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
+    ucb.registar();
+    let s = ct;
+    const frm: import('ucdesigner/formDesigner.uc').formDesigner = intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,
         session: { loadBySession: true }
-    }, "hello world this is perameter");
-    frm.winFrame1.showDialog();*/
+    }, "hello world this is perameter") as any;
+    frm.winFrame1.showDialog();
 };
-export default {
-    startDesigner
-}
