@@ -21,7 +21,7 @@ export class formDesigner extends Designer {
     SESSION_DATA: any = {};
 
     constructor() {
-        super();
+        super();   
         this.initializecomponent(arguments, this);
         this.splitter1.initMain(this.container1);
         this.cmd_deletesesion.addEventListener("mousedown", () => {
