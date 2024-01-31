@@ -6,26 +6,21 @@ import { fileExplorer, RootPathRow } from './fileexplorer.uc';
 import { pathRecord } from './fileExplorer.uc.pathRecord';
 
 
-interface IconFilePath{
+interface IconFilePath {
     folder: string,
     folderOpened: string,
     otherFile: string,
     usercontrolFile: string,
 }
-export let iconDirPath = "ucdesigner/Designer/util/fileExplorer/type-icons/style4/";
-export declare let iconFilePath: IconFilePath;
-(async () => {
-    iconDirPath = await iconDirPath.__({});
-    iconFilePath = {
-        folder: iconDirPath + "folder.png",
-        folderOpened: iconDirPath + "folder-opened.png",
-        otherFile: iconDirPath + "other-file.png",
-        usercontrolFile: iconDirPath + "usercontrol.png",
-    }
-})();
-
+export const iconDirPath = "ucdesigner/Designer/util/fileExplorer/type-icons/style4/".__({});
+export const iconFilePath: IconFilePath = {
+    folder: iconDirPath + "folder.png",
+    folderOpened: iconDirPath + "folder-opened.png",
+    otherFile: iconDirPath + "other-file.png",
+    usercontrolFile: iconDirPath + "usercontrol.png",
+}
 export class collepser {
-    
+
     activeRoot: RootPathRow = undefined;
     get ROOT_DIR(): RootPathRow {
         return this.activeRoot;

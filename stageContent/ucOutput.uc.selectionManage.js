@@ -3,11 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.selectionManage = void 0;
 const ucLayout_uc_enumAndMore_1 = require("ucdesigner/stageContent/ucLayout.uc.enumAndMore");
 const ucLayout_uc_js_nodeNameEditor_1 = require("ucdesigner/stageContent/ucLayout.uc.js.nodeNameEditor");
+const ucOutput_uc_dragManage_1 = require("ucdesigner/stageContent/ucOutput.uc.dragManage");
 const common_1 = require("ucbuilder/build/common");
 const shapes_1 = require("ucbuilder/global/drawing/shapes");
 const keyboard_1 = require("ucbuilder/global/hardware/keyboard");
 class selectionManage {
     constructor() {
+        this.opDrag = new ucOutput_uc_dragManage_1.dragManage();
         this.nameEditor = new ucLayout_uc_js_nodeNameEditor_1.nodeNameEditor();
         this.source = [];
     }

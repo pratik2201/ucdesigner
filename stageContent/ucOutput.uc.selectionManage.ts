@@ -8,7 +8,7 @@ import { keyBoard } from "ucbuilder/global/hardware/keyboard";
 
 export class selectionManage {
     main: ucOutput;
-    opDrag: dragManage;
+    opDrag = new dragManage();
     lastFatchedObject: treeRecord;
     source: treeRecord[];
 

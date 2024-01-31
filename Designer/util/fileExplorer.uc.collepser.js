@@ -1,33 +1,21 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.collepser = exports.iconDirPath = void 0;
+exports.collepser = exports.iconFilePath = exports.iconDirPath = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const common_1 = require("ucbuilder/build/common");
 const keyboard_1 = require("ucbuilder/global/hardware/keyboard");
 const fileExplorer_uc_pathRecord_1 = require("./fileExplorer.uc.pathRecord");
-exports.iconDirPath = "ucdesigner/Designer/util/fileExplorer/type-icons/style4/";
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    exports.iconDirPath = yield exports.iconDirPath.__({});
-    exports.iconFilePath = {
-        folder: exports.iconDirPath + "folder.png",
-        folderOpened: exports.iconDirPath + "folder-opened.png",
-        otherFile: exports.iconDirPath + "other-file.png",
-        usercontrolFile: exports.iconDirPath + "usercontrol.png",
-    };
-}))();
+exports.iconDirPath = "ucdesigner/Designer/util/fileExplorer/type-icons/style4/".__({});
+exports.iconFilePath = {
+    folder: exports.iconDirPath + "folder.png",
+    folderOpened: exports.iconDirPath + "folder-opened.png",
+    otherFile: exports.iconDirPath + "other-file.png",
+    usercontrolFile: exports.iconDirPath + "usercontrol.png",
+};
 class collepser {
     constructor() {
         this.activeRoot = undefined;
