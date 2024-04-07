@@ -31,8 +31,8 @@ exports.startDesigner = void 0;
 const ct = __importStar(require("uccontrols"));
 const ucbuilder_1 = __importDefault(require("ucbuilder"));
 const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
+ucbuilder_1.default.registar();
 const startDesigner = () => {
-    ucbuilder_1.default.registar();
     let s = ct;
     const frm = intenseGenerator_1.intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,

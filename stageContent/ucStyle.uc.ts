@@ -3,7 +3,9 @@ import {formDesigner} from 'ucdesigner/formDesigner.uc.js';
 import { Designer } from './ucStyle.uc.designer';
 import { rootPathHandler } from 'ucbuilder/global/rootPathHandler';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
-import * as ace from 'ace-builds/ace';
+//import * as ace from 'ace-builds/ace';
+import * as ace from 'ace-builds/src-noconflict/ace';
+
 export class ucStyle extends Designer {
     main: formDesigner | undefined;
     

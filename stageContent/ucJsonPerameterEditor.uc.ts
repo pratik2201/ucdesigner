@@ -4,7 +4,9 @@ import { Designer } from './ucStyle.uc.designer.js';
 import { rootPathHandler } from 'ucbuilder/global/rootPathHandler';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
 import { ucDesignerATTR } from 'ucdesigner/stageContent/ucLayout.uc.enumAndMore.js';
-import * as ace from 'ace-builds/ace';
+
+import * as ace from 'ace-builds/src-noconflict/ace';
+
 export class ucJsonPerameterEditor extends Designer {
     main: formDesigner | undefined;
     get activeEditor(): any { return this.main.tools.activeEditor; }

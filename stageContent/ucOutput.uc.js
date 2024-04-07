@@ -28,6 +28,7 @@ class ucOutput extends ucOutput_uc_designer_js_1.Designer {
             extCode: '.uc',
             isActive: false,
         };
+        this.source = [];
         this.tptManage = new ucOutput_uc_tptManager_js_1.tptManager();
         this.ucManage = new ucOutput_uc_ucManager_js_1.ucManager();
         this.srcAdeptor = new ucOutput_uc_sourceAdeptor_js_1.sourceAdeptor();

@@ -29,7 +29,7 @@ export class ucOutput extends Designer {
             extCode: '.uc',
             isActive: false,
         }
-    source: treeRecord[];
+    source: treeRecord[] = [];
     tptManage: tptManager = new tptManager();
     ucManage: ucManager = new ucManager();
     srcAdeptor: sourceAdeptor = new sourceAdeptor();
