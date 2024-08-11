@@ -32,12 +32,12 @@ const ct = __importStar(require("uccontrols"));
 const ucbuilder_1 = __importDefault(require("ucbuilder"));
 const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
 ucbuilder_1.default.registar();
-const startDesigner = () => {
+const startDesigner = (sessionFilePath = "") => {
     let s = ct;
     const frm = intenseGenerator_1.intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,
         session: { loadBySession: true }
-    }, "hello world this is perameter");
+    }, sessionFilePath);
     frm.winFrame1.showDialog();
 };
 exports.startDesigner = startDesigner;

@@ -14,7 +14,7 @@ const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
 const ResourcesUC_1 = require("ucbuilder/ResourcesUC");
 const timeoutCall_1 = require("ucbuilder/global/timeoutCall");
 class formDesigner extends formDesigner_uc_designer_1.Designer {
-    constructor() {
+    constructor(sessionFilePath = "") {
         super();
         this.SESSION_DATA = {};
         this.tools = {
@@ -105,7 +105,7 @@ class formDesigner extends formDesigner_uc_designer_1.Designer {
             console.log('BUILD SUCCESSFULL...');
         });
         ResourcesUC_1.ResourcesUC.resources[enumAndMore_1.designerToolsType.mainForm] = this;
-        this.init();
+        this.init(sessionFilePath);
         this.ucExtends.self.addEventListener("keyup", (e) => {
             switch (e.keyCode) {
                 case keyboard_1.keyBoard.keys.f4:
@@ -120,8 +120,8 @@ class formDesigner extends formDesigner_uc_designer_1.Designer {
         if (this.tools.activeEditor != undefined)
             this.tools.activeEditor.refresh();
     }
-    init() {
-        this.ucExtends.session.readfile();
+    init(sessionFilePath) {
+        this.ucExtends.session.readfile(sessionFilePath);
         this.cmd_layout.on('mousedown', () => {
             if (this.tools.layoutManager == undefined) {
                 let uc = intenseGenerator_1.intenseGenerator.generateUC('ucdesigner/stageContent/ucLayout.uc.html', { parentUc: this });

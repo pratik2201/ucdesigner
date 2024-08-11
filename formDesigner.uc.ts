@@ -20,7 +20,7 @@ export class formDesigner extends Designer {
 
     SESSION_DATA: any = {};
 
-    constructor() {
+    constructor(sessionFilePath:string = "") {
         super();   
         this.initializecomponent(arguments, this);
         this.splitter1.initMain(this.container1);
@@ -55,7 +55,7 @@ export class formDesigner extends Designer {
         });
 
         ResourcesUC.resources[designerToolsType.mainForm] = this;
-        this.init();
+        this.init(sessionFilePath);
 
         this.ucExtends.self.addEventListener("keyup", (e) => {
             switch (e.keyCode) {
@@ -119,8 +119,8 @@ export class formDesigner extends Designer {
         selectControl: new CommonEvent<(index: number, isMultiSelect: boolean) => void>(),
     };
 
-    init() {
-        this.ucExtends.session.readfile();
+    init(sessionFilePath:string) {
+        this.ucExtends.session.readfile(sessionFilePath);
         this.cmd_layout.on('mousedown', () => {
             if (this.tools.layoutManager == undefined) {
                 let uc = intenseGenerator.generateUC('ucdesigner/stageContent/ucLayout.uc.html', { parentUc: this });

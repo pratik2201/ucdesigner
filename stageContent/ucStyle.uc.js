@@ -28,7 +28,8 @@ const enumAndMore_js_1 = require("ucdesigner/enumAndMore.js");
 const ucStyle_uc_designer_1 = require("./ucStyle.uc.designer");
 const rootPathHandler_1 = require("ucbuilder/global/rootPathHandler");
 const ResourcesUC_js_1 = require("ucbuilder/ResourcesUC.js");
-const ace = __importStar(require("ace-builds/ace"));
+//import * as ace from 'ace-builds/ace';
+const ace = __importStar(require("ace-builds/src-noconflict/ace"));
 class ucStyle extends ucStyle_uc_designer_1.Designer {
     constructor() {
         super();

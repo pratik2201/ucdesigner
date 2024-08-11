@@ -29,7 +29,6 @@ const ucStyle_uc_designer_js_1 = require("./ucStyle.uc.designer.js");
 const rootPathHandler_1 = require("ucbuilder/global/rootPathHandler");
 const ResourcesUC_js_1 = require("ucbuilder/ResourcesUC.js");
 const ucLayout_uc_enumAndMore_js_1 = require("ucdesigner/stageContent/ucLayout.uc.enumAndMore.js");
-//import * as ace from 'ace-builds/ace';
 const ace = __importStar(require("ace-builds/src-noconflict/ace"));
 class ucJsonPerameterEditor extends ucStyle_uc_designer_js_1.Designer {
     constructor() {
