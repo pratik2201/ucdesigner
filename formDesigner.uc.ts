@@ -24,6 +24,7 @@ export class formDesigner extends Designer {
         super();   
         this.initializecomponent(arguments, this);
         this.splitter1.initMain(this.container1);
+        
         this.cmd_deletesesion.addEventListener("mousedown", () => {
             pathInfo.removeFile(this.ucExtends.session.dataPath);
             console.clear();
