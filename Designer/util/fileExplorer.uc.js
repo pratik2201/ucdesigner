@@ -26,6 +26,7 @@ class fileExplorer extends fileExplorer_uc_designer_js_1.Designer {
         // this.listview1.source
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex) => {
             let selRec = this.comboBox1.binder.selectedRecord;
+            console.log(selRec);
             this.fillRows(selRec.originalFinderText);
         });
         this.ucExtends.Events.loadLastSession.on(() => {

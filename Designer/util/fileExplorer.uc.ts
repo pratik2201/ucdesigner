@@ -40,6 +40,8 @@ export class fileExplorer extends Designer {
        // this.listview1.source
         this.comboBox1.binder.Events.selectedIndexChange.on((nindex: number) => {
             let selRec = this.comboBox1.binder.selectedRecord as ReplaceTextRow;
+            console.log(selRec);
+            
             this.fillRows(selRec.originalFinderText);
         });
 
