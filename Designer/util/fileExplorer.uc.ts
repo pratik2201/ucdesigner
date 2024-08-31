@@ -13,11 +13,14 @@ export interface RootPathRow {
     path: string;
     openedFolderList: string[];
 }
-declare const rootPathRow: RootPathRow;
-
+const rootPathRow: RootPathRow = {
+    key: "",
+    path: "",
+    openedFolderList : []
+};
 
 export class fileExplorer extends Designer {
-
+   
     SESSION_DATA: {
         rootPath: RootPathRow[];
         activePath: string;
@@ -92,6 +95,7 @@ export class fileExplorer extends Designer {
     ignoreFiles: string[] = [];
 
     fillRows(key: string): any {
+        
         let info = rootPathHandler.getInfo(key);
         if (info != undefined && info.path != '' && fs.existsSync(info.path)) {
             let nrow = this.SESSION_DATA.rootPath.find((s: RootPathRow) => s.path == info.path);

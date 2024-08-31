@@ -8,6 +8,11 @@ const fileExplorer_uc_collepser_js_1 = require("ucdesigner/Designer/util/fileExp
 const rootPathHandler_js_1 = require("ucbuilder/global/rootPathHandler.js");
 const fileExplorer_uc_designer_js_1 = require("./fileExplorer.uc.designer.js");
 const fs_1 = __importDefault(require("fs"));
+const rootPathRow = {
+    key: "",
+    path: "",
+    openedFolderList: []
+};
 class fileExplorer extends fileExplorer_uc_designer_js_1.Designer {
     constructor() {
         super();
