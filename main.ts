@@ -6,8 +6,9 @@ import * as ct from 'uccontrols';
 import ucb from "ucbuilder";
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 ucb.registar({
-    srcDir: __dirname,
+   // srcDir: __dirname,
     outDir: __dirname,
+    rootDir: __dirname,
     /*html: __dirname,
     style: __dirname,
     perameters: __dirname,
