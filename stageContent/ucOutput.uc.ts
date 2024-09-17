@@ -5,7 +5,7 @@ import { UcRendarer } from 'ucbuilder/build/UcRendarer.js';
 import { selectionManage } from 'ucdesigner/stageContent/ucOutput.uc.selectionManage.js';
 import { sourceAdeptor } from 'ucdesigner/stageContent/ucOutput.uc.sourceAdeptor.js';
 import { codeFileInfo } from 'ucbuilder/build/codeFileInfo.js';
-import { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt, ExtensionType } from 'ucbuilder/build/common.js';
+import { controlOpt, pathInfo, buildOptions, propOpt, uniqOpt, SpecialExtType } from 'ucbuilder/build/common.js';
 import { FileDataBank } from 'ucbuilder/global/fileDataBank.js';
 import { Usercontrol } from 'ucbuilder/Usercontrol.js';
 import { Designer } from './ucOutput.uc.designer.js';
@@ -22,7 +22,7 @@ import { timeoutCall } from "ucbuilder/global/timeoutCall";
 export class ucOutput extends Designer {
     SESSION_DATA: {
         filePath: string;
-        extCode: ExtensionType;
+        extCode: SpecialExtType;
         isActive: boolean;
     } = {
             filePath: "",
