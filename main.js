@@ -34,7 +34,7 @@ const ucbuilder_1 = __importDefault(require("ucbuilder"));
 const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
 ucbuilder_1.default.registar({
     // srcDir: __dirname,
-    outDir: __dirname,
+    outDir: '',
     rootDir: __dirname,
     /*html: __dirname,
     style: __dirname,
