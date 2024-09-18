@@ -8,7 +8,7 @@ import {formDesigner} from 'ucdesigner/formDesigner.uc.js';
 import { designerToolsType } from 'ucdesigner/enumAndMore.js';
 import { keyBoard } from 'ucbuilder/global/hardware/keyboard.js';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
-import { timeoutCall } from 'ucdesigner/../ucbuilder/global/timeoutCall.js';
+import { timeoutCall } from 'ucbuilder/global/timeoutCall.js';
 import { itemNode } from './ucLayout/itemNode.tpt.js';
 /*const ElementPushAs = Object.freeze({
     append: 0,

@@ -2,7 +2,7 @@
   "name": "ucdesigner",
   "version": "1.0.0-beta.0",
   "description": "For Develope Large Applications In Single BrowserWindow...",
-  "main": "main.js",
+  "main": "out/main.js", 
   "scripts": {},
   "author": "ap",
   "license": "ISC",

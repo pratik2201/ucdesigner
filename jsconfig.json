@@ -2,9 +2,10 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "ucdesigner/*":["./*"],  
-            "uccontrols/*":["./node_modules/uccontrols/*"],       
-            "ucbuilder/*":["./node_modules/ucbuilder/*"],
+            "ucdesigner/*": ["./out/*"],              
+            //"ucdesigner/*":["./*"],  
+            //"uccontrols/*":["./node_modules/uccontrols/*"],       
+            //"ucbuilder/*":["./node_modules/ucbuilder/*"],
         },       
     }
 }

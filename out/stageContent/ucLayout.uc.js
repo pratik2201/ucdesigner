@@ -8,7 +8,7 @@ const ucLayout_uc_js_nodeNameEditor_js_1 = require("ucdesigner/stageContent/ucLa
 const enumAndMore_js_1 = require("ucdesigner/enumAndMore.js");
 const keyboard_js_1 = require("ucbuilder/global/hardware/keyboard.js");
 const ResourcesUC_js_1 = require("ucbuilder/ResourcesUC.js");
-const timeoutCall_js_1 = require("ucdesigner/../ucbuilder/global/timeoutCall.js");
+const timeoutCall_js_1 = require("ucbuilder/global/timeoutCall.js");
 class ucLayout extends ucLayout_uc_designer_js_1.Designer {
     constructor() {
         super();

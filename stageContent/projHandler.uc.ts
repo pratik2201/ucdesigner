@@ -5,7 +5,7 @@ import { designerToolsType } from 'ucdesigner/enumAndMore.js';
 import { pathRecord } from 'ucdesigner/Designer/util/fileExplorer.uc.pathRecord';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator.js';
 import { ResourcesUC } from 'ucbuilder/ResourcesUC.js';
-import { FileDataBank } from 'ucdesigner/../ucbuilder/global/fileDataBank.js';
+import { FileDataBank } from 'ucbuilder/global/fileDataBank.js';
 import { builder } from 'ucbuilder/build/builder.js';
 import { iconFilePath } from 'ucdesigner/Designer/util/fileExplorer.uc.collepser.js';
 

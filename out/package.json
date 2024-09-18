@@ -1,0 +1,27 @@
+{
+    "name": "ucdesigner",
+    "version": "1.0.0-beta.0",
+    "description": "For Develope Large Applications In Single BrowserWindow...",
+    "main": "out/main.js",
+    "scripts": {},
+    "author": "ap",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^20.11.0",
+        "ace-builds": "^1.32.3",
+        "ace-code-editor": "^1.2.3",
+        "typescript": "^5.3.3",
+        "ucbuilder": "^1.0.0-beta.0",
+        "uccontrols": "^1.0.0"
+    },
+    "keywords": [
+        "form-design"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pratik2201/ucdesigner.git"
+    },
+    "devDependencies": {
+        "@types/ace": "^0.0.52"
+    }
+}

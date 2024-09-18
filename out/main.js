@@ -1,6 +1,4 @@
 "use strict";
-//import { intenseGenerator } from 'ucbuilder/intenseGenerator';
-//console.log('~~~:['+ __dirname +']');
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -29,13 +27,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startDesigner = void 0;
+//import { intenseGenerator } from 'ucbuilder/intenseGenerator';
+//console.log('~~~:['+ __dirname +']');
+console.log('abc');
 const ct = __importStar(require("uccontrols"));
 const ucbuilder_1 = __importDefault(require("ucbuilder"));
 const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
+const path_1 = __importDefault(require("path"));
 ucbuilder_1.default.registar({
     // srcDir: __dirname,
-    outDir: '',
-    rootDir: __dirname,
+    outDir: "/out/",
+    rootDir: path_1.default.dirname(__dirname),
     /*html: __dirname,
     style: __dirname,
     perameters: __dirname,
@@ -46,6 +48,7 @@ ucbuilder_1.default.registar({
 });
 const startDesigner = (sessionFilePath = "") => {
     let s = ct;
+    console.log('dsf');
     const frm = intenseGenerator_1.intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,
         session: { loadBySession: true }
