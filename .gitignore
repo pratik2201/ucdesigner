@@ -4,3 +4,4 @@
 **/*.tpt.designer.js
 formdesigner.uc.sessionData.src
 formdesigner.uc.sessionData.json
+out

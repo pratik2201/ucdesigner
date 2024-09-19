@@ -2,8 +2,8 @@
 //import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 //console.log('~~~:['+ __dirname +']');
 console.log('abc');
-import * as ct from 'uccontrols';
-import ucb from "ucbuilder";
+import * as ct from 'uccontrols/main';
+import ucb from "ucbuilder/register";
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import path from 'path';
 ucb.registar({
@@ -20,7 +20,6 @@ ucb.registar({
 });
 export const startDesigner = (sessionFilePath: string = ""): void => {
     let s = ct;
-    console.log('dsf');
     
     const frm: import('ucdesigner/formDesigner.uc').formDesigner = intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,

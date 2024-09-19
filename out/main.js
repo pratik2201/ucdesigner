@@ -30,11 +30,11 @@ exports.startDesigner = void 0;
 //import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 //console.log('~~~:['+ __dirname +']');
 console.log('abc');
-const ct = __importStar(require("uccontrols"));
-const ucbuilder_1 = __importDefault(require("ucbuilder"));
+const ct = __importStar(require("uccontrols/main"));
+const register_1 = __importDefault(require("ucbuilder/register"));
 const intenseGenerator_1 = require("ucbuilder/intenseGenerator");
 const path_1 = __importDefault(require("path"));
-ucbuilder_1.default.registar({
+register_1.default.registar({
     // srcDir: __dirname,
     outDir: "/out/",
     rootDir: path_1.default.dirname(__dirname),
@@ -48,7 +48,6 @@ ucbuilder_1.default.registar({
 });
 const startDesigner = (sessionFilePath = "") => {
     let s = ct;
-    console.log('dsf');
     const frm = intenseGenerator_1.intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
         wrapperHT: document.body,
         session: { loadBySession: true }
