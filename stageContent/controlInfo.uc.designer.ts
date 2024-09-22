@@ -16,7 +16,7 @@ export class Designer extends Usercontrol {
    
     public movable1: import('uccontrols/controls/Movable.uc').Movable;
         
-    public dgvrowTpt: import('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt').attributeTemplate;
+    public dgvrowTpt: import('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt').attributeTemplate;
          
    
     public comboBox1: import('uccontrols/controls/comboBox.uc').comboBox;
@@ -51,7 +51,7 @@ export class Designer extends Usercontrol {
                         }) as any;
         
         
-        this.dgvrowTpt = intenseGenerator.generateTPT('ucdesigner/stagecontent/controlinfo/attributeTemplate.tpt.ts',{ 
+        this.dgvrowTpt = intenseGenerator.generateTPT('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.ts',{ 
                             parentUc : this, 
                             elementHT : CONTROLS.dgvrowTpt 
                        }) as any;

@@ -17,7 +17,7 @@ export class Designer extends Usercontrol {
     public movable1: import('uccontrols/controls/Movable.uc').Movable;
          
    
-    public filexplorer1: import('ucdesigner/designer/util/fileExplorer.uc').fileExplorer;
+    public filexplorer1: import('ucdesigner/Designer/util/fileExplorer.uc').fileExplorer;
 
     
     constructor(){ super(); }
@@ -47,7 +47,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.filexplorer1 = intenseGenerator.generateUC('ucdesigner/designer/util/fileExplorer.uc.ts',{ 
+        this.filexplorer1 = intenseGenerator.generateUC('ucdesigner/Designer/util/fileExplorer.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{

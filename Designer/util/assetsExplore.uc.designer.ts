@@ -18,7 +18,7 @@ export class Designer extends Usercontrol {
     public container: HTMLUnknownElement;
          
    
-    public fileExplorer1: import('ucdesigner/designer/util/fileExplorer.uc').fileExplorer;
+    public fileExplorer1: import('ucdesigner/Designer/util/fileExplorer.uc').fileExplorer;
     public op_target: HTMLUnknownElement;
 
     
@@ -50,7 +50,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.fileExplorer1 = intenseGenerator.generateUC('ucdesigner/designer/util/fileExplorer.uc.ts',{ 
+        this.fileExplorer1 = intenseGenerator.generateUC('ucdesigner/Designer/util/fileExplorer.uc.ts',{ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
