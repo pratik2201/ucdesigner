@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nodeNameEditor = void 0;
 const common_1 = require("ucbuilder/build/common");
-const elementEditor_1 = require("ucbuilder/global/elementEditor");
+const ElementEditor_1 = require("ucbuilder/global/ElementEditor");
 class nodeNameEditor {
     constructor() {
-        this.editor = new elementEditor_1.elementEditor();
+        this.editor = new ElementEditor_1.ElementEditor();
         this.row = undefined;
         this.editor.onDemandActualValue = () => {
             var _a, _b, _c, _d, _e;

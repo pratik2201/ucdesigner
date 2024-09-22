@@ -1,11 +1,11 @@
 import { collepser } from 'ucdesigner/Designer/util/fileExplorer.uc.collepser.js';
 import { pathRecord } from 'ucdesigner/Designer/util/fileExplorer.uc.pathRecord.js';
 import { rootPathHandler } from 'ucbuilder/global/rootPathHandler.js';
-import {Designer} from './fileExplorer.uc.designer.js';
+import {Designer} from './fileExplorer.uc.designer';
 import fs from 'fs';
 import { objectOpt } from 'ucbuilder/build/common.js';
 import { replaceTextRow,ReplaceTextRow } from 'ucbuilder/global/findAndReplace.js';
-import { itemNode } from './fileExplorer/itemNode.tpt.js';
+import { itemNode } from './fileExplorer/itemNode.tpt';
 
 export type nodeType = 'directory' | 'file';
 export interface RootPathRow {

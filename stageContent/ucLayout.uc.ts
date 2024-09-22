@@ -160,7 +160,7 @@ export class ucLayout extends Designer {
         });
 
         this.uniqKey = "tosee" + this.ucExtends.stampRow.uniqStamp;
-        DragHelper.ON_START((ele,ev) => {
+        DragHelper.ON_START((/*ele,*/ev) => {
             let dta = DragHelper.draggedData;
             if (dta.unqKey == this.uniqKey) {
                 _this.dragDataElement = DragHelper.draggedData.data;
@@ -170,16 +170,16 @@ export class ucLayout extends Designer {
                 this.itemDrag.start();
                 this.fillBucket();
             }
-        }, (ele,ev) => {
+        }, (/*ele,*/ev) => {
             this.itemDrag.stop();
         });
 
         this.itemDrag
-            .dragLeave((ele,ev) => {
+            .dragLeave((/*ele,*/ev) => {
                 let te = ev.currentTarget as HTMLElement;
                 te.setAttribute("drag-mode", "none");
             }, [])
-            .dragOver((ele,ev) => {
+            .dragOver((/*ele,*/ev) => {
                 let curTarget = ev.currentTarget as HTMLElement;
                 let itmlst = this.allItemsHT;
                 if (ev.ctrlKey) {
@@ -198,7 +198,7 @@ export class ucLayout extends Designer {
                     curTarget.setAttribute("drag-mode", ev.offsetY < (curTarget.offsetHeight / 2) ? "t-before" : "t-after");
                 }
             }, [])
-            .dragDrop((ele,ev) => {
+            .dragDrop((/*ele,*/ev) => {
                 let data = _this.dragDataElement;
                 this.dragDataElement.removeAttribute("drag-mode");
                 if (data == undefined) { ev.stopPropagation(); return; }

@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.fileExplorer = void 0;
 const fileExplorer_uc_collepser_js_1 = require("ucdesigner/Designer/util/fileExplorer.uc.collepser.js");
 const rootPathHandler_js_1 = require("ucbuilder/global/rootPathHandler.js");
-const fileExplorer_uc_designer_js_1 = require("./fileExplorer.uc.designer.js");
+const fileExplorer_uc_designer_1 = require("./fileExplorer.uc.designer");
 const fs_1 = __importDefault(require("fs"));
 const rootPathRow = {
     key: "",
     path: "",
     openedFolderList: []
 };
-class fileExplorer extends fileExplorer_uc_designer_js_1.Designer {
+class fileExplorer extends fileExplorer_uc_designer_1.Designer {
     constructor() {
         super();
         this.SESSION_DATA = {

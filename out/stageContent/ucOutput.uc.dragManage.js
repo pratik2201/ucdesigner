@@ -29,7 +29,7 @@ class dragManage {
     init(main) {
         this.main = main;
         this.output = this.main.main;
-        dragHelper_1.DragHelper.ON_START((ht, ev) => {
+        dragHelper_1.DragHelper.ON_START((/*ht,*/ ev) => {
             let obj = this.main.fatchFromPoint(ev.target, new shapes_1.Point(ev.pageX, ev.pageY), ev.altKey);
             if (obj != undefined) {
                 ev.dataTransfer.setDragImage(obj.element, 0, 0);
@@ -41,7 +41,7 @@ class dragManage {
             }
         });
         this.draging
-            .dragOver((ht, ev) => {
+            .dragOver((/*ht,*/ ev) => {
             let row = this.main.fatchFromPoint(ev.target, new shapes_1.Point(ev.pageX, ev.pageY), ev.altKey);
             if (this.treeInfo == undefined ||
                 row.index != this.treeInfo.index) {
@@ -61,7 +61,7 @@ class dragManage {
                     break;
             }
         }, [])
-            .dragDrop((ht, ev) => {
+            .dragDrop((/*ht,*/ ev) => {
             let row = this.main.fatchFromPoint(ev.target, new shapes_1.Point(ev.pageX, ev.pageY), ev.altKey);
             let index = row.element.getAttribute(ucLayout_uc_enumAndMore_1.ucDesignerATTR.ITEM_INDEX);
             let torec = this.main.source[index];

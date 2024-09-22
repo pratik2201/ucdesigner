@@ -1,14 +1,14 @@
 import { fileExplorer } from 'ucdesigner/Designer/util/fileExplorer.uc.js';
 import { pathRecord } from 'ucdesigner/Designer/util/fileExplorer.uc.pathRecord';
 import { pathInfo } from 'ucbuilder/build/common.js';
-import { elementEditor } from 'ucbuilder/global/elementEditor.js';
+import { ElementEditor } from 'ucbuilder/global/ElementEditor.js';
 import { keyBoard } from 'ucbuilder/global/hardware/keyboard.js';
 import fs from 'fs';
 import {Designer} from './itemNode.tpt.designer.js';
 import { pagerLV } from 'ucbuilder/global/listUI/pagerLV.js';
 
 export class itemNode extends Designer {
-    editor: elementEditor = new elementEditor();
+    editor: ElementEditor = new ElementEditor();
 
     main: fileExplorer;
     lvUI: pagerLV;
@@ -42,7 +42,7 @@ export class itemNode extends Designer {
 
     doEditProcess() {
         let crow = this.pathRow;
-        let span = crow.relevantElement.querySelector('span[x-name="txt_name"]');
+        let span = crow.relevantElement.querySelector('span[x-name="txt_name"]') as HTMLElement;
         this.editor.editRow(span, (nval: string, oval: string) => {
             if (crow.nodeName != nval) {
                 let path = crow.parent.path + "/" + nval;

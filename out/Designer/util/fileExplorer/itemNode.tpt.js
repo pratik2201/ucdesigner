@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.itemNode = void 0;
-const elementEditor_js_1 = require("ucbuilder/global/elementEditor.js");
+const ElementEditor_js_1 = require("ucbuilder/global/ElementEditor.js");
 const keyboard_js_1 = require("ucbuilder/global/hardware/keyboard.js");
 const fs_1 = __importDefault(require("fs"));
 const itemNode_tpt_designer_js_1 = require("./itemNode.tpt.designer.js");
 class itemNode extends itemNode_tpt_designer_js_1.Designer {
     constructor() {
         super(arguments);
-        this.editor = new elementEditor_js_1.elementEditor();
+        this.editor = new ElementEditor_js_1.ElementEditor();
         this.keyup_listner = (e) => {
             switch (e.keyCode) {
                 case keyboard_js_1.keyBoard.keys.f2:

@@ -1,9 +1,9 @@
 import { controlOpt } from "ucbuilder/build/common";
 import { treeRecord, ucDesignerATTR } from "ucdesigner/stageContent/ucLayout.uc.enumAndMore";
-import { elementEditor } from "ucbuilder/global/elementEditor";
+import { ElementEditor } from "ucbuilder/global/ElementEditor";
 
 export class nodeNameEditor {
-    editor: elementEditor = new elementEditor();
+    editor: ElementEditor = new ElementEditor();
     row: treeRecord = undefined;
 
     constructor() {
