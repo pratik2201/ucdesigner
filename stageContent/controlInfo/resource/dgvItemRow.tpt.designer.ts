@@ -1,5 +1,7 @@
 import { Template, TemplateNode } from 'ucbuilder/Template.js';
 import { TptOptions, templatePathOptions } from 'ucbuilder/enumAndMore';
+import { R } from 'ucdesigner/R';
+
  
 
 type footer_ELEMENT_MAP = {lbl_total : HTMLSpanElement,}

@@ -1,5 +1,7 @@
 import { Template, TemplateNode } from 'ucbuilder/Template.js';
 import { TptOptions, templatePathOptions } from 'ucbuilder/enumAndMore';
+import { R } from 'ucdesigner/R';
+
  
 
 type primary_ELEMENT_MAP = {txt_name : HTMLSpanElement,}
