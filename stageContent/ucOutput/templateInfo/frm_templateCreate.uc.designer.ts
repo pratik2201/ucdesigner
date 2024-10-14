@@ -39,13 +39,16 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"winframe1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.winframe1 
+                            replaceWrapperWith : CONTROLS.winframe1 
                         }) as any;
           this.txt_templateName = CONTROLS.txt_templateName as HTMLInputElement;
           this.txt_templateDescription = CONTROLS.txt_templateDescription as HTMLTextAreaElement;
           this.txt_jsonData = CONTROLS.txt_jsonData as HTMLTextAreaElement;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

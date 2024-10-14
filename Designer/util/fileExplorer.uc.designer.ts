@@ -45,7 +45,7 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"comboBox1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.comboBox1 
+                            replaceWrapperWith : CONTROLS.comboBox1 
                         }) as any;
          
         
@@ -58,10 +58,13 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"listview1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.listview1 
+                            replaceWrapperWith : CONTROLS.listview1 
                         }) as any;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

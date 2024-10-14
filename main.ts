@@ -22,7 +22,7 @@ export const startDesigner = (sessionFilePath: string = ""): void => {
     let s = ct;
     
     const frm: import('ucdesigner/formDesigner.uc').formDesigner = intenseGenerator.generateUC('ucdesigner/formDesigner.uc.js', {
-        wrapperHT: document.body,
+        replaceWrapperWith: document.body,
         session: { loadBySession: true }
     }, sessionFilePath) as any;
     frm.winFrame1.showDialog();

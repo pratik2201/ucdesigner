@@ -39,7 +39,7 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"movable1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.movable1 
+                            replaceWrapperWith : CONTROLS.movable1 
                         }) as any;
          
         
@@ -52,10 +52,13 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"filexplorer1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.filexplorer1 
+                            replaceWrapperWith : CONTROLS.filexplorer1 
                         }) as any;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

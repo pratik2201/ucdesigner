@@ -37,11 +37,14 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"movable1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.movable1 
+                            replaceWrapperWith : CONTROLS.movable1 
                         }) as any;
           this.codeeditor1 = CONTROLS.codeeditor1 as HTMLTextAreaElement;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

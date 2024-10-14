@@ -53,7 +53,7 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"winFrame1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.winFrame1 
+                            replaceWrapperWith : CONTROLS.winFrame1 
                         }) as any;
           this.cmd_built = CONTROLS.cmd_built as HTMLButtonElement;
           this.cmd_fileExplorer = CONTROLS.cmd_fileExplorer as HTMLButtonElement;
@@ -79,11 +79,14 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"splitter1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.splitter1 
+                            replaceWrapperWith : CONTROLS.splitter1 
                         }) as any;
           this.container1 = CONTROLS.container1 as HTMLDivElement;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

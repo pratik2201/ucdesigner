@@ -46,7 +46,7 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"winframe1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.winframe1 
+                            replaceWrapperWith : CONTROLS.winframe1 
                         }) as any;
           this.txt_uid = CONTROLS.txt_uid as HTMLInputElement;
           this.passRow = CONTROLS.passRow as HTMLTableRowElement;
@@ -60,6 +60,9 @@ export class Designer extends Usercontrol {
           this.mobile_no = CONTROLS.mobile_no as HTMLInputElement;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

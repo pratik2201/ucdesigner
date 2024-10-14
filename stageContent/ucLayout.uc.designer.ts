@@ -42,7 +42,7 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"movable1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.movable1 
+                            replaceWrapperWith : CONTROLS.movable1 
                         }) as any;
           this.cmd_addElement = CONTROLS.cmd_addElement as HTMLUnknownElement;
           this.cmd_addTextNode = CONTROLS.cmd_addTextNode as HTMLUnknownElement;
@@ -58,10 +58,13 @@ export class Designer extends Usercontrol {
                                 uniqueIdentity:"listview1" , 
                                 addNodeToParentSession:true,
                             },                           
-                            wrapperHT : CONTROLS.listview1 
+                            replaceWrapperWith : CONTROLS.listview1 
                         }) as any;
 
         ucExt.finalizeInit(args);
+        ucExt.session.prepareForAutoLoadIfExist();
+        if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
+        ucExt.Events.loaded.fire();
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }
