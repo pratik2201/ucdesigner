@@ -1,6 +1,8 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { winFrame } from 'uccontrols/controls/winFrame.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -45,8 +47,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"winframe1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.winframe1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.winframe1 
                         }) as any;
           this.txt_uid = CONTROLS.txt_uid as HTMLInputElement;
           this.passRow = CONTROLS.passRow as HTMLTableRowElement;
@@ -62,7 +65,7 @@ export class Designer extends Usercontrol {
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

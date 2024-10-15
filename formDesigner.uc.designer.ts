@@ -1,6 +1,9 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { winFrame } from 'uccontrols/controls/winFrame.uc';
+import { Splitter } from 'uccontrols/controls/Splitter.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -52,8 +55,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"winFrame1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.winFrame1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.winFrame1 
                         }) as any;
           this.cmd_built = CONTROLS.cmd_built as HTMLButtonElement;
           this.cmd_fileExplorer = CONTROLS.cmd_fileExplorer as HTMLButtonElement;
@@ -78,15 +82,16 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"splitter1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.splitter1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.splitter1 
                         }) as any;
           this.container1 = CONTROLS.container1 as HTMLDivElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

@@ -1,6 +1,9 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { Movable } from 'uccontrols/controls/Movable.uc';
+import { fileExplorer } from 'ucdesigner/Designer/util/fileExplorer.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -38,8 +41,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"movable1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.movable1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.movable1 
                         }) as any;
          
         
@@ -51,14 +55,15 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"filexplorer1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.filexplorer1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.filexplorer1 
                         }) as any;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

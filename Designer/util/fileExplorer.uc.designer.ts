@@ -1,6 +1,9 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { comboBox } from 'uccontrols/controls/comboBox.uc';
+import { ListView } from 'uccontrols/controls/ListView.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -44,8 +47,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"comboBox1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.comboBox1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.comboBox1 
                         }) as any;
          
         
@@ -57,14 +61,15 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"listview1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.listview1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.listview1 
                         }) as any;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

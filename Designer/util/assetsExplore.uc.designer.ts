@@ -1,6 +1,9 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { winFrame } from 'uccontrols/controls/winFrame.uc';
+import { fileExplorer } from 'ucdesigner/Designer/util/fileExplorer.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -40,8 +43,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"winframe1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.winframe1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.winframe1 
                         }) as any;
           this.container = CONTROLS.container as HTMLUnknownElement;
          
@@ -54,15 +58,16 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"fileExplorer1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.fileExplorer1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.fileExplorer1 
                         }) as any;
           this.op_target = CONTROLS.op_target as HTMLUnknownElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }

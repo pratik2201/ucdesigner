@@ -1,6 +1,9 @@
 import { Usercontrol } from 'ucbuilder/Usercontrol';
 import { intenseGenerator } from 'ucbuilder/intenseGenerator';
 import { UcOptions } from 'ucbuilder/enumAndMore';
+import { Movable } from 'uccontrols/controls/Movable.uc';
+import { ListView } from 'uccontrols/controls/ListView.uc';
+
 /**
  *  code filename must same and case sensitive with classname 
  */
@@ -41,8 +44,9 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"movable1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.movable1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.movable1 
                         }) as any;
           this.cmd_addElement = CONTROLS.cmd_addElement as HTMLUnknownElement;
           this.cmd_addTextNode = CONTROLS.cmd_addTextNode as HTMLUnknownElement;
@@ -57,14 +61,15 @@ export class Designer extends Usercontrol {
                                 loadBySession:args.session.loadBySession,
                                 uniqueIdentity:"listview1" , 
                                 addNodeToParentSession:true,
-                            },                           
-                            replaceWrapperWith : CONTROLS.listview1 
+                            },   
+                            decisionForTargerElement:'replace',
+                            targetElement : CONTROLS.listview1 
                         }) as any;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
         if (args.loadAt) args.loadAt.appendChild(ucExt.wrapperHT);
-        ucExt.Events.loaded.fire();
+       
         Usercontrol.assignPropertiesFromDesigner(form);
     }
 }
