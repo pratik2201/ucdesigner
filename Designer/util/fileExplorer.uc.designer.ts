@@ -34,9 +34,9 @@ export class Designer extends Usercontrol {
         
         ucExt.initializecomponent(args);        
         let CONTROLS = ucExt.designer.getAllControls();
-          this.cmd_addfile = CONTROLS.cmd_addfile as HTMLElement;
-          this.cmd_addfolder = CONTROLS.cmd_addfolder as HTMLElement;
-          this.cmd_delete = CONTROLS.cmd_delete as HTMLElement;
+        this.cmd_addfile = CONTROLS.cmd_addfile as HTMLElement;
+        this.cmd_addfolder = CONTROLS.cmd_addfolder as HTMLElement;
+        this.cmd_delete = CONTROLS.cmd_delete as HTMLElement;
          
         
        
@@ -51,6 +51,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.comboBox1 
                         }) as any;
+        this.comboBox1.ucExtends.show();
          
         
        
@@ -65,6 +66,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
                         }) as any;
+        this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

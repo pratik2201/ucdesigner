@@ -160,7 +160,7 @@ export class formDesigner extends Designer {
 
         this.cmd_ucbrowser.addEventListener("click", () => {
             let uc = intenseGenerator.generateUC('ucdesigner/Designer/util/assetsExplore.uc.html', { parentUc: this }) as assetsExplore;
-            uc.winframe1.showDialog();
+            uc.ucExtends.showDialog();
         });
 
         this.cmd_logsession.on('click', () => {

@@ -59,19 +59,20 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winFrame1 
                         }) as any;
-          this.cmd_built = CONTROLS.cmd_built as HTMLButtonElement;
-          this.cmd_fileExplorer = CONTROLS.cmd_fileExplorer as HTMLButtonElement;
-          this.cmd_sample1 = CONTROLS.cmd_sample1 as HTMLButtonElement;
-          this.cmd_sample2 = CONTROLS.cmd_sample2 as HTMLButtonElement;
-          this.cmd_logsession = CONTROLS.cmd_logsession as HTMLButtonElement;
-          this.cmd_controlInfo = CONTROLS.cmd_controlInfo as HTMLButtonElement;
-          this.cmd_layout = CONTROLS.cmd_layout as HTMLButtonElement;
-          this.cmd_style = CONTROLS.cmd_style as HTMLButtonElement;
-          this.cmd_jsonPera = CONTROLS.cmd_jsonPera as HTMLButtonElement;
-          this.cmd_print = CONTROLS.cmd_print as HTMLButtonElement;
-          this.cmd_ucbrowser = CONTROLS.cmd_ucbrowser as HTMLButtonElement;
-          this.cmd_deletesesion = CONTROLS.cmd_deletesesion as HTMLButtonElement;
-          this.cmd_resetsesion = CONTROLS.cmd_resetsesion as HTMLButtonElement;
+        this.winFrame1.ucExtends.show();
+        this.cmd_built = CONTROLS.cmd_built as HTMLButtonElement;
+        this.cmd_fileExplorer = CONTROLS.cmd_fileExplorer as HTMLButtonElement;
+        this.cmd_sample1 = CONTROLS.cmd_sample1 as HTMLButtonElement;
+        this.cmd_sample2 = CONTROLS.cmd_sample2 as HTMLButtonElement;
+        this.cmd_logsession = CONTROLS.cmd_logsession as HTMLButtonElement;
+        this.cmd_controlInfo = CONTROLS.cmd_controlInfo as HTMLButtonElement;
+        this.cmd_layout = CONTROLS.cmd_layout as HTMLButtonElement;
+        this.cmd_style = CONTROLS.cmd_style as HTMLButtonElement;
+        this.cmd_jsonPera = CONTROLS.cmd_jsonPera as HTMLButtonElement;
+        this.cmd_print = CONTROLS.cmd_print as HTMLButtonElement;
+        this.cmd_ucbrowser = CONTROLS.cmd_ucbrowser as HTMLButtonElement;
+        this.cmd_deletesesion = CONTROLS.cmd_deletesesion as HTMLButtonElement;
+        this.cmd_resetsesion = CONTROLS.cmd_resetsesion as HTMLButtonElement;
          
         
        
@@ -86,7 +87,8 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.splitter1 
                         }) as any;
-          this.container1 = CONTROLS.container1 as HTMLDivElement;
+        this.splitter1.ucExtends.show();
+        this.container1 = CONTROLS.container1 as HTMLDivElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

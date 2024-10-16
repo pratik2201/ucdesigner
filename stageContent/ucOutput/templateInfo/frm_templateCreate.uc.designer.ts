@@ -44,9 +44,10 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winframe1 
                         }) as any;
-          this.txt_templateName = CONTROLS.txt_templateName as HTMLInputElement;
-          this.txt_templateDescription = CONTROLS.txt_templateDescription as HTMLTextAreaElement;
-          this.txt_jsonData = CONTROLS.txt_jsonData as HTMLTextAreaElement;
+        this.winframe1.ucExtends.show();
+        this.txt_templateName = CONTROLS.txt_templateName as HTMLInputElement;
+        this.txt_templateDescription = CONTROLS.txt_templateDescription as HTMLTextAreaElement;
+        this.txt_jsonData = CONTROLS.txt_jsonData as HTMLTextAreaElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

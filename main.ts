@@ -25,5 +25,5 @@ export const startDesigner = (sessionFilePath: string = ""): void => {
         targetElement: document.body,
         session: { loadBySession: true }
     }, sessionFilePath) as any;
-    frm.winFrame1.showDialog();
+    frm.ucExtends.showDialog();
 };

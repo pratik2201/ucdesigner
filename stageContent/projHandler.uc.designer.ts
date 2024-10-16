@@ -45,6 +45,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
                         }) as any;
+        this.movable1.ucExtends.show();
          
         
        
@@ -59,6 +60,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.filexplorer1 
                         }) as any;
+        this.filexplorer1.ucExtends.show();
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

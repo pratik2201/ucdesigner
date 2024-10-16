@@ -42,7 +42,8 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
                         }) as any;
-          this.codeeditor1 = CONTROLS.codeeditor1 as HTMLTextAreaElement;
+        this.movable1.ucExtends.show();
+        this.codeeditor1 = CONTROLS.codeeditor1 as HTMLTextAreaElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

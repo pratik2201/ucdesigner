@@ -51,16 +51,17 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winframe1 
                         }) as any;
-          this.txt_uid = CONTROLS.txt_uid as HTMLInputElement;
-          this.passRow = CONTROLS.passRow as HTMLTableRowElement;
-          this.txt_password = CONTROLS.txt_password as HTMLInputElement;
-          this.txt_city = CONTROLS.txt_city as HTMLInputElement;
-          this.txt_address = CONTROLS.txt_address as HTMLTextAreaElement;
-          this.cmd_save = CONTROLS.cmd_save as HTMLUnknownElement;
-          this.phoneNo1 = CONTROLS.phoneNo1 as HTMLInputElement;
-          this.phoneNo2 = CONTROLS.phoneNo2 as HTMLInputElement;
-          this.email = CONTROLS.email as HTMLInputElement;
-          this.mobile_no = CONTROLS.mobile_no as HTMLInputElement;
+        this.winframe1.ucExtends.show();
+        this.txt_uid = CONTROLS.txt_uid as HTMLInputElement;
+        this.passRow = CONTROLS.passRow as HTMLTableRowElement;
+        this.txt_password = CONTROLS.txt_password as HTMLInputElement;
+        this.txt_city = CONTROLS.txt_city as HTMLInputElement;
+        this.txt_address = CONTROLS.txt_address as HTMLTextAreaElement;
+        this.cmd_save = CONTROLS.cmd_save as HTMLUnknownElement;
+        this.phoneNo1 = CONTROLS.phoneNo1 as HTMLInputElement;
+        this.phoneNo2 = CONTROLS.phoneNo2 as HTMLInputElement;
+        this.email = CONTROLS.email as HTMLInputElement;
+        this.mobile_no = CONTROLS.mobile_no as HTMLInputElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

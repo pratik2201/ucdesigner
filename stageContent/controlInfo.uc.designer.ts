@@ -52,6 +52,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
                         }) as any;
+        this.movable1.ucExtends.show();
         
         
         this.dgvrowTpt = intenseGenerator.generateTPT('ucdesigner/stageContent/controlInfo/attributeTemplate.tpt.ts',{ 
@@ -72,6 +73,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.comboBox1 
                         }) as any;
+        this.comboBox1.ucExtends.show();
          
         
        
@@ -86,6 +88,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
                         }) as any;
+        this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

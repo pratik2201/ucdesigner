@@ -43,8 +43,9 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
                         }) as any;
-          this.targetOutput = CONTROLS.targetOutput as HTMLUnknownElement;
-          this.outputBoard = CONTROLS.outputBoard as HTMLUnknownElement;
+        this.movable1.ucExtends.show();
+        this.targetOutput = CONTROLS.targetOutput as HTMLUnknownElement;
+        this.outputBoard = CONTROLS.outputBoard as HTMLUnknownElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

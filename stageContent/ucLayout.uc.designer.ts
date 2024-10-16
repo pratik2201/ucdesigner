@@ -48,9 +48,10 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
                         }) as any;
-          this.cmd_addElement = CONTROLS.cmd_addElement as HTMLUnknownElement;
-          this.cmd_addTextNode = CONTROLS.cmd_addTextNode as HTMLUnknownElement;
-          this.cmd_removeTextNode = CONTROLS.cmd_removeTextNode as HTMLUnknownElement;
+        this.movable1.ucExtends.show();
+        this.cmd_addElement = CONTROLS.cmd_addElement as HTMLUnknownElement;
+        this.cmd_addTextNode = CONTROLS.cmd_addTextNode as HTMLUnknownElement;
+        this.cmd_removeTextNode = CONTROLS.cmd_removeTextNode as HTMLUnknownElement;
          
         
        
@@ -65,6 +66,7 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
                         }) as any;
+        this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();

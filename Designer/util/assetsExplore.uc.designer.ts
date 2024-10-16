@@ -47,7 +47,8 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winframe1 
                         }) as any;
-          this.container = CONTROLS.container as HTMLUnknownElement;
+        this.winframe1.ucExtends.show();
+        this.container = CONTROLS.container as HTMLUnknownElement;
          
         
        
@@ -62,7 +63,8 @@ export class Designer extends Usercontrol {
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.fileExplorer1 
                         }) as any;
-          this.op_target = CONTROLS.op_target as HTMLUnknownElement;
+        this.fileExplorer1.ucExtends.show();
+        this.op_target = CONTROLS.op_target as HTMLUnknownElement;
 
         ucExt.finalizeInit(args);
         ucExt.session.prepareForAutoLoadIfExist();
