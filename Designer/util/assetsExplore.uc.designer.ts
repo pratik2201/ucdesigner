@@ -14,6 +14,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): assetsExplore { 
+        /** ucdesigner/Designer/util/assetsExplore.uc */
+        return intenseGenerator.generateUC('ucdesigner/Designer/util/assetsExplore.uc',pera,...args) as assetsExplore;
+    }
     
          
    
@@ -36,7 +40,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.winframe1 = intenseGenerator.generateUC('uccontrols/controls/winFrame.uc.ts',{ 
+        this.winframe1 = winFrame.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -46,13 +50,13 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winframe1 
-                        }) as any;
+                        });
         this.winframe1.ucExtends.show();
         this.container = CONTROLS.container as HTMLUnknownElement;
          
         
        
-        this.fileExplorer1 = intenseGenerator.generateUC('ucdesigner/Designer/util/fileExplorer.uc.ts',{ 
+        this.fileExplorer1 = fileExplorer.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -62,7 +66,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.fileExplorer1 
-                        }) as any;
+                        });
         this.fileExplorer1.ucExtends.show();
         this.op_target = CONTROLS.op_target as HTMLUnknownElement;
 

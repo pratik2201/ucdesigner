@@ -13,6 +13,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): ucOutput { 
+        /** ucdesigner/stageContent/ucOutput.uc */
+        return intenseGenerator.generateUC('ucdesigner/stageContent/ucOutput.uc',pera,...args) as ucOutput;
+    }
     
          
    
@@ -32,7 +36,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
+        this.movable1 = Movable.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -42,7 +46,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
-                        }) as any;
+                        });
         this.movable1.ucExtends.show();
         this.targetOutput = CONTROLS.targetOutput as HTMLUnknownElement;
         this.outputBoard = CONTROLS.outputBoard as HTMLUnknownElement;

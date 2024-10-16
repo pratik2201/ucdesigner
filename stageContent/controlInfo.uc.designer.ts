@@ -16,6 +16,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): controlInfo { 
+        /** ucdesigner/stageContent/controlInfo.uc */
+        return intenseGenerator.generateUC('ucdesigner/stageContent/controlInfo.uc',pera,...args) as controlInfo;
+    }
     
          
    
@@ -41,7 +45,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
+        this.movable1 = Movable.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -51,7 +55,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
-                        }) as any;
+                        });
         this.movable1.ucExtends.show();
         
         
@@ -62,7 +66,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.comboBox1 = intenseGenerator.generateUC('uccontrols/controls/comboBox.uc.ts',{ 
+        this.comboBox1 = comboBox.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -72,12 +76,12 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.comboBox1 
-                        }) as any;
+                        });
         this.comboBox1.ucExtends.show();
          
         
        
-        this.listview1 = intenseGenerator.generateUC('uccontrols/controls/datagrid.uc.ts',{ 
+        this.listview1 = datagrid.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -87,7 +91,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
-                        }) as any;
+                        });
         this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);

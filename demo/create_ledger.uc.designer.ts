@@ -13,6 +13,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): create_ledger { 
+        /** ucdesigner/demo/create_ledger.uc */
+        return intenseGenerator.generateUC('ucdesigner/demo/create_ledger.uc',pera,...args) as create_ledger;
+    }
     
          
    
@@ -40,7 +44,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.winframe1 = intenseGenerator.generateUC('uccontrols/controls/winFrame.uc.ts',{ 
+        this.winframe1 = winFrame.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -50,7 +54,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winframe1 
-                        }) as any;
+                        });
         this.winframe1.ucExtends.show();
         this.txt_uid = CONTROLS.txt_uid as HTMLInputElement;
         this.passRow = CONTROLS.passRow as HTMLTableRowElement;

@@ -14,6 +14,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): projHandler { 
+        /** ucdesigner/stageContent/projHandler.uc */
+        return intenseGenerator.generateUC('ucdesigner/stageContent/projHandler.uc',pera,...args) as projHandler;
+    }
     
          
    
@@ -34,7 +38,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
+        this.movable1 = Movable.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -44,12 +48,12 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
-                        }) as any;
+                        });
         this.movable1.ucExtends.show();
          
         
        
-        this.filexplorer1 = intenseGenerator.generateUC('ucdesigner/Designer/util/fileExplorer.uc.ts',{ 
+        this.filexplorer1 = fileExplorer.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -59,7 +63,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.filexplorer1 
-                        }) as any;
+                        });
         this.filexplorer1.ucExtends.show();
 
         ucExt.finalizeInit(args);

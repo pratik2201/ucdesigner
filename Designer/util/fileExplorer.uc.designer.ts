@@ -14,6 +14,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): fileExplorer { 
+        /** ucdesigner/Designer/util/fileExplorer.uc */
+        return intenseGenerator.generateUC('ucdesigner/Designer/util/fileExplorer.uc',pera,...args) as fileExplorer;
+    }
     
     protected cmd_addfile: HTMLElement;
     protected cmd_addfolder: HTMLElement;
@@ -40,7 +44,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.comboBox1 = intenseGenerator.generateUC('uccontrols/controls/comboBox.uc.ts',{ 
+        this.comboBox1 = comboBox.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -50,12 +54,12 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.comboBox1 
-                        }) as any;
+                        });
         this.comboBox1.ucExtends.show();
          
         
        
-        this.listview1 = intenseGenerator.generateUC('uccontrols/controls/ListView.uc.ts',{ 
+        this.listview1 = ListView.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -65,7 +69,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
-                        }) as any;
+                        });
         this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);

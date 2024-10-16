@@ -14,6 +14,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): formDesigner { 
+        /** ucdesigner/formDesigner.uc */
+        return intenseGenerator.generateUC('ucdesigner/formDesigner.uc',pera,...args) as formDesigner;
+    }
     
          
    
@@ -48,7 +52,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.winFrame1 = intenseGenerator.generateUC('uccontrols/controls/winFrame.uc.ts',{ 
+        this.winFrame1 = winFrame.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -58,7 +62,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.winFrame1 
-                        }) as any;
+                        });
         this.winFrame1.ucExtends.show();
         this.cmd_built = CONTROLS.cmd_built as HTMLButtonElement;
         this.cmd_fileExplorer = CONTROLS.cmd_fileExplorer as HTMLButtonElement;
@@ -76,7 +80,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.splitter1 = intenseGenerator.generateUC('uccontrols/controls/Splitter.uc.ts',{ 
+        this.splitter1 = Splitter.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -86,7 +90,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.splitter1 
-                        }) as any;
+                        });
         this.splitter1.ucExtends.show();
         this.container1 = CONTROLS.container1 as HTMLDivElement;
 

@@ -14,6 +14,10 @@ export class Designer extends Usercontrol {
     static get giveMeHug(): string {
         return Usercontrol.giveMeHug;
     }
+    static Create(pera: UcOptions, ...args: any[]): ucLayout { 
+        /** ucdesigner/stageContent/ucLayout.uc */
+        return intenseGenerator.generateUC('ucdesigner/stageContent/ucLayout.uc',pera,...args) as ucLayout;
+    }
     
          
    
@@ -37,7 +41,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.movable1 = intenseGenerator.generateUC('uccontrols/controls/Movable.uc.ts',{ 
+        this.movable1 = Movable.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -47,7 +51,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.movable1 
-                        }) as any;
+                        });
         this.movable1.ucExtends.show();
         this.cmd_addElement = CONTROLS.cmd_addElement as HTMLUnknownElement;
         this.cmd_addTextNode = CONTROLS.cmd_addTextNode as HTMLUnknownElement;
@@ -55,7 +59,7 @@ export class Designer extends Usercontrol {
          
         
        
-        this.listview1 = intenseGenerator.generateUC('uccontrols/controls/ListView.uc.ts',{ 
+        this.listview1 = ListView.Create({ 
                             parentUc : this, 
                             mode:args.mode,
                             session:{
@@ -65,7 +69,7 @@ export class Designer extends Usercontrol {
                             },   
                             decisionForTargerElement:'replace',
                             targetElement : CONTROLS.listview1 
-                        }) as any;
+                        });
         this.listview1.ucExtends.show();
 
         ucExt.finalizeInit(args);
